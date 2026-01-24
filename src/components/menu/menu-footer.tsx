@@ -6,13 +6,13 @@ export default function MenuFooter() {
       <p className="text-xs tracking-[0.3em] uppercase mb-4 opacity-70">Time To Order</p>
       
       <div className="flex justify-center gap-6 mb-6">
-        <a href="#" className="opacity-80 hover:opacity-100" aria-label="Instagram">
+        <a href="https://www.instagram.com/CAFENINE50" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100" aria-label="Instagram">
           <Instagram size={24} />
         </a>
-        <a href="#" className="opacity-80 hover:opacity-100" aria-label="Phone">
+        <a href="tel:+918349476548" className="opacity-80 hover:opacity-100" aria-label="Phone">
           <Phone size={24} />
         </a>
-        <a href="#" className="opacity-80 hover:opacity-100" aria-label="Website">
+        <a href="http://CAFENINE50.COM" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100" aria-label="Website">
           <Globe size={24} />
         </a>
       </div>
