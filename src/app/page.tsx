@@ -222,6 +222,12 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
             <div className={`grid ${gridCols} gap-3`}>
                 {section.items.map(item => <CardComponent key={item.name} item={item} />)}
             </div>
+            {section.id === 'beverage-companions' && (
+                <div className="mt-12 text-center space-y-2 reveal">
+                    <p className="font-script text-3xl text-[#8B4A27]">“Impressed by the drinks?<br/>scroll the page”</p>
+                    <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B]">The food's ready to steal the show!</p>
+                </div>
+            )}
         </section>
     );
 };
@@ -246,6 +252,13 @@ export default function Home() {
 
         const revealElements = document.querySelectorAll('.reveal');
         revealElements.forEach(el => observer.observe(el));
+
+        // Also apply 'active' to already visible elements on load
+        revealElements.forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                 entry.target.classList.add('active');
+            }
+        });
 
         return () => {
             revealElements.forEach(el => {
