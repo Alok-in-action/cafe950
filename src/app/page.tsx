@@ -5,7 +5,6 @@ import { menuSections } from '@/lib/menu';
 import { MenuItem as MenuItemType, MenuSection } from '@/types';
 
 const MenuItemCard = ({ item }: { item: MenuItemType }) => {
-    if (item.name.toLowerCase().includes('blue pea') || item.name.toLowerCase().includes('coconut cooler')) return null;
     return (
         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start mb-2">
@@ -18,8 +17,6 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
-     if (item.name.toLowerCase().includes('blue pea') || item.name.toLowerCase().includes('coconut cooler')) return null;
-
     const icon = item.name.toLowerCase().includes('lotus biscoff') ? 'solar:cookie-linear' : 'solar:star-fall-linear';
     return (
         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -33,7 +30,7 @@ const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
 }
 
 const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 col-span-2">
+    <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
         <div className="flex justify-between items-start">
             <div>
                 <h4 className="font-sans text-sm font-medium text-[#2e4c5a]">{item.name}</h4>
@@ -171,8 +168,16 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
             CardComponent = PizzaItemCard;
             gridCols = 'grid-cols-1 md:grid-cols-2';
             break;
-        case 'bites':
+        case 'bites-for-sides':
+        case 'healthy-salads':
+        case 'fries-corner':
+        case 'pasta':
              CardComponent = BitesItemCard;
+            break;
+        case 'sandwiches':
+        case 'burgers':
+            CardComponent = BitesItemCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2';
             break;
         case 'shakes':
              CardComponent = ShakeItemCard;
@@ -181,15 +186,28 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
         case 'dessert':
              CardComponent = DessertItemCard;
             break;
+        case 'blue-dream':
+            CardComponent = SpecialBlueDreamCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2';
+            break;
+        case 'affogato':
+        case 'matcha':
+        case 'hot-teas':
+        case 'iced-teas':
+        case 'hot-chocolate':
+        case 'craft-mocktails':
+        case 'healthy-juices':
+        case 'smoothies':
+        case 'beverage-companions':
+        case 'garlic-bread':
+        case 'calzone':
+        case 'meal-bowls':
+        case 'ramen-tales':
+        case 'meal-combos':
+            CardComponent = MenuItemCard;
+            break;
         default:
             CardComponent = MenuItemCard;
-    }
-
-    const blueDreamItems = section.id === 'craft-coffees' ? menuSections.find(s => s.id === 'blue-dream')?.items : [];
-
-    // Skip rendering certain sections directly as they are handled elsewhere
-    if (['blue-dream', 'sandwiches-burgers', 'garlic-bread-calzone', 'meal-bowls-ramen', 'meal-combos', 'healthy-juices', 'smoothies', 'beverage-companions', 'affogato', 'matcha', 'hot-teas', 'iced-teas', 'hot-chocolate'].includes(section.id)) {
-        return null;
     }
     
     return (
@@ -200,8 +218,6 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
             </div>
             <div className={`grid ${gridCols} gap-3`}>
                 {section.items.map(item => <CardComponent key={item.name} item={item} />)}
-                {section.id === 'craft-coffees' && blueDreamItems && blueDreamItems.map(item => <SpecialBlueDreamCard key={item.name} item={item} />)}
-
             </div>
         </section>
     );
@@ -239,7 +255,7 @@ export default function Home() {
         };
     }, []);
 
-    const navLinks = menuSections.filter(s => ['espresso', 'craft', 'cold', 'pizza', 'bites', 'shakes', 'dessert'].includes(s.id.split('-')[0]));
+    const navLinks = menuSections;
 
 
     return (
@@ -298,4 +314,3 @@ export default function Home() {
         </>
     );
 }
-
