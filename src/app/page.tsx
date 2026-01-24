@@ -153,6 +153,38 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
     let CardComponent;
     let gridCols = 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4';
 
+    if (section.id === 'pizza') {
+        return (
+            <section id={section.id} className="reveal">
+                {section.preheader && (
+                    <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
+                )}
+                <div className="flex items-end gap-3 mb-6 px-1">
+                    <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
+                    <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                </div>
+                
+                <div className="text-center -mt-4 mb-8 max-w-2xl mx-auto bg-white/50 p-6 rounded-xl border border-[#8B4A27]/10">
+                    <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] mb-4">Choice of Base</p>
+                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-xs text-[#6B3A20]/80">
+                        <div>
+                            <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEW YORK STYLE</h4>
+                            <p>A thin, hand-tossed crust, soft in the center, crisp at the edge, and perfectly foldable.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEAPOLITAN</h4>
+                            <p>Crafted with long-rested dough, giving you a pillowy centre, crispy edges, and that signature smoky char.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {section.items.map(item => <PizzaItemCard key={item.name} item={item} />)}
+                </div>
+            </section>
+        );
+    }
+
     switch(section.id){
         case 'classic-espresso-bar':
             CardComponent = MenuItemCard;
@@ -163,10 +195,6 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
         case 'cold-brews':
         case 'frappe-to-go':
             CardComponent = ColdFrappeItemCard;
-            break;
-        case 'pizza':
-            CardComponent = PizzaItemCard;
-            gridCols = 'grid-cols-1 md:grid-cols-2';
             break;
         case 'bites-for-sides':
         case 'healthy-salads':
