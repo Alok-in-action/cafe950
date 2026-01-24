@@ -216,6 +216,9 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
                 <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
                 <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
             </div>
+            {section.subtitle && (
+                <p className="font-sans text-xs text-center text-[#6B3A20]/80 italic -mt-4 mb-6 max-w-lg mx-auto whitespace-pre-line">{section.subtitle}</p>
+            )}
             <div className={`grid ${gridCols} gap-3`}>
                 {section.items.map(item => <CardComponent key={item.name} item={item} />)}
             </div>
