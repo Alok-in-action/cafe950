@@ -212,6 +212,9 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
     
     return (
         <section id={section.id} className="reveal">
+            {section.preheader && (
+                <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
+            )}
             <div className="flex items-end gap-3 mb-6 px-1">
                 <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
                 <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
@@ -330,5 +333,3 @@ export default function Home() {
         </>
     );
 }
-
-    

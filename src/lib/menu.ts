@@ -256,6 +256,7 @@ export const menuSections: MenuSection[] = [
     {
         "id": "pizza",
         "title": "Pizza Station",
+        "preheader": "STRAIGHT FROM WOOD FIRE OVEN!",
         "subtitle": "Choice of Base\nNEW YORK STYLE: A thin, hand-tossed crust, soft in the center, crisp at the edge, and perfectly foldable.\nNEAPOLITAN: Our Neapolitan base is crafted with long-rested dough, giving you a pillowy centre, crispy edges, and that signature smoky char.",
         "items": [
             { "name": "Classic Margherita Pizza", "prices": { "ny": 330, "neap": 370 }, "description": "A timeless pizza with mozzarella, bocconcini, and fresh basil leaves on top."},

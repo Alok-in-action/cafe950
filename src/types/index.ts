@@ -1,6 +1,6 @@
 export type MenuItem = {
   name: string;
-  price?: number;
+  price?: number | string;
   prices?: {
     ny: number;
     neap: number;
@@ -13,5 +13,6 @@ export type MenuSection = {
   id: string;
   title: string;
   subtitle?: string;
+  preheader?: string;
   items: MenuItem[];
 };
