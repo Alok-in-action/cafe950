@@ -1,6 +1,6 @@
-
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 import { menuSections } from '@/lib/menu';
 import { MenuItem as MenuItemType, MenuSection } from '@/types';
 
@@ -43,7 +43,7 @@ const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
 
 
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
-    if(item.isSignature){
+    if (item.isSignature) {
         return (
             <div className="col-span-2 group bg-[#2A2320] p-5 rounded-xl shadow-md border border-[#8B4A27]/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
                 <iconify-icon icon="solar:ice-cream-linear" className="absolute -right-2 -bottom-2 text-white/5 text-6xl"></iconify-icon>
@@ -61,7 +61,7 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     const category = item.name.toLowerCase().includes('brew') ? 'Brew' : 'Frappe';
 
     return (
-         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
             <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
                 <span>{category}</span>
@@ -75,7 +75,7 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
     const cardClass = item.isSignature
         ? "group bg-[#2A2320] p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
         : "group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300";
-    
+
     const titleClass = item.isSignature ? "font-sans text-base font-medium text-[#d4a574]" : "font-sans text-base font-medium text-[#5A2E1B]";
     const iconClass = item.isSignature ? "text-[#d4a574]" : "text-[#8B4A27]/40";
     const descriptionClass = item.isSignature ? "text-[10px] text-white/50 mb-4" : "text-[10px] text-gray-400 mb-4";
@@ -83,9 +83,9 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
     const neapPriceClass = item.isSignature ? "flex-1 text-center text-[10px] bg-[#d4a574] rounded py-1 text-[#2A2320] font-bold" : "flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium";
 
     let icon = 'solar:pizza-linear';
-    if(item.name.toLowerCase().includes('farmville')) icon = 'solar:leaf-linear';
-    if(item.name.toLowerCase().includes('four cheese')) icon = 'solar:ruler-pen-linear';
-    if(item.isSignature) icon = 'solar:crown-linear';
+    if (item.name.toLowerCase().includes('farmville')) icon = 'solar:leaf-linear';
+    if (item.name.toLowerCase().includes('four cheese')) icon = 'solar:ruler-pen-linear';
+    if (item.isSignature) icon = 'solar:crown-linear';
 
     return (
         <div className={cardClass}>
@@ -111,10 +111,10 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => (
 );
 
 const ShakeItemCard = ({ item }: { item: MenuItemType }) => (
-     <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+    <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
         <div>
             <h4 className="font-sans text-sm font-medium">{item.name}</h4>
-             {item.description ? 
+            {item.description ?
                 <p className="text-[9px] text-[#8B4A27]/50 mt-1">{item.description}</p>
                 : <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
             }
@@ -125,9 +125,9 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => (
 
 const DessertItemCard = ({ item }: { item: MenuItemType }) => {
     let icon = 'solar:donut-bitten-linear';
-    if(item.name.toLowerCase().includes('tiramisu')) icon = 'solar:chef-hat-heart-linear';
-    
-    if(item.isSignature){
+    if (item.name.toLowerCase().includes('tiramisu')) icon = 'solar:chef-hat-heart-linear';
+
+    if (item.isSignature) {
         return (
             <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
                 <div className="text-left">
@@ -163,7 +163,7 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
                     <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
                     <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
                 </div>
-                
+
                 <div className="text-center -mt-4 mb-8 max-w-2xl mx-auto bg-white/50 p-6 rounded-xl border border-[#8B4A27]/10">
                     <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] mb-4">Choice of Base</p>
                     <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-xs text-[#6B3A20]/80">
@@ -185,7 +185,7 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
         );
     }
 
-    switch(section.id){
+    switch (section.id) {
         case 'classic-espresso-bar':
             CardComponent = MenuItemCard;
             break;
@@ -200,7 +200,7 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
         case 'healthy-salads':
         case 'fries-corner':
         case 'pasta':
-             CardComponent = BitesItemCard;
+            CardComponent = BitesItemCard;
             break;
         case 'sandwiches':
         case 'burgers':
@@ -208,11 +208,11 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
             gridCols = 'grid-cols-1 md:grid-cols-2';
             break;
         case 'shakes':
-             CardComponent = ShakeItemCard;
-             gridCols = 'grid-cols-2 md:grid-cols-3';
+            CardComponent = ShakeItemCard;
+            gridCols = 'grid-cols-2 md:grid-cols-3';
             break;
         case 'dessert':
-             CardComponent = DessertItemCard;
+            CardComponent = DessertItemCard;
             break;
         case 'blue-dream':
             CardComponent = SpecialBlueDreamCard;
@@ -237,7 +237,7 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
         default:
             CardComponent = MenuItemCard;
     }
-    
+
     return (
         <section id={section.id} className="reveal">
             {section.preheader && (
@@ -255,7 +255,7 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
             </div>
             {section.id === 'beverage-companions' && (
                 <div className="mt-12 text-center space-y-2 reveal">
-                    <p className="font-script text-3xl text-[#8B4A27]">“Impressed by the drinks?<br/>scroll the page”</p>
+                    <p className="font-script text-3xl text-[#8B4A27]">“Impressed by the drinks?<br />scroll the page”</p>
                     <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B]">The food's ready to steal the show!</p>
                 </div>
             )}
@@ -265,73 +265,220 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
 
 
 export default function Home() {
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [activeSection, setActiveSection] = useState<string>('');
+    const navRef = useRef<HTMLUListElement>(null);
+    const navLinks = menuSections;
+
     useEffect(() => {
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.1
+            rootMargin: '-100px 0px -60% 0px', // Focus on top-ish part of viewport
+            threshold: 0
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const activeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    setActiveSection(entry.target.id);
                 }
             });
         }, observerOptions);
 
-        const revealElements = document.querySelectorAll('.reveal');
-        revealElements.forEach(el => observer.observe(el));
+        const revealElementsSnapshot = document.querySelectorAll('section[id]');
+        revealElementsSnapshot.forEach(el => activeObserver.observe(el));
 
-        // Also apply 'active' to already visible elements on load
-        revealElements.forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight) {
-                 el.classList.add('active');
-            }
-        });
+        // Original reveal observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => revealObserver.observe(el));
 
         return () => {
+            revealElementsSnapshot.forEach(el => activeObserver.unobserve(el));
             revealElements.forEach(el => {
                 try {
-                    observer.unobserve(el);
-                } catch (e) {
-                    // Ignore error if element is already unobserved
-                }
+                    revealObserver.unobserve(el);
+                } catch (e) { }
             });
         };
     }, []);
 
-    const navLinks = menuSections;
+    // Auto-scroll nav bar to active item
+    useEffect(() => {
+        if (activeSection && navRef.current) {
+            const activeItem = navRef.current.querySelector(`[data-section="${activeSection}"]`);
+            if (activeItem) {
+                const navContainer = navRef.current;
+                const itemOffset = (activeItem as HTMLElement).offsetLeft;
+                const itemWidth = (activeItem as HTMLElement).offsetWidth;
+                const containerWidth = navContainer.offsetWidth;
+
+                // Center the active item
+                navContainer.scrollTo({
+                    left: itemOffset - (containerWidth / 2) + (itemWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }, [activeSection]);
 
 
     return (
         <>
             <header className="pt-8 pb-4 px-6 flex justify-between items-center max-w-7xl mx-auto">
                 <div className="flex items-center gap-2 reveal active">
-                    <div className="w-10 h-10 rounded-full bg-[#8B4A27] flex items-center justify-center text-[#f2e6d9] shadow-lg shadow-[#8B4A27]/20">
-                        <span className="font-script text-xl pt-1">9</span>
-                    </div>
-                    <div>
-                        <h1 className="font-script text-3xl text-[#5A2E1B] tracking-wide leading-none">Cafe 9:50</h1>
-                        <p className="font-sans text-[9px] uppercase tracking-[0.3em] opacity-60 ml-1">Est 2024</p>
-                    </div>
+                    <Image
+                        src="/logo.png"
+                        alt="Cafe 9:50 Logo"
+                        width={180}
+                        height={60}
+                        className="h-12 w-auto object-contain"
+                        priority
+                    />
                 </div>
-                <button className="w-10 h-10 rounded-full border border-[#8B4A27]/20 flex items-center justify-center hover:bg-[#8B4A27] hover:text-[#f2e6d9] transition-colors reveal active duration-500 delay-100">
-                    <iconify-icon icon="solar:menu-dots-linear" width="20"></iconify-icon>
+                <button
+                    onClick={() => setIsSearchOpen(true)}
+                    className="w-10 h-10 rounded-full border border-[#8B4A27]/20 flex items-center justify-center hover:bg-[#8B4A27] hover:text-[#f2e6d9] transition-colors reveal active duration-500 delay-100"
+                >
+                    <iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon>
                 </button>
             </header>
 
-            <nav className="sticky top-0 z-40 glass-nav border-b border-[#8B4A27]/10 py-3 mb-8">
+            {isSearchOpen && (
+                <div className="fixed inset-0 z-[100] bg-white px-6 py-8 animate-in fade-in slide-in-from-top duration-300">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="flex-1 relative">
+                                <iconify-icon icon="solar:magnifer-linear" className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></iconify-icon>
+                                <input
+                                    autoFocus
+                                    type="text"
+                                    placeholder="Search for coffee, pizza, desserts..."
+                                    className="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 pl-12 pr-4 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-[#8B4A27]/20 transition-all"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                />
+                            </div>
+                            <button
+                                onClick={() => {
+                                    setIsSearchOpen(false);
+                                    setSearchQuery('');
+                                }}
+                                className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors"
+                            >
+                                <iconify-icon icon="solar:close-circle-linear" width="24"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <div className="overflow-y-auto max-h-[calc(100vh-180px)] no-scrollbar pb-20">
+                            {searchQuery ? (
+                                <div className="space-y-8">
+                                    {menuSections.map(section => {
+                                        const filteredItems = section.items.filter(item =>
+                                            item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                            item.description?.toLowerCase().includes(searchQuery.toLowerCase())
+                                        );
+
+                                        if (filteredItems.length === 0) return null;
+
+                                        return (
+                                            <div key={section.id}>
+                                                <h3 className="font-script text-2xl text-[#5A2E1B] mb-4 flex items-center gap-3">
+                                                    {section.title}
+                                                    <span className="h-px flex-1 bg-gray-100"></span>
+                                                </h3>
+                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                                    {filteredItems.map(item => {
+                                                        const Card = section.id === 'pizza' ? PizzaItemCard :
+                                                            section.id.includes('frappe') ? ColdFrappeItemCard :
+                                                                section.id === 'dessert' ? DessertItemCard : MenuItemCard;
+                                                        return <Card key={item.name} item={item} />;
+                                                    })}
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                    {menuSections.every(section =>
+                                        !section.items.some(item =>
+                                            item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                            item.description?.toLowerCase().includes(searchQuery.toLowerCase())
+                                        )
+                                    ) && (
+                                            <div className="text-center py-20">
+                                                <iconify-icon icon="solar:map-point-remove-linear" width="48" className="text-gray-200 mb-4"></iconify-icon>
+                                                <p className="text-gray-400 font-sans">No items matched your search.</p>
+                                            </div>
+                                        )}
+                                </div>
+                            ) : (
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                    {[
+                                        { name: 'Drinks', section: 'cold-brews' },
+                                        { name: 'Shakes', section: 'shakes' },
+                                        { name: 'Food', section: 'bites-for-sides' },
+                                        { name: 'Sandwich', section: 'sandwiches' },
+                                        { name: 'Burger', section: 'burgers' },
+                                        { name: 'Pasta', section: 'pasta' },
+                                        { name: 'Pizza', section: 'pizza' },
+                                        { name: 'Meal Combo', section: 'meal-combos' },
+                                        { name: 'Desserts', section: 'dessert' }
+                                    ].map(category => (
+                                        <button
+                                            key={category.name}
+                                            onClick={() => {
+                                                setIsSearchOpen(false);
+                                                setSearchQuery('');
+                                                const element = document.getElementById(category.section);
+                                                if (element) {
+                                                    const headerOffset = 100;
+                                                    const elementPosition = element.getBoundingClientRect().top;
+                                                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                                                    window.scrollTo({
+                                                        top: offsetPosition,
+                                                        behavior: 'smooth'
+                                                    });
+                                                }
+                                            }}
+                                            className="p-4 rounded-2xl bg-gray-100/50 border border-gray-100 text-center hover:bg-[#8B4A27]/5 hover:border-[#8B4A27]/20 transition-all group"
+                                        >
+                                            <p className="font-sans text-xs font-semibold text-[#5A2E1B] group-hover:text-[#8B4A27] transition-colors">{category.name}</p>
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <nav className="sticky top-0 z-40 glass-nav border-b border-[#8B4A27]/10 mb-8">
                 <div className="max-w-7xl mx-auto px-4">
-                    <ul className="flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory pr-4">
-                        {navLinks.map((section, idx) => (
-                             <li key={section.id} className="snap-start">
-                                <a href={`#${section.id}`} className={`whitespace-nowrap px-5 py-2 rounded-full font-sans text-xs font-medium transition-transform active:scale-95 ${idx === 0 ? 'bg-[#8B4A27] text-[#f2e6d9] shadow-md shadow-[#8B4A27]/20' : 'bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] hover:bg-[#8B4A27]/5'}`}>
-                                    {section.title}
-                                </a>
-                            </li>
-                        ))}
+                    <ul ref={navRef} className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory py-4 px-1">
+                        {navLinks.map((section) => {
+                            const isActive = activeSection === section.id;
+                            return (
+                                <li key={section.id} className="snap-start" data-section={section.id}>
+                                    <a
+                                        href={`#${section.id}`}
+                                        className={`whitespace-nowrap px-6 py-2.5 rounded-full font-sans text-sm font-semibold transition-all duration-300 active:scale-95 ${isActive
+                                            ? 'bg-[#8B4A27] text-[#f2e6d9] shadow-lg shadow-[#8B4A27]/30 scale-105'
+                                            : 'bg-[#fffefb] border border-[#8B4A27]/15 text-[#5A2E1B] hover:bg-[#8B4A27]/5'
+                                            }`}
+                                    >
+                                        {section.title}
+                                    </a>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </nav>
@@ -343,20 +490,45 @@ export default function Home() {
                     <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">Brewing Memories</h2>
                     <p className="font-sans text-xs opacity-70 max-w-sm mx-auto leading-relaxed">Handcrafted coffee, artisanal bakes, and soulful conversations.</p>
                 </section>
-                
+
                 {menuSections.map(section => <SectionComponent key={section.id} section={section} />)}
 
             </main>
 
             <footer className="mt-20 text-center py-10 px-6 border-t border-[#8B4A27]/10 bg-white/40 reveal">
-                <iconify-icon icon="solar:cup-hot-linear" width="24" className="text-[#8B4A27] mb-4 opacity-50"></iconify-icon>
-                <div className="flex justify-center gap-6 mb-6 text-[#8B4A27]">
-                    <a href="https://www.instagram.com/CAFENINE50" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform"><iconify-icon icon="solar:instagram-linear" width="20"></iconify-icon></a>
-                    <a href="tel:+918349476548" className="hover:scale-125 transition-transform"><iconify-icon icon="solar:phone-linear" width="20"></iconify-icon></a>
-                    <a href="http://CAFENINE50.COM" target="_blank" rel="noopener noreferrer" className="hover:scale-125 transition-transform"><iconify-icon icon="solar:map-point-linear" width="20"></iconify-icon></a>
+                <div className="flex flex-col items-center">
+                    <iconify-icon icon="solar:cup-hot-linear" width="24" className="text-[#8B4A27] mb-8 opacity-50"></iconify-icon>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 mb-12 text-[#8B4A27] w-full max-w-2xl">
+                        <a href="https://www.instagram.com/CAFENINE50" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform flex flex-col items-center gap-2">
+                            <iconify-icon icon="hugeicons:instagram" width="24"></iconify-icon>
+                            <span className="font-sans text-[11px] lowercase tracking-wider">@cafenine50</span>
+                        </a>
+                        <a href="tel:+918349476548" className="hover:scale-105 transition-transform flex flex-col items-center gap-2">
+                            <iconify-icon icon="solar:phone-linear" width="24"></iconify-icon>
+                            <span className="font-sans text-[11px] tracking-wider">+91 8349476548</span>
+                        </a>
+                        <a href="http://CAFENINE50.COM" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform flex flex-col items-center gap-2">
+                            <iconify-icon icon="solar:globus-linear" width="24"></iconify-icon>
+                            <span className="font-sans text-[11px] uppercase tracking-wider">cafenine50.com</span>
+                        </a>
+                    </div>
+
+                    <div className="max-w-md mx-auto mb-10 text-center">
+                        <p className="font-sans text-[10px] text-[#5A2E1B]/60 uppercase tracking-[0.2em] mb-3">Visit Us</p>
+                        <p className="font-sans text-[12px] text-[#5A2E1B] leading-relaxed">
+                            5, AZAD NAGAR, INFRONT OF PUSHPA MISSION HOSPITAL,<br />
+                            UJJAIN (M.P) 456010
+                        </p>
+                    </div>
+
+                    <div className="w-full border-t border-[#8B4A27]/5 pt-8">
+                        <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#5A2E1B] mb-2 font-medium">Cafe 9:50</p>
+                        <p className="font-sans text-[10px] text-[#5A2E1B]/40">
+                            Made with love in Ujjain • website by <a href="https://zaaykatech.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B4A27] underline transition-colors">zaaykatech.com</a>
+                        </p>
+                    </div>
                 </div>
-                <p className="font-sans text-[10px] tracking-widest uppercase text-[#5A2E1B] mb-2">Cafe 9:50</p>
-                <p className="font-sans text-[10px] text-[#5A2E1B]/60">Made with love in Ujjain</p>
             </footer>
         </>
     );
