@@ -256,7 +256,7 @@ export default function Home() {
         // Also apply 'active' to already visible elements on load
         revealElements.forEach(el => {
             if (el.getBoundingClientRect().top < window.innerHeight) {
-                 entry.target.classList.add('active');
+                 el.classList.add('active');
             }
         });
 
@@ -330,3 +330,5 @@ export default function Home() {
         </>
     );
 }
+
+    
