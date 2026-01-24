@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Montserrat', 'sans-serif'],
-        headline: ['Great Vibes', 'cursive'],
+        sans: ['Montserrat', 'sans-serif'],
+        script: ['Great Vibes', 'cursive'],
         code: ['monospace'],
       },
       colors: {
