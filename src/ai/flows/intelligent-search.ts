@@ -18,6 +18,7 @@ const allMenuItems = menuSections.flatMap(section =>
     name: item.name,
     price: item.price || (item.prices ? `${item.prices.ny}/${item.prices.neap}` : 0),
     section: section.title,
+    description: item.description || ''
   }))
 );
 
@@ -36,73 +37,36 @@ const MenuItemSchema = z.object({
 const IntelligentSearchOutputSchema = z.array(MenuItemSchema);
 export type IntelligentSearchOutput = z.infer<typeof IntelligentSearchOutputSchema>;
 
-const shouldReturnSpecificItem = ai.defineTool({
-  name: 'shouldReturnSpecificItem',
-  description: 'Determine whether to return a specific menu item based on the user query.',
-  inputSchema: z.object({
-    query: z.string().describe('The user query.'),
-    menuItemName: z.string().describe('The name of the menu item to consider.'),
-  }),
-  outputSchema: z.boolean().describe('Whether to return the specified menu item.'),
-}, async (input) => {
-  // Use a simple heuristic for demonstration purposes; in a real application,
-  // this could use a more sophisticated method like LLM or embedding similarity.
-  const {
-    query,
-    menuItemName
-  } = input;
-  const queryWords = query.toLowerCase().split(' ');
-  const itemNameWords = menuItemName.toLowerCase().split(' ');
-
-  // Check if all query words are in the item name
-  return queryWords.every(qWord => itemNameWords.some(iWord => iWord.includes(qWord)));
-});
-
-async function filterMenuItems(query: string, menuItems: any[]) {
-  const matchingItems: any[] = [];
-  
-  if (!query || query.trim().length < 2) {
-    return [];
-  }
-
-  const lowerCaseQuery = query.toLowerCase();
-
-  for (const item of menuItems) {
-    const shouldReturn = await shouldReturnSpecificItem({
-      query: lowerCaseQuery,
-      menuItemName: item.name,
-    });
-    if (shouldReturn) {
-      matchingItems.push(item);
-    }
-  }
-
-  // If no specific items are found by the tool, try a more general search.
-  if (matchingItems.length === 0) {
-      for (const item of menuItems) {
-          if (item.name.toLowerCase().includes(lowerCaseQuery)) {
-              if (!matchingItems.find(i => i.name === item.name)) {
-                matchingItems.push(item);
-              }
-          }
-      }
-  }
-
-  return matchingItems;
-}
-
-export async function intelligentSearch(input: IntelligentSearchInput): Promise<IntelligentSearchOutput> {
-  return intelligentSearchFlow(input);
-}
-
 const intelligentSearchFlow = ai.defineFlow(
   {
     name: 'intelligentSearchFlow',
     inputSchema: IntelligentSearchInputSchema,
     outputSchema: IntelligentSearchOutputSchema,
   },
-  async input => {
-    const filteredItems = await filterMenuItems(input.query, allMenuItems);
-    return filteredItems;
+  async ({ query }) => {
+    const { output } = await ai.generate({
+        prompt: `You are a helpful assistant for a cafe. A customer is searching for items on the menu.
+        Their search query is: "${query}"
+
+        Here is the full menu, with descriptions:
+        ${JSON.stringify(allMenuItems, null, 2)}
+        
+        Based on the query, return a list of matching menu items. 
+        Consider the name, section, and description. 
+        Be flexible with partial matches and synonyms (e.g., "cold coffee" could match "Frappe" or "Cold Brew").
+        If the query is for something generic like "something sweet" or "a snack", find relevant items.
+        Return an empty array if nothing matches.
+        `,
+        output: {
+            schema: IntelligentSearchOutputSchema,
+        },
+    });
+
+    return output ?? [];
   }
 );
+
+
+export async function intelligentSearch(input: IntelligentSearchInput): Promise<IntelligentSearchOutput> {
+  return intelligentSearchFlow(input);
+}

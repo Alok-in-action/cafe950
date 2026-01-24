@@ -1,7 +1,212 @@
-'use client';
-// @ts-nocheck
 
+'use client';
 import { useEffect } from 'react';
+import { menuSections } from '@/lib/menu';
+import { MenuItem as MenuItemType, MenuSection } from '@/types';
+
+const MenuItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.name.toLowerCase().includes('blue pea') || item.name.toLowerCase().includes('coconut cooler')) return null;
+    return (
+        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <div className="flex justify-between items-start mb-2">
+                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">{item.name}</h4>
+                {item.price && <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span>}
+            </div>
+            {item.description && <p className="font-sans text-[10px] text-gray-400">{item.description}</p>}
+        </div>
+    );
+};
+
+const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
+     if (item.name.toLowerCase().includes('blue pea') || item.name.toLowerCase().includes('coconut cooler')) return null;
+
+    const icon = item.name.toLowerCase().includes('lotus biscoff') ? 'solar:cookie-linear' : 'solar:star-fall-linear';
+    return (
+        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
+            <div className="flex justify-between items-end mt-2">
+                <iconify-icon icon={icon} className="text-[#8B4A27]/30"></iconify-icon>
+                <span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span>
+            </div>
+        </div>
+    );
+}
+
+const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
+    <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 col-span-2">
+        <div className="flex justify-between items-start">
+            <div>
+                <h4 className="font-sans text-sm font-medium text-[#2e4c5a]">{item.name}</h4>
+                {item.description && <p className="text-[10px] text-[#2e4c5a]/60 mt-1">{item.description}</p>}
+            </div>
+            <span className="text-xs font-semibold text-[#2e4c5a] bg-white px-2 py-0.5 rounded-full">{item.price}</span>
+        </div>
+    </div>
+);
+
+
+const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
+    if(item.isSignature){
+        return (
+            <div className="col-span-2 group bg-[#2A2320] p-5 rounded-xl shadow-md border border-[#8B4A27]/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+                <iconify-icon icon="solar:ice-cream-linear" className="absolute -right-2 -bottom-2 text-white/5 text-6xl"></iconify-icon>
+                <div className="relative z-10">
+                    <div className="flex justify-between items-start">
+                        <h4 className="font-sans text-sm font-medium text-[#d4a574] uppercase tracking-wider">{item.name}</h4>
+                        <span className="text-xs font-bold text-[#2A2320] bg-[#d4a574] px-2 py-0.5 rounded-full">{item.price}</span>
+                    </div>
+                    {item.description && <p className="text-[10px] text-white/60 mt-2">{item.description}</p>}
+                </div>
+            </div>
+        )
+    }
+
+    const category = item.name.toLowerCase().includes('brew') ? 'Brew' : 'Frappe';
+
+    return (
+         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
+            <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
+                <span>{category}</span>
+                <span>{item.price}</span>
+            </div>
+        </div>
+    )
+}
+
+const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
+    const cardClass = item.isSignature
+        ? "group bg-[#2A2320] p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+        : "group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300";
+    
+    const titleClass = item.isSignature ? "font-sans text-base font-medium text-[#d4a574]" : "font-sans text-base font-medium text-[#5A2E1B]";
+    const iconClass = item.isSignature ? "text-[#d4a574]" : "text-[#8B4A27]/40";
+    const descriptionClass = item.isSignature ? "text-[10px] text-white/50 mb-4" : "text-[10px] text-gray-400 mb-4";
+    const nyPriceClass = item.isSignature ? "flex-1 text-center text-[10px] border border-[#d4a574]/30 rounded py-1 text-[#d4a574]" : "flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]";
+    const neapPriceClass = item.isSignature ? "flex-1 text-center text-[10px] bg-[#d4a574] rounded py-1 text-[#2A2320] font-bold" : "flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium";
+
+    let icon = 'solar:pizza-linear';
+    if(item.name.toLowerCase().includes('farmville')) icon = 'solar:leaf-linear';
+    if(item.name.toLowerCase().includes('four cheese')) icon = 'solar:ruler-pen-linear';
+    if(item.isSignature) icon = 'solar:crown-linear';
+
+    return (
+        <div className={cardClass}>
+            <div className="flex justify-between items-start mb-2">
+                <h4 className={titleClass}>{item.name}</h4>
+                <iconify-icon icon={icon} className={iconClass}></iconify-icon>
+            </div>
+            {item.description && <p className={descriptionClass}>{item.description}</p>}
+            {item.prices && <div className="flex gap-2">
+                <span className={nyPriceClass}>NY: {item.prices.ny}</span>
+                <span className={neapPriceClass}>NE: {item.prices.neap}</span>
+            </div>}
+        </div>
+    )
+};
+
+const BitesItemCard = ({ item }: { item: MenuItemType }) => (
+    <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
+        {item.description && <p className="text-[9px] text-gray-400 mb-2 leading-tight">{item.description}</p>}
+        <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span></div>
+    </div>
+);
+
+const ShakeItemCard = ({ item }: { item: MenuItemType }) => (
+     <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+            <h4 className="font-sans text-sm font-medium">{item.name}</h4>
+             {item.description ? 
+                <p className="text-[9px] text-[#8B4A27]/50 mt-1">{item.description}</p>
+                : <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
+            }
+        </div>
+        <span className="self-end text-xs font-semibold text-[#8B4A27]">{item.price}</span>
+    </div>
+);
+
+const DessertItemCard = ({ item }: { item: MenuItemType }) => {
+    let icon = 'solar:donut-bitten-linear';
+    if(item.name.toLowerCase().includes('tiramisu')) icon = 'solar:chef-hat-heart-linear';
+    
+    if(item.isSignature){
+        return (
+            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left">
+                    <h4 className="font-script text-xl">{item.name}</h4>
+                    {item.description && <p className="text-[10px] opacity-80">{item.description}</p>}
+                </div>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+            </div>
+        )
+    }
+
+    return (
+        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
+            <iconify-icon icon={icon} className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
+            <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
+            <span className="text-xs text-[#8B4A27] font-semibold">{item.price}</span>
+        </div>
+    )
+};
+
+
+const SectionComponent = ({ section }: { section: MenuSection }) => {
+    let CardComponent;
+    let gridCols = 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4';
+
+    switch(section.id){
+        case 'classic-espresso-bar':
+            CardComponent = MenuItemCard;
+            break;
+        case 'craft-coffees':
+            CardComponent = CraftMenuItemCard;
+            break;
+        case 'cold-brews':
+        case 'frappe-to-go':
+            CardComponent = ColdFrappeItemCard;
+            break;
+        case 'pizza':
+            CardComponent = PizzaItemCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2';
+            break;
+        case 'bites':
+             CardComponent = BitesItemCard;
+            break;
+        case 'shakes':
+             CardComponent = ShakeItemCard;
+             gridCols = 'grid-cols-2 md:grid-cols-3';
+            break;
+        case 'dessert':
+             CardComponent = DessertItemCard;
+            break;
+        default:
+            CardComponent = MenuItemCard;
+    }
+
+    const blueDreamItems = section.id === 'craft-coffees' ? menuSections.find(s => s.id === 'blue-dream')?.items : [];
+
+    // Skip rendering certain sections directly as they are handled elsewhere
+    if (['blue-dream', 'sandwiches-burgers', 'garlic-bread-calzone', 'meal-bowls-ramen', 'meal-combos', 'healthy-juices', 'smoothies', 'beverage-companions', 'affogato', 'matcha', 'hot-teas', 'iced-teas', 'hot-chocolate'].includes(section.id)) {
+        return null;
+    }
+    
+    return (
+        <section id={section.id} className="reveal">
+            <div className="flex items-end gap-3 mb-6 px-1">
+                <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
+                <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+            </div>
+            <div className={`grid ${gridCols} gap-3`}>
+                {section.items.map(item => <CardComponent key={item.name} item={item} />)}
+                {section.id === 'craft-coffees' && blueDreamItems && blueDreamItems.map(item => <SpecialBlueDreamCard key={item.name} item={item} />)}
+
+            </div>
+        </section>
+    );
+};
+
 
 export default function Home() {
     useEffect(() => {
@@ -34,6 +239,9 @@ export default function Home() {
         };
     }, []);
 
+    const navLinks = menuSections.filter(s => ['espresso', 'craft', 'cold', 'pizza', 'bites', 'shakes', 'dessert'].includes(s.id.split('-')[0]));
+
+
     return (
         <>
             <header className="pt-8 pb-4 px-6 flex justify-between items-center max-w-7xl mx-auto">
@@ -54,13 +262,13 @@ export default function Home() {
             <nav className="sticky top-0 z-40 glass-nav border-b border-[#8B4A27]/10 py-3 mb-8">
                 <div className="max-w-7xl mx-auto px-4">
                     <ul className="flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory pr-4">
-                        <li className="snap-start"><a href="#espresso" className="whitespace-nowrap px-5 py-2 rounded-full bg-[#8B4A27] text-[#f2e6d9] font-sans text-xs font-medium shadow-md shadow-[#8B4A27]/20 transition-transform active:scale-95">Espresso</a></li>
-                        <li className="snap-start"><a href="#craft" className="whitespace-nowrap px-5 py-2 rounded-full bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] font-sans text-xs font-medium hover:bg-[#8B4A27]/5 transition-colors">Craft Coffee</a></li>
-                        <li className="snap-start"><a href="#cold" className="whitespace-nowrap px-5 py-2 rounded-full bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] font-sans text-xs font-medium hover:bg-[#8B4A27]/5 transition-colors">Cold Brews</a></li>
-                        <li className="snap-start"><a href="#pizza" className="whitespace-nowrap px-5 py-2 rounded-full bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] font-sans text-xs font-medium hover:bg-[#8B4A27]/5 transition-colors">Pizza</a></li>
-                        <li className="snap-start"><a href="#bites" className="whitespace-nowrap px-5 py-2 rounded-full bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] font-sans text-xs font-medium hover:bg-[#8B4A27]/5 transition-colors">Bites</a></li>
-                        <li className="snap-start"><a href="#shakes" className="whitespace-nowrap px-5 py-2 rounded-full bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] font-sans text-xs font-medium hover:bg-[#8B4A27]/5 transition-colors">Shakes</a></li>
-                        <li className="snap-start"><a href="#dessert" className="whitespace-nowrap px-5 py-2 rounded-full bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] font-sans text-xs font-medium hover:bg-[#8B4A27]/5 transition-colors">Dessert</a></li>
+                        {navLinks.map((section, idx) => (
+                             <li key={section.id} className="snap-start">
+                                <a href={`#${section.id}`} className={`whitespace-nowrap px-5 py-2 rounded-full font-sans text-xs font-medium transition-transform active:scale-95 ${idx === 0 ? 'bg-[#8B4A27] text-[#f2e6d9] shadow-md shadow-[#8B4A27]/20' : 'bg-[#fffefb] border border-[#8B4A27]/10 text-[#5A2E1B] hover:bg-[#8B4A27]/5'}`}>
+                                    {section.title}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </nav>
@@ -72,307 +280,9 @@ export default function Home() {
                     <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">Brewing Memories</h2>
                     <p className="font-sans text-xs opacity-70 max-w-sm mx-auto leading-relaxed">Handcrafted coffee, artisanal bakes, and soulful conversations.</p>
                 </section>
+                
+                {menuSections.map(section => <SectionComponent key={section.id} section={section} />)}
 
-                <section id="espresso" className="reveal">
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">Classic Espresso</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">Espresso</h4>
-                                <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">80</span>
-                            </div>
-                            <p className="font-sans text-[10px] text-gray-400">Pure extraction</p>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">Americano</h4>
-                                <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">120</span>
-                            </div>
-                            <p className="font-sans text-[10px] text-gray-400">Espresso & hot water</p>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">Cappuccino</h4>
-                                <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">140</span>
-                            </div>
-                            <p className="font-sans text-[10px] text-gray-400">Foam & espresso</p>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">Latte</h4>
-                                <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">160</span>
-                            </div>
-                            <p className="font-sans text-[10px] text-gray-400">Steamed milk heavy</p>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">Flat White</h4>
-                                <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">180</span>
-                            </div>
-                            <p className="font-sans text-[10px] text-gray-400">Microfoam velvet</p>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">Mocha</h4>
-                                <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">190</span>
-                            </div>
-                            <p className="font-sans text-[10px] text-gray-400">Chocolate infusion</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="craft" className="reveal">
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">Craft & Signature</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Irish Cappuccino</h4>
-                            <div className="flex justify-between items-end mt-2">
-                                <iconify-icon icon="solar:star-fall-linear" className="text-[#8B4A27]/30"></iconify-icon>
-                                <span className="text-xs font-semibold text-[#8B4A27]">180</span>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Caramel Latte</h4>
-                            <div className="flex justify-between items-end mt-2">
-                                <iconify-icon icon="solar:star-fall-linear" className="text-[#8B4A27]/30"></iconify-icon>
-                                <span className="text-xs font-semibold text-[#8B4A27]">180</span>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Saffron Turmeric</h4>
-                            <div className="flex justify-between items-end mt-2">
-                                <iconify-icon icon="solar:star-fall-linear" className="text-[#8B4A27]/30"></iconify-icon>
-                                <span className="text-xs font-semibold text-[#8B4A27]">210</span>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Lotus Biscoff</h4>
-                            <div className="flex justify-between items-end mt-2">
-                                <iconify-icon icon="solar:cookie-linear" className="text-[#8B4A27]/30"></iconify-icon>
-                                <span className="text-xs font-semibold text-[#8B4A27]">220</span>
-                            </div>
-                        </div>
-                        <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 col-span-2">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h4 className="font-sans text-sm font-medium text-[#2e4c5a]">Blue Pea Sparkler</h4>
-                                    <p className="text-[10px] text-[#2e4c5a]/60 mt-1">Fizzy, floral, tonic water</p>
-                                </div>
-                                <span className="text-xs font-semibold text-[#2e4c5a] bg-white px-2 py-0.5 rounded-full">220</span>
-                            </div>
-                        </div>
-                        <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 col-span-2">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h4 className="font-sans text-sm font-medium text-[#2e4c5a]">Coconut Cooler</h4>
-                                    <p className="text-[10px] text-[#2e4c5a]/60 mt-1">Refreshing tropical blend</p>
-                                </div>
-                                <span className="text-xs font-semibold text-[#2e4c5a] bg-white px-2 py-0.5 rounded-full">250</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="cold" className="reveal">
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">Cold & Frappe</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                        <div className="col-span-2 group bg-[#2A2320] p-5 rounded-xl shadow-md border border-[#8B4A27]/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                            <iconify-icon icon="solar:ice-cream-linear" className="absolute -right-2 -bottom-2 text-white/5 text-6xl"></iconify-icon>
-                            <div className="relative z-10">
-                                <div className="flex justify-between items-start">
-                                    <h4 className="font-sans text-sm font-medium text-[#d4a574] uppercase tracking-wider">Signature Frappe</h4>
-                                    <span className="text-xs font-bold text-[#2A2320] bg-[#d4a574] px-2 py-0.5 rounded-full">190</span>
-                                </div>
-                                <p className="text-[10px] text-white/60 mt-2">Strong cold coffee, hint of vanilla</p>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Toffee Caramel</h4>
-                            <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
-                                <span>Frappe</span>
-                                <span>230</span>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Espresso Tonic</h4>
-                            <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
-                                <span>Brew</span>
-                                <span>220</span>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Whisky Brew</h4>
-                            <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
-                                <span>Brew</span>
-                                <span>240</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="pizza" className="reveal">
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">Wood Fire Pizza</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-base font-medium text-[#5A2E1B]">Margherita</h4>
-                                <iconify-icon icon="solar:pizza-linear" className="text-[#8B4A27]/40"></iconify-icon>
-                            </div>
-                            <p className="text-[10px] text-gray-400 mb-4">Classic basil, mozzarella, tomato sauce</p>
-                            <div className="flex gap-2">
-                                <span className="flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]">NY: 330</span>
-                                <span className="flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium">NE: 370</span>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-base font-medium text-[#5A2E1B]">Farmville</h4>
-                                <iconify-icon icon="solar:leaf-linear" className="text-[#8B4A27]/40"></iconify-icon>
-                            </div>
-                            <p className="text-[10px] text-gray-400 mb-4">Broccoli, corn, mushroom, paprika</p>
-                            <div className="flex gap-2">
-                                <span className="flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]">NY: 380</span>
-                                <span className="flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium">NE: 410</span>
-                            </div>
-                        </div>
-                        <div className="group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-base font-medium text-[#5A2E1B]">Four Cheese</h4>
-                                <iconify-icon icon="solar:ruler-pen-linear" className="text-[#8B4A27]/40"></iconify-icon>
-                            </div>
-                            <p className="text-[10px] text-gray-400 mb-4">Mozzarella, cheddar, parmesan, feta</p>
-                            <div className="flex gap-2">
-                                <span className="flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]">NY: 400</span>
-                                <span className="flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium">NE: 440</span>
-                            </div>
-                        </div>
-                        <div className="group bg-[#2A2320] p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex justify-between items-start mb-2">
-                                <h4 className="font-sans text-base font-medium text-[#d4a574]">Signature 9:50</h4>
-                                <iconify-icon icon="solar:crown-linear" className="text-[#d4a574]"></iconify-icon>
-                            </div>
-                            <p className="text-[10px] text-white/50 mb-4">Garlic cream base, bocconcini, fried garlic</p>
-                            <div className="flex gap-2">
-                                <span className="flex-1 text-center text-[10px] border border-[#d4a574]/30 rounded py-1 text-[#d4a574]">NY: 450</span>
-                                <span className="flex-1 text-center text-[10px] bg-[#d4a574] rounded py-1 text-[#2A2320] font-bold">NE: 490</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="bites" className="reveal">
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">Pasta & Bites</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Aglio E Olio</h4>
-                            <p className="text-[9px] text-gray-400 mb-2 leading-tight">Garlic-kissed spaghetti</p>
-                            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">230</span></div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Arrabbiata</h4>
-                            <p className="text-[9px] text-gray-400 mb-2 leading-tight">Fiery, tangy penne</p>
-                            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">280</span></div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Mac & Cheese</h4>
-                            <p className="text-[9px] text-gray-400 mb-2 leading-tight">Creamy golden bake</p>
-                            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">300</span></div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Truffle Fries</h4>
-                            <p className="text-[9px] text-gray-400 mb-2 leading-tight">Earthy & Crisp</p>
-                            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">180</span></div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Bruschetta</h4>
-                            <p className="text-[9px] text-gray-400 mb-2 leading-tight">Tomato basil topping</p>
-                            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">210</span></div>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <h4 className="font-sans text-sm font-medium mb-1">Tan Tan Ramen</h4>
-                            <p className="text-[9px] text-gray-400 mb-2 leading-tight">Spicy noodle soup</p>
-                            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">230</span></div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="shakes" className="reveal">
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">Shakes & Smoothies</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                            <div>
-                                <h4 className="font-sans text-sm font-medium">Oreo / Kitkat</h4>
-                                <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
-                            </div>
-                            <span className="self-end text-xs font-semibold text-[#8B4A27]">200</span>
-                        </div>
-                        <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                            <div>
-                                <h4 className="font-sans text-sm font-medium">Lotus Biscoff</h4>
-                                <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
-                            </div>
-                            <span className="self-end text-xs font-semibold text-[#8B4A27]">250</span>
-                        </div>
-                        <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                            <div>
-                                <h4 className="font-sans text-sm font-medium">Tropical Avocado</h4>
-                                <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
-                            </div>
-                            <span className="self-end text-xs font-semibold text-[#8B4A27]">280</span>
-                        </div>
-                        <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                            <div>
-                                <h4 className="font-sans text-sm font-medium">ABC Juice</h4>
-                                <p className="text-[9px] text-[#8B4A27]/50 mt-1">Healthy Choice</p>
-                            </div>
-                            <span className="self-end text-xs font-semibold text-[#8B4A27]">150</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="dessert" className="reveal">
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">Sweet Endings</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
-                            <iconify-icon icon="solar:donut-bitten-linear" className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
-                            <h4 className="font-sans text-sm font-medium mb-1">Brownie</h4>
-                            <span className="text-xs text-[#8B4A27] font-semibold">180</span>
-                        </div>
-                        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
-                            <iconify-icon icon="solar:chef-hat-heart-linear" className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
-                            <h4 className="font-sans text-sm font-medium mb-1">Tiramisu</h4>
-                            <span className="text-xs text-[#8B4A27] font-semibold">220</span>
-                        </div>
-                        <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
-                            <div className="text-left">
-                                <h4 className="font-script text-xl">Signature Cake</h4>
-                                <p className="text-[10px] opacity-80">Coffee infused delight</p>
-                            </div>
-                            <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">280</span>
-                        </div>
-                    </div>
-                </section>
             </main>
 
             <footer className="mt-20 text-center py-10 px-6 border-t border-[#8B4A27]/10 bg-white/40 reveal">
@@ -388,3 +298,4 @@ export default function Home() {
         </>
     );
 }
+
