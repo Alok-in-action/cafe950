@@ -58,37 +58,37 @@ const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
 );
 
 const WhispersOfLoveCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group bg-gradient-to-br from-[#8B4A4A] via-[#7A3B3B] to-[#6B3030] p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-rose-200/30">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-0">
+    <div className="group bg-gradient-to-br from-[#8B4A4A] via-[#7A3B3B] to-[#6B3030] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-rose-200/30">
+        <div className="flex justify-between items-start">
             <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                    <iconify-icon icon="solar:heart-bold" className="text-rose-200/90 text-sm sm:text-base flex-shrink-0"></iconify-icon>
-                    <h4 className="font-sans text-sm sm:text-sm font-semibold text-[#f2e6d9] leading-tight">{item.name}</h4>
+                <div className="flex items-center gap-2 mb-1">
+                    <iconify-icon icon="solar:heart-bold" className="text-rose-200/90 text-base"></iconify-icon>
+                    <h4 className="font-sans text-sm font-semibold text-[#f2e6d9]">{item.name}</h4>
                 </div>
-                {item.description && <p className="text-[10px] sm:text-[10px] text-[#f2e6d9]/70 mt-2 leading-relaxed pr-2">{item.description}</p>}
+                {item.description && <p className="text-[10px] text-[#f2e6d9]/70 mt-2 leading-relaxed">{item.description}</p>}
                 {item.isMostOrdered && (
-                    <span className="inline-block mt-2 text-[9px] sm:text-[10px] font-bold text-[#f2e6d9] bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">BESTSELLER</span>
+                    <span className="inline-block mt-2 text-[10px] font-bold text-[#f2e6d9] bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">BESTSELLER</span>
                 )}
             </div>
-            <span className="text-xs sm:text-xs font-bold text-[#f2e6d9] bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full whitespace-nowrap self-start sm:ml-3">{item.price}</span>
+            <span className="text-xs font-bold text-[#f2e6d9] bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full ml-3 whitespace-nowrap">{item.price}</span>
         </div>
     </div>
 );
 
 const WinterCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group bg-gradient-to-br from-[#F0F4F7] via-[#EBF2F7] to-[#E6EFF5] p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-[#D5E5ED]/40">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-0">
+    <div className="group bg-gradient-to-br from-[#F0F4F7] via-[#EBF2F7] to-[#E6EFF5] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-[#D5E5ED]/40">
+        <div className="flex justify-between items-start">
             <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                    <iconify-icon icon="mdi:snowflake" className="text-[#7FA8C4]/50 text-sm sm:text-base flex-shrink-0"></iconify-icon>
-                    <h4 className="font-sans text-sm sm:text-sm font-semibold text-[#3A5A6F] leading-tight">{item.name}</h4>
+                <div className="flex items-center gap-2 mb-1">
+                    <iconify-icon icon="mdi:snowflake" className="text-[#7FA8C4]/50 text-base"></iconify-icon>
+                    <h4 className="font-sans text-sm font-semibold text-[#3A5A6F]">{item.name}</h4>
                 </div>
-                {item.description && <p className="text-[10px] sm:text-[10px] text-[#5A7A8F]/70 mt-2 leading-relaxed pr-2">{item.description}</p>}
+                {item.description && <p className="text-[10px] text-[#5A7A8F]/70 mt-2 leading-relaxed">{item.description}</p>}
                 {item.isMostOrdered && (
-                    <span className="inline-block mt-2 text-[9px] sm:text-[10px] font-bold text-[#3A5A6F] bg-white/60 backdrop-blur-sm px-2 py-1 rounded-full">BESTSELLER</span>
+                    <span className="inline-block mt-2 text-[10px] font-bold text-[#3A5A6F] bg-white/60 backdrop-blur-sm px-2 py-1 rounded-full">BESTSELLER</span>
                 )}
             </div>
-            <span className="text-xs sm:text-xs font-bold text-[#3A5A6F] bg-white/50 backdrop-blur-sm px-3 py-1.5 rounded-full whitespace-nowrap self-start sm:ml-3">{item.price}</span>
+            <span className="text-xs font-bold text-[#3A5A6F] bg-white/50 backdrop-blur-sm px-3 py-1.5 rounded-full ml-3 whitespace-nowrap">{item.price}</span>
         </div>
     </div>
 );
