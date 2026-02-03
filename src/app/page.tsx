@@ -5,10 +5,28 @@ import { menuSections } from '@/lib/menu';
 import { MenuItem as MenuItemType, MenuSection } from '@/types';
 
 const MenuItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isSignature) {
+        return (
+            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
+                        <h4 className="font-script text-xl">{item.name}</h4>
+                    </div>
+                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
+                </div>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+            </div>
+        )
+    }
+
     return (
         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start mb-2">
-                <h4 className="font-sans text-sm font-medium text-[#4a3b32]">{item.name}</h4>
+                <h4 className="font-sans text-sm font-medium text-[#4a3b32] flex items-center gap-2">
+                    {item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+                    {item.name}
+                </h4>
                 {item.price && <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span>}
             </div>
             {item.description && <p className="font-sans text-[10px] text-gray-400">{item.description}</p>}
@@ -17,12 +35,10 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
-    const icon = item.name.toLowerCase().includes('lotus biscoff') ? 'solar:cookie-linear' : 'solar:star-fall-linear';
     return (
         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
-            <div className="flex justify-between items-end mt-2">
-                <iconify-icon icon={icon} className="text-[#8B4A27]/30"></iconify-icon>
+            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+            <div className="flex justify-end mt-2">
                 <span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span>
             </div>
         </div>
@@ -41,19 +57,49 @@ const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
     </div>
 );
 
+const WhispersOfLoveCard = ({ item }: { item: MenuItemType }) => (
+    <div className="group bg-gradient-to-br from-[#8B4A4A] via-[#7A3B3B] to-[#6B3030] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-rose-200/30">
+        <div className="flex justify-between items-start">
+            <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                    <iconify-icon icon="solar:heart-bold" className="text-rose-200/90 text-base"></iconify-icon>
+                    <h4 className="font-sans text-sm font-semibold text-[#f2e6d9]">{item.name}</h4>
+                </div>
+                {item.description && <p className="text-[10px] text-[#f2e6d9]/70 mt-2 leading-relaxed">{item.description}</p>}
+            </div>
+            <span className="text-xs font-bold text-[#f2e6d9] bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full ml-3 whitespace-nowrap">{item.price}</span>
+        </div>
+    </div>
+);
+
+const WinterCard = ({ item }: { item: MenuItemType }) => (
+    <div className="group bg-gradient-to-br from-[#F0F4F7] via-[#EBF2F7] to-[#E6EFF5] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-[#D5E5ED]/40">
+        <div className="flex justify-between items-start">
+            <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                    <iconify-icon icon="mdi:snowflake" className="text-[#7FA8C4]/50 text-base"></iconify-icon>
+                    <h4 className="font-sans text-sm font-semibold text-[#3A5A6F]">{item.name}</h4>
+                </div>
+                {item.description && <p className="text-[10px] text-[#5A7A8F]/70 mt-2 leading-relaxed">{item.description}</p>}
+            </div>
+            <span className="text-xs font-bold text-[#3A5A6F] bg-white/50 backdrop-blur-sm px-3 py-1.5 rounded-full ml-3 whitespace-nowrap">{item.price}</span>
+        </div>
+    </div>
+);
+
 
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#2A2320] p-5 rounded-xl shadow-md border border-[#8B4A27]/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-                <iconify-icon icon="solar:ice-cream-linear" className="absolute -right-2 -bottom-2 text-white/5 text-6xl"></iconify-icon>
-                <div className="relative z-10">
-                    <div className="flex justify-between items-start">
-                        <h4 className="font-sans text-sm font-medium text-[#d4a574] uppercase tracking-wider">{item.name}</h4>
-                        <span className="text-xs font-bold text-[#2A2320] bg-[#d4a574] px-2 py-0.5 rounded-full">{item.price}</span>
+            <div className="col-span-2 group bg-[#8B4A27] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
+                        <h4 className="font-script text-xl">{item.name}</h4>
                     </div>
-                    {item.description && <p className="text-[10px] text-white/60 mt-2">{item.description}</p>}
+                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
                 </div>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
             </div>
         )
     }
@@ -62,7 +108,7 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
 
     return (
         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
+            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
             <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
                 <span>{category}</span>
                 <span>{item.price}</span>
@@ -72,56 +118,98 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
 }
 
 const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
-    const cardClass = item.isSignature
-        ? "group bg-[#2A2320] p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-        : "group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300";
-
-    const titleClass = item.isSignature ? "font-sans text-base font-medium text-[#d4a574]" : "font-sans text-base font-medium text-[#5A2E1B]";
-    const iconClass = item.isSignature ? "text-[#d4a574]" : "text-[#8B4A27]/40";
-    const descriptionClass = item.isSignature ? "text-[10px] text-white/50 mb-4" : "text-[10px] text-gray-400 mb-4";
-    const nyPriceClass = item.isSignature ? "flex-1 text-center text-[10px] border border-[#d4a574]/30 rounded py-1 text-[#d4a574]" : "flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]";
-    const neapPriceClass = item.isSignature ? "flex-1 text-center text-[10px] bg-[#d4a574] rounded py-1 text-[#2A2320] font-bold" : "flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium";
+    if (item.isSignature) {
+        return (
+            <div className="group bg-[#8B4A27] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-[#f2e6d9]">
+                <div className="flex justify-between items-start mb-2">
+                    <div className="flex items-center gap-2">
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
+                        <h4 className="font-script text-xl">{item.name}</h4>
+                    </div>
+                    <iconify-icon icon="solar:crown-linear" className="text-[#f2e6d9]"></iconify-icon>
+                </div>
+                {item.description && <p className="text-[10px] opacity-80 mb-4">{item.description}</p>}
+                {item.prices && <div className="flex gap-2">
+                    <span className="flex-1 text-center text-[10px] border border-[#f2e6d9]/30 rounded py-1 text-[#f2e6d9]">NY: {item.prices.ny}</span>
+                    <span className="flex-1 text-center text-[10px] bg-[#f2e6d9]/20 rounded py-1 text-[#f2e6d9] font-bold">NE: {item.prices.neap}</span>
+                </div>}
+            </div>
+        )
+    }
 
     let icon = 'solar:pizza-linear';
     if (item.name.toLowerCase().includes('farmville')) icon = 'solar:leaf-linear';
     if (item.name.toLowerCase().includes('four cheese')) icon = 'solar:ruler-pen-linear';
-    if (item.isSignature) icon = 'solar:crown-linear';
 
     return (
-        <div className={cardClass}>
+        <div className="group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             <div className="flex justify-between items-start mb-2">
-                <h4 className={titleClass}>{item.name}</h4>
-                <iconify-icon icon={icon} className={iconClass}></iconify-icon>
+                <h4 className="font-sans text-base font-medium text-[#5A2E1B] flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+                <iconify-icon icon={icon} className="text-[#8B4A27]/40"></iconify-icon>
             </div>
-            {item.description && <p className={descriptionClass}>{item.description}</p>}
+            {item.description && <p className="text-[10px] text-gray-400 mb-4">{item.description}</p>}
             {item.prices && <div className="flex gap-2">
-                <span className={nyPriceClass}>NY: {item.prices.ny}</span>
-                <span className={neapPriceClass}>NE: {item.prices.neap}</span>
+                <span className="flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]">NY: {item.prices.ny}</span>
+                <span className="flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium">NE: {item.prices.neap}</span>
             </div>}
         </div>
     )
 };
 
-const BitesItemCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-        <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
-        {item.description && <p className="text-[9px] text-gray-400 mb-2 leading-tight">{item.description}</p>}
-        <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span></div>
-    </div>
-);
+const BitesItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isSignature) {
+        return (
+            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
+                        <h4 className="font-script text-xl">{item.name}</h4>
+                    </div>
+                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
+                </div>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+            </div>
+        )
+    }
 
-const ShakeItemCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-        <div>
-            <h4 className="font-sans text-sm font-medium">{item.name}</h4>
-            {item.description ?
-                <p className="text-[9px] text-[#8B4A27]/50 mt-1">{item.description}</p>
-                : <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
-            }
+    return (
+        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+            {item.description && <p className="text-[9px] text-gray-400 mb-2 leading-tight">{item.description}</p>}
+            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span></div>
         </div>
-        <span className="self-end text-xs font-semibold text-[#8B4A27]">{item.price}</span>
-    </div>
-);
+    )
+};
+
+const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isSignature) {
+        return (
+            <div className="col-span-2 md:col-span-3 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
+                        <h4 className="font-script text-xl">{item.name}</h4>
+                    </div>
+                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
+                </div>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+            </div>
+        )
+    }
+
+    return (
+        <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+                <h4 className="font-sans text-sm font-medium flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+                {item.description ?
+                    <p className="text-[9px] text-[#8B4A27]/50 mt-1">{item.description}</p>
+                    : <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
+                }
+            </div>
+            <span className="self-end text-xs font-semibold text-[#8B4A27]">{item.price}</span>
+        </div>
+    )
+};
 
 const DessertItemCard = ({ item }: { item: MenuItemType }) => {
     let icon = 'solar:donut-bitten-linear';
@@ -130,8 +218,11 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
             <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
-                <div className="text-left">
-                    <h4 className="font-script text-xl">{item.name}</h4>
+                <div className="text-left flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
+                        <h4 className="font-script text-xl">{item.name}</h4>
+                    </div>
                     {item.description && <p className="text-[10px] opacity-80">{item.description}</p>}
                 </div>
                 <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
@@ -142,7 +233,7 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
             <iconify-icon icon={icon} className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
-            <h4 className="font-sans text-sm font-medium mb-1">{item.name}</h4>
+            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
             <span className="text-xs text-[#8B4A27] font-semibold">{item.price}</span>
         </div>
     )
@@ -155,37 +246,56 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
 
     if (section.id === 'pizza') {
         return (
-            <section id={section.id} className="reveal">
-                {section.preheader && (
-                    <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
-                )}
-                <div className="flex items-end gap-3 mb-6 px-1">
-                    <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
-                    <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                </div>
-
-                <div className="text-center -mt-4 mb-8 max-w-2xl mx-auto bg-white/50 p-6 rounded-xl border border-[#8B4A27]/10">
-                    <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] mb-4">Choice of Base</p>
-                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-xs text-[#6B3A20]/80">
-                        <div>
-                            <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEW YORK STYLE</h4>
-                            <p>A thin, hand-tossed crust, soft in the center, crisp at the edge, and perfectly foldable.</p>
+            <section id={section.id} className="reveal -mx-4 sm:-mx-6 px-4 sm:px-6 py-8 bg-gradient-to-br from-[#f5e6d3] via-[#f2e6d9] to-[#ede0d0] rounded-2xl border border-[#8B4A27]/10 shadow-sm">
+                <div className="max-w-7xl mx-auto">
+                    {section.preheader && (
+                        <div className="flex items-center justify-center gap-3 mb-2">
+                            <iconify-icon icon="game-icons:wood-pile" className="text-[#8B4A27] text-lg opacity-70"></iconify-icon>
+                            <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B]">{section.preheader}</p>
+                            <iconify-icon icon="game-icons:wood-pile" className="text-[#8B4A27] text-lg opacity-70"></iconify-icon>
                         </div>
-                        <div>
-                            <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEAPOLITAN</h4>
-                            <p>Crafted with long-rested dough, giving you a pillowy centre, crispy edges, and that signature smoky char.</p>
+                    )}
+                    <div className="flex items-end gap-3 mb-6 px-1">
+                        <iconify-icon icon="mdi:fire" className="text-[#D2691E] text-3xl mb-1 opacity-80"></iconify-icon>
+                        <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
+                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                        <iconify-icon icon="mdi:fire" className="text-[#D2691E] text-3xl mb-1 opacity-80"></iconify-icon>
+                    </div>
+
+                    <div className="text-center -mt-4 mb-8 max-w-2xl mx-auto bg-white/50 p-6 rounded-xl border border-[#8B4A27]/10">
+                        <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] mb-4">Choice of Base</p>
+                        <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-xs text-[#6B3A20]/80">
+                            <div>
+                                <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEW YORK STYLE</h4>
+                                <p>A thin, hand-tossed crust, soft in the center, crisp at the edge, and perfectly foldable.</p>
+                            </div>
+                            <div>
+                                <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEAPOLITAN</h4>
+                                <p>Crafted with long-rested dough, giving you a pillowy centre, crispy edges, and that signature smoky char.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {section.items.map(item => <PizzaItemCard key={item.name} item={item} />)}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {section.items.map(item => <PizzaItemCard key={item.name} item={item} />)}
+                    </div>
                 </div>
             </section>
         );
     }
 
     switch (section.id) {
+        case 'whispers-of-love':
+            CardComponent = WhispersOfLoveCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2';
+            break;
+        case 'winter-soup-edit':
+        case 'winter-cozy-cups':
+        case 'winter-feast':
+        case 'winter-sweet-spell':
+            CardComponent = WinterCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2';
+            break;
         case 'classic-espresso-bar':
             CardComponent = MenuItemCard;
             break;
@@ -244,8 +354,14 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
                 <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
             )}
             <div className="flex items-end gap-3 mb-6 px-1">
+                {section.id === 'ramen-tales' && (
+                    <iconify-icon icon="fluent-emoji-high-contrast:chopsticks" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
+                )}
                 <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
                 <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                {section.id === 'ramen-tales' && (
+                    <iconify-icon icon="fluent-emoji-high-contrast:steaming-bowl" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
+                )}
             </div>
             {section.subtitle && (
                 <p className="font-sans text-xs text-center text-[#6B3A20]/80 italic -mt-4 mb-6 max-w-lg mx-auto whitespace-pre-line">{section.subtitle}</p>
@@ -267,6 +383,7 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
 export default function Home() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const [showBackToTop, setShowBackToTop] = useState(false);
     const [activeSection, setActiveSection] = useState<string>('');
     const navRef = useRef<HTMLUListElement>(null);
     const navLinks = menuSections;
@@ -310,6 +427,15 @@ export default function Home() {
                 } catch (e) { }
             });
         };
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setShowBackToTop(window.scrollY > 400);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     // Auto-scroll nav bar to active item
@@ -422,6 +548,8 @@ export default function Home() {
                             ) : (
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                     {[
+                                        { name: '9:50 Whispers of Love', section: 'whispers-of-love' },
+                                        { name: '9:50 Winter', section: 'winter-soup-edit' },
                                         { name: 'Drinks', section: 'cold-brews' },
                                         { name: 'Shakes', section: 'shakes' },
                                         { name: 'Food', section: 'bites-for-sides' },
@@ -486,20 +614,111 @@ export default function Home() {
             <main className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
                 <section className="reveal relative overflow-hidden rounded-2xl bg-[#fffefb] border border-[#8B4A27]/10 p-8 text-center shadow-sm">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#8B4A27]/40 to-transparent"></div>
-                    <iconify-icon icon="solar:cup-hot-linear" width="32" className="text-[#8B4A27] mb-3 opacity-80 animate-pulse"></iconify-icon>
+                    <div className="flex items-center justify-center gap-4 mb-3">
+                        <iconify-icon icon="solar:cup-hot-linear" width="32" className="text-[#8B4A27] opacity-80"></iconify-icon>
+                        <iconify-icon icon="fluent-emoji-high-contrast:pizza" width="32" className="text-[#8B4A27] opacity-80"></iconify-icon>
+                        <iconify-icon icon="solar:donut-bitten-linear" width="32" className="text-[#8B4A27] opacity-80"></iconify-icon>
+                    </div>
                     <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">Brewing Memories</h2>
-                    <p className="font-sans text-xs opacity-70 max-w-sm mx-auto leading-relaxed">Handcrafted coffee, artisanal bakes, and soulful conversations.</p>
+                    <p className="font-sans text-xs opacity-70 max-w-sm mx-auto leading-relaxed">Authentic Coffee • Handcrafted Pizza • Irresistible Desserts</p>
                 </section>
 
-                {menuSections.map(section => <SectionComponent key={section.id} section={section} />)}
+                {menuSections.map((section, index) => {
+                    // Group pizza, garlic-bread, and calzone together
+                    if (section.id === 'pizza') {
+                        const garlicBreadSection = menuSections.find(s => s.id === 'garlic-bread');
+                        const calzoneSection = menuSections.find(s => s.id === 'calzone');
+
+                        return (
+                            <section key={section.id} id="pizza" className="reveal -mx-4 sm:-mx-6 px-4 sm:px-6 py-8 bg-gradient-to-br from-[#f5e6d3] via-[#f2e6d9] to-[#ede0d0] rounded-2xl border border-[#8B4A27]/10 shadow-sm">
+                                <div className="max-w-7xl mx-auto space-y-12">
+                                    {/* Pizza Section */}
+                                    <div>
+                                        {section.preheader && (
+                                            <div className="flex items-center justify-center gap-3 mb-2">
+                                                <iconify-icon icon="game-icons:wood-pile" className="text-[#8B4A27] text-lg opacity-70"></iconify-icon>
+                                                <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B]">{section.preheader}</p>
+                                                <iconify-icon icon="game-icons:wood-pile" className="text-[#8B4A27] text-lg opacity-70"></iconify-icon>
+                                            </div>
+                                        )}
+                                        <div className="flex items-end gap-3 mb-6 px-1">
+                                            <iconify-icon icon="mdi:fire" className="text-[#D2691E] text-3xl mb-1 opacity-80"></iconify-icon>
+                                            <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
+                                            <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                                            <iconify-icon icon="mdi:fire" className="text-[#D2691E] text-3xl mb-1 opacity-80"></iconify-icon>
+                                        </div>
+
+                                        <div className="text-center -mt-4 mb-8 max-w-2xl mx-auto bg-white/50 p-6 rounded-xl border border-[#8B4A27]/10">
+                                            <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] mb-4">Choice of Base</p>
+                                            <div className="grid md:grid-cols-2 gap-x-8 gap-y-4 text-xs text-[#6B3A20]/80">
+                                                <div>
+                                                    <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEW YORK STYLE</h4>
+                                                    <p>A thin, hand-tossed crust, soft in the center, crisp at the edge, and perfectly foldable.</p>
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-sans font-semibold text-sm text-[#5A2E1B] mb-1">NEAPOLITAN</h4>
+                                                    <p>Crafted with long-rested dough, giving you a pillowy centre, crispy edges, and that signature smoky char.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                            {section.items.map(item => <PizzaItemCard key={item.name} item={item} />)}
+                                        </div>
+                                    </div>
+
+                                    {/* Garlic Bread Section */}
+                                    {garlicBreadSection && (
+                                        <div id="garlic-bread">
+                                            <div className="flex items-end gap-3 mb-6 px-1">
+                                                <h3 className="font-script text-3xl text-[#5A2E1B]">{garlicBreadSection.title}</h3>
+                                                <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                                            </div>
+                                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                                                {garlicBreadSection.items.map(item => <MenuItemCard key={item.name} item={item} />)}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Calzone Section */}
+                                    {calzoneSection && (
+                                        <div id="calzone">
+                                            <div className="flex items-end gap-3 mb-6 px-1">
+                                                <h3 className="font-script text-3xl text-[#5A2E1B]">{calzoneSection.title}</h3>
+                                                <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                                            </div>
+                                            {calzoneSection.subtitle && (
+                                                <p className="font-sans text-xs text-center text-[#6B3A20]/80 italic -mt-4 mb-6 max-w-lg mx-auto whitespace-pre-line">{calzoneSection.subtitle}</p>
+                                            )}
+                                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                                                {calzoneSection.items.map(item => <MenuItemCard key={item.name} item={item} />)}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </section>
+                        );
+                    }
+
+                    // Skip garlic-bread and calzone as they're rendered with pizza
+                    if (section.id === 'garlic-bread' || section.id === 'calzone') {
+                        return null;
+                    }
+
+                    return <SectionComponent key={section.id} section={section} />;
+                })}
 
             </main>
 
             <footer className="mt-20 text-center py-10 px-6 border-t border-[#8B4A27]/10 bg-white/40 reveal">
                 <div className="flex flex-col items-center">
-                    <iconify-icon icon="solar:cup-hot-linear" width="24" className="text-[#8B4A27] mb-8 opacity-50"></iconify-icon>
+                    <div className="flex items-center justify-center gap-4 mb-8">
+                        <iconify-icon icon="solar:cup-hot-linear" width="24" className="text-[#8B4A27] opacity-50"></iconify-icon>
+                        <iconify-icon icon="fluent-emoji-high-contrast:pizza" width="24" className="text-[#8B4A27] opacity-50"></iconify-icon>
+                        <iconify-icon icon="solar:donut-bitten-linear" width="24" className="text-[#8B4A27] opacity-50"></iconify-icon>
+                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 mb-12 text-[#8B4A27] w-full max-w-2xl">
+                    <div className="grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-6 mb-12 text-[#8B4A27] w-full max-w-3xl">
                         <a href="https://www.instagram.com/CAFENINE50" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform flex flex-col items-center gap-2">
                             <iconify-icon icon="hugeicons:instagram" width="24"></iconify-icon>
                             <span className="font-sans text-[11px] lowercase tracking-wider">@cafenine50</span>
@@ -511,6 +730,10 @@ export default function Home() {
                         <a href="http://CAFENINE50.COM" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform flex flex-col items-center gap-2">
                             <iconify-icon icon="solar:globus-linear" width="24"></iconify-icon>
                             <span className="font-sans text-[11px] uppercase tracking-wider">cafenine50.com</span>
+                        </a>
+                        <a href="https://www.google.com/search?q=cafe+9:50+reviews&zx=1770143981473&no_sw_cr=1#ebo=1" target="_blank" rel="noopener noreferrer" className="hover:scale-105 transition-transform flex flex-col items-center gap-2">
+                            <iconify-icon icon="solar:star-linear" width="24"></iconify-icon>
+                            <span className="font-sans text-[11px] lowercase tracking-wider">review us</span>
                         </a>
                     </div>
 
@@ -524,12 +747,22 @@ export default function Home() {
 
                     <div className="w-full border-t border-[#8B4A27]/5 pt-8">
                         <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#5A2E1B] mb-2 font-medium">Cafe 9:50</p>
-                        <p className="font-sans text-[10px] text-[#5A2E1B]/40">
-                            Made with love in Ujjain • website by <a href="https://zaaykatech.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B4A27] underline transition-colors">zaaykatech.com</a>
+                        <p className="font-sans text-xs text-[#5A2E1B]/50">
+                            Made with love by <a href="https://zaaykatech.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B4A27] underline transition-colors">zaaykatech.com</a>
                         </p>
                     </div>
                 </div>
             </footer>
+
+            {showBackToTop && (
+                <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-[#8B4A27] text-white shadow-lg hover:bg-[#6B3A20] transition-all duration-300 flex items-center justify-center z-50 animate-in fade-in slide-in-from-bottom"
+                    aria-label="Back to top"
+                >
+                    <iconify-icon icon="solar:alt-arrow-up-linear" width="24"></iconify-icon>
+                </button>
+            )}
         </>
     );
 }

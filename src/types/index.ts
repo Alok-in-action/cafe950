@@ -7,6 +7,7 @@ export type MenuItem = {
   };
   description?: string;
   isSignature?: boolean;
+  isMostOrdered?: boolean;
 };
 
 export type MenuSection = {
