@@ -21,23 +21,24 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
     }
 
     return (
-        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start mb-2">
-                <h4 className="font-sans text-sm font-medium text-[#4a3b32] flex items-center gap-2">
-                    {item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            <div className="flex justify-between items-start gap-2 mb-2">
+                <h4 className="font-sans text-sm font-medium text-[#4a3b32] min-w-0 break-words flex-1">
                     {item.name}
                 </h4>
-                {item.price && <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span>}
+                {item.price && <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>}
             </div>
-            {item.description && <p className="font-sans text-[10px] text-gray-400">{item.description}</p>}
+            {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed">{item.description}</p>}
         </div>
     );
 };
 
 const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
     return (
-        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <div className="flex justify-end mt-2">
                 <span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span>
             </div>
@@ -97,15 +98,15 @@ const WinterCard = ({ item }: { item: MenuItemType }) => (
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
-                <div className="text-left flex-1">
+            <div className="col-span-2 group bg-[#8B4A27] p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
-                        <h4 className="font-script text-xl">{item.name}</h4>
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
+                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
+                    {item.description && <p className="text-[10px] opacity-80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }
@@ -113,8 +114,9 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     const category = item.name.toLowerCase().includes('brew') ? 'Brew' : 'Frappe';
 
     return (
-        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
                 <span>{category}</span>
                 <span>{item.price}</span>
@@ -126,15 +128,15 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
 const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="group bg-[#8B4A27] p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-[#f2e6d9]">
-                <div className="flex justify-between items-start mb-2">
-                    <div className="flex items-center gap-2">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
-                        <h4 className="font-script text-xl">{item.name}</h4>
+            <div className="group bg-[#8B4A27] p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-[#f2e6d9]">
+                <div className="flex justify-between items-start mb-2 gap-2">
+                    <div className="flex items-center gap-2 min-w-0 flex-1">
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
+                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
                     </div>
-                    <iconify-icon icon="solar:crown-linear" className="text-[#f2e6d9]"></iconify-icon>
+                    <iconify-icon icon="solar:crown-linear" className="text-[#f2e6d9] flex-shrink-0"></iconify-icon>
                 </div>
-                {item.description && <p className="text-[10px] opacity-80 mb-4">{item.description}</p>}
+                {item.description && <p className="text-[10px] opacity-80 mb-4 leading-relaxed">{item.description}</p>}
                 {item.prices && <div className="flex gap-2">
                     <span className="flex-1 text-center text-[10px] border border-[#f2e6d9]/30 rounded py-1 text-[#f2e6d9]">NY: {item.prices.ny}</span>
                     <span className="flex-1 text-center text-[10px] bg-[#f2e6d9]/20 rounded py-1 text-[#f2e6d9] font-bold">NE: {item.prices.neap}</span>
@@ -148,12 +150,13 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.name.toLowerCase().includes('four cheese')) icon = 'solar:ruler-pen-linear';
 
     return (
-        <div className="group bg-white p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <div className="flex justify-between items-start mb-2">
-                <h4 className="font-sans text-base font-medium text-[#5A2E1B] flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
-                <iconify-icon icon={icon} className="text-[#8B4A27]/40"></iconify-icon>
+        <div className="group bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            <div className="flex justify-between items-start mb-2 gap-2">
+                <h4 className="font-sans text-sm sm:text-base font-medium text-[#5A2E1B] min-w-0 break-words flex-1">{item.name}</h4>
+                <iconify-icon icon={icon} className="text-[#8B4A27]/40 flex-shrink-0"></iconify-icon>
             </div>
-            {item.description && <p className="text-[10px] text-gray-400 mb-4">{item.description}</p>}
+            {item.description && <p className="text-[10px] text-gray-400 mb-4 leading-relaxed">{item.description}</p>}
             {item.prices && <div className="flex gap-2">
                 <span className="flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]">NY: {item.prices.ny}</span>
                 <span className="flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium">NE: {item.prices.neap}</span>
@@ -165,23 +168,24 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
 const BitesItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
-                <div className="text-left flex-1">
+            <div className="col-span-2 group bg-[#8B4A27] p-3 sm:p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
-                        <h4 className="font-script text-xl">{item.name}</h4>
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
+                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
+                    {item.description && <p className="text-[10px] opacity-80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }
 
     return (
-        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
-            {item.description && <p className="text-[9px] text-gray-400 mb-2 leading-tight">{item.description}</p>}
+        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
+            {item.description && <p className="text-[9px] text-gray-400 mb-2 leading-relaxed">{item.description}</p>}
             <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span></div>
         </div>
     )
@@ -190,29 +194,30 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
 const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 md:col-span-3 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
-                <div className="text-left flex-1">
+            <div className="col-span-2 md:col-span-3 group bg-[#8B4A27] p-3 sm:p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
-                        <h4 className="font-script text-xl">{item.name}</h4>
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
+                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
+                    {item.description && <p className="text-[10px] opacity-80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }
 
     return (
-        <div className="group bg-[#fff8f0] p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div className="group bg-[#fff8f0] p-3 sm:p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-                <h4 className="font-sans text-sm font-medium flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+                {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+                <h4 className="font-sans text-sm font-medium min-w-0 break-words">{item.name}</h4>
                 {item.description ?
-                    <p className="text-[9px] text-[#8B4A27]/50 mt-1">{item.description}</p>
+                    <p className="text-[9px] text-[#8B4A27]/50 mt-1 leading-relaxed">{item.description}</p>
                     : <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
                 }
             </div>
-            <span className="self-end text-xs font-semibold text-[#8B4A27]">{item.price}</span>
+            <span className="self-end text-xs font-semibold text-[#8B4A27] mt-2">{item.price}</span>
         </div>
     )
 };
@@ -223,23 +228,24 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
-                <div className="text-left flex-1">
+            <div className="col-span-2 group bg-[#8B4A27] p-3 sm:p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+                <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
-                        <h4 className="font-script text-xl">{item.name}</h4>
+                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
+                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80">{item.description}</p>}
+                    {item.description && <p className="text-[10px] opacity-80 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }
 
     return (
-        <div className="group bg-white p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
+        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
             <iconify-icon icon={icon} className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
-            <h4 className="font-sans text-sm font-medium mb-1 flex items-center gap-2">{item.isMostOrdered && <span className="text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}{item.name}</h4>
+            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <span className="text-xs text-[#8B4A27] font-semibold">{item.price}</span>
         </div>
     )
@@ -391,6 +397,7 @@ export default function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [showBackToTop, setShowBackToTop] = useState(false);
     const [activeSection, setActiveSection] = useState<string>('');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navRef = useRef<HTMLUListElement>(null);
     const navLinks = menuSections;
 
@@ -466,7 +473,7 @@ export default function Home() {
 
     return (
         <>
-            <header className="pt-8 pb-4 px-6 flex justify-between items-center max-w-7xl mx-auto">
+            <header className="pt-6 sm:pt-8 pb-4 px-4 sm:px-6 flex justify-between items-center max-w-7xl mx-auto">
                 <div className="flex items-center gap-2 reveal active">
                     <Image
                         src="/logo.png"
@@ -477,13 +484,99 @@ export default function Home() {
                         priority
                     />
                 </div>
-                <button
-                    onClick={() => setIsSearchOpen(true)}
-                    className="w-10 h-10 rounded-full border border-[#8B4A27]/20 flex items-center justify-center hover:bg-[#8B4A27] hover:text-[#f2e6d9] transition-colors reveal active duration-500 delay-100"
-                >
-                    <iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon>
-                </button>
+                <div className="flex items-center gap-3">
+                    <button
+                        onClick={() => setIsMenuOpen(true)}
+                        className="w-10 h-10 rounded-full border border-[#8B4A27]/20 flex items-center justify-center hover:bg-[#8B4A27] hover:text-[#f2e6d9] transition-colors reveal active duration-500"
+                        aria-label="Open menu"
+                    >
+                        <iconify-icon icon="solar:hamburger-menu-linear" width="20"></iconify-icon>
+                    </button>
+                    <button
+                        onClick={() => setIsSearchOpen(true)}
+                        className="w-10 h-10 rounded-full border border-[#8B4A27]/20 flex items-center justify-center hover:bg-[#8B4A27] hover:text-[#f2e6d9] transition-colors reveal active duration-500 delay-100"
+                    >
+                        <iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon>
+                    </button>
+                </div>
             </header>
+
+            {/* Hamburger Menu Overlay */}
+            {isMenuOpen && (
+                <div className="fixed inset-0 z-[100] animate-in fade-in duration-300">
+                    {/* Backdrop */}
+                    <div
+                        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                        onClick={() => setIsMenuOpen(false)}
+                    ></div>
+
+                    {/* Side Menu */}
+                    <div className="absolute left-0 top-0 bottom-0 w-72 bg-white shadow-2xl animate-in slide-in-from-left duration-300">
+                        <div className="p-6">
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setIsMenuOpen(false)}
+                                className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors"
+                                aria-label="Close menu"
+                            >
+                                <iconify-icon icon="solar:close-circle-linear" width="24" className="text-gray-600"></iconify-icon>
+                            </button>
+
+                            {/* Menu Title */}
+                            <h2 className="font-script text-2xl text-[#5A2E1B] mb-8 mt-2">Quick Links</h2>
+
+                            {/* Menu Items */}
+                            <nav className="space-y-4">
+                                <a
+                                    href="https://www.instagram.com/CAFENINE50"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#8B4A27]/5 transition-colors group"
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                                        <iconify-icon icon="hugeicons:instagram" width="24" className="text-white"></iconify-icon>
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="font-sans text-sm font-semibold text-[#5A2E1B] group-hover:text-[#8B4A27] transition-colors">Instagram</p>
+                                        <p className="font-sans text-xs text-gray-500">@cafenine50</p>
+                                    </div>
+                                    <iconify-icon icon="solar:alt-arrow-right-linear" width="20" className="text-gray-400 group-hover:text-[#8B4A27] transition-colors"></iconify-icon>
+                                </a>
+
+                                <a
+                                    href="tel:+918349476548"
+                                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#8B4A27]/5 transition-colors group"
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                                        <iconify-icon icon="solar:phone-linear" width="24" className="text-white"></iconify-icon>
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="font-sans text-sm font-semibold text-[#5A2E1B] group-hover:text-[#8B4A27] transition-colors">Call Us</p>
+                                        <p className="font-sans text-xs text-gray-500">+91 8349476548</p>
+                                    </div>
+                                    <iconify-icon icon="solar:alt-arrow-right-linear" width="20" className="text-gray-400 group-hover:text-[#8B4A27] transition-colors"></iconify-icon>
+                                </a>
+
+                                <a
+                                    href="https://www.google.com/search?q=cafe+9:50+reviews&zx=1770143981473&no_sw_cr=1#ebo=1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#8B4A27]/5 transition-colors group"
+                                >
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+                                        <iconify-icon icon="solar:star-linear" width="24" className="text-white"></iconify-icon>
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="font-sans text-sm font-semibold text-[#5A2E1B] group-hover:text-[#8B4A27] transition-colors">Review Us</p>
+                                        <p className="font-sans text-xs text-gray-500">Google Reviews</p>
+                                    </div>
+                                    <iconify-icon icon="solar:alt-arrow-right-linear" width="20" className="text-gray-400 group-hover:text-[#8B4A27] transition-colors"></iconify-icon>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {isSearchOpen && (
                 <div className="fixed inset-0 z-[100] bg-white px-6 py-8 animate-in fade-in slide-in-from-top duration-300">
@@ -594,16 +687,16 @@ export default function Home() {
                 </div>
             )}
 
-            <nav className="sticky top-0 z-40 glass-nav border-b border-[#8B4A27]/10 mb-8">
-                <div className="max-w-7xl mx-auto px-4">
-                    <ul ref={navRef} className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory py-4 px-1">
+            <nav className="sticky top-0 z-40 glass-nav border-b border-[#8B4A27]/10 mb-6 sm:mb-8">
+                <div className="max-w-7xl mx-auto px-2 sm:px-4">
+                    <ul ref={navRef} className="flex gap-2 sm:gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory py-3 sm:py-4 px-1">
                         {navLinks.map((section) => {
                             const isActive = activeSection === section.id;
                             return (
                                 <li key={section.id} className="snap-start" data-section={section.id}>
                                     <a
                                         href={`#${section.id}`}
-                                        className={`whitespace-nowrap px-6 py-2.5 rounded-full font-sans text-sm font-semibold transition-all duration-300 active:scale-95 ${isActive
+                                        className={`whitespace-nowrap px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-sans text-xs sm:text-sm font-semibold transition-all duration-300 active:scale-95 ${isActive
                                             ? 'bg-[#8B4A27] text-[#f2e6d9] shadow-lg shadow-[#8B4A27]/30 scale-105'
                                             : 'bg-[#fffefb] border border-[#8B4A27]/15 text-[#5A2E1B] hover:bg-[#8B4A27]/5'
                                             }`}
@@ -617,7 +710,7 @@ export default function Home() {
                 </div>
             </nav>
 
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-12">
                 <section className="reveal relative overflow-hidden rounded-2xl bg-[#fffefb] border border-[#8B4A27]/10 p-8 text-center shadow-sm">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#8B4A27]/40 to-transparent"></div>
                     <div className="flex items-center justify-center gap-4 mb-3">
