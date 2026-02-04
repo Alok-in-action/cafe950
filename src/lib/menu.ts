@@ -7,15 +7,15 @@ export const menuSections: MenuSection[] = [
     "title": "9:50 Whispers of Love",
     "items": [
       { "name": "Red Velvet Mocha", "price": 230 },
-      { "name": "Velvet Rose Latte", "price": 240, "description": "Silky latte kissed with floral rose notes and a soft, vanilla finish." },
+      { "name": "Velvet Rose Latte", "price": 240, "description": "Silky latte kissed with floral rose notes and a soft, vanilla finish.", "isMostOrdered": true },
       { "name": "Hibiscus Strawberry Iced Tea", "price": 250 },
       { "name": "Lavender Love Matcha", "price": 250 },
       { "name": "Love Potion Cold Brew", "price": 300, "description": "Smooth cold brew infused with a hint of white chocolate and a dangerously strawberry charm." },
-      { "name": "Pomegranate Mint Cooler", "price": 300 },
+      { "name": "Pomegranate Mint Cooler", "price": 300, "isMostOrdered": true },
       { "name": "Paneer Tikka in Focaccia Bread", "price": 300 },
       { "name": "Exotic Pink Penne", "price": 300 },
-      { "name": "Love in the Forest Pizza", "price": "470/520", "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes" },
-      { "name": "Red Velvet Tiramisu", "price": 280 }
+      { "name": "Love in the Forest Pizza", "price": "470/520", "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes", "isMostOrdered": true },
+      { "name": "Red Velvet Tiramisu", "price": 280, "isMostOrdered": true }
     ]
   },
   {
@@ -24,7 +24,7 @@ export const menuSections: MenuSection[] = [
     "subtitle": "The Soup Edit",
     "items": [
       { "name": "Lemon Coriander", "price": 160 },
-      { "name": "Wild Mushroom Cappuccino", "price": 180, "description": "Earthy wild mushrooms, blended to creamy perfection, topped with a delicate foam" },
+      { "name": "Wild Mushroom Cappuccino", "price": 180, "description": "Earthy wild mushrooms, blended to creamy perfection, topped with a delicate foam", "isMostOrdered": true },
       { "name": "Creamy Tomato Basil", "price": 180 },
       { "name": "French Onion", "price": 200, "description": "Golden onions, savory vegetable broth, and a cheesy gratin topping for a warm, flavorful experience" },
       { "name": "Vegetable Man-Chow", "price": 250 }
@@ -34,10 +34,10 @@ export const menuSections: MenuSection[] = [
     "id": "winter-cozy-cups",
     "title": "Cozy Cups",
     "items": [
-      { "name": "Ginger Bread Latte", "price": 160 },
+      { "name": "Ginger Bread Latte", "price": 160, "isMostOrdered": true },
       { "name": "Peppermint Mocha", "price": 170 },
       { "name": "White Hot Chocolate", "price": 180 },
-      { "name": "London Fog", "price": 180, "description": "A velvety blend of Earl Grey tea, steamed milk, and a hint of vanilla, like wrapping yourself in a warm scarf on a misty London morning" },
+      { "name": "London Fog", "price": 180, "description": "A velvety blend of Earl Grey tea, steamed milk, and a hint of vanilla, like wrapping yourself in a warm scarf on a misty London morning", "isMostOrdered": true },
       { "name": "Cinnamon Maple Latte", "price": 200 },
       { "name": "Tiramisu Hot Chocolate", "price": 230 }
     ]
@@ -47,8 +47,8 @@ export const menuSections: MenuSection[] = [
     "title": "Winter Feast",
     "items": [
       { "name": "Onion Rings", "price": 180 },
-      { "name": "Sourdough Mushroom Melt with Pesto Sauce", "price": 280 },
-      { "name": "Three Cheese Ravioli", "price": 370, "description": "A decadent trio of ricotta, bocconcini, and Parmesan folded into delicate pasta pillows, finished with a silky house-blend sauce" },
+      { "name": "Sourdough Mushroom Melt with Pesto Sauce", "price": 280, "isMostOrdered": true },
+      { "name": "Three Cheese Ravioli", "price": 370, "description": "A decadent trio of ricotta, bocconcini, and Parmesan folded into delicate pasta pillows, finished with a silky house-blend sauce", "isMostOrdered": true },
       { "name": "Traditional Lasagna", "price": 380, "description": "Layers of tender pasta, rich in house sauce, seasonal vegetables, and mozzarella on top, baked to golden perfection" }
     ]
   },
@@ -57,7 +57,7 @@ export const menuSections: MenuSection[] = [
     "title": "Sweet Spell",
     "items": [
       { "name": "Red Velvet Cookie", "price": 120 },
-      { "name": "Strawberry Cheesecake", "price": 250 },
+      { "name": "Strawberry Cheesecake", "price": 250, "isMostOrdered": true },
       { "name": "Chocolate Plum Cake", "price": 270 }
     ]
   },
@@ -387,7 +387,7 @@ export const menuSections: MenuSection[] = [
       { "name": "Blueberry Cheese Cake", "price": 250 },
       { "name": "Lotus Biscoff Cheese Cake", "price": 250 },
       { "name": "Nutella Cheese Cake", "price": 250 },
-      { "name": "Strawberry Cheese Cake", "price": 250 },
+      { "name": "Strawberry Cheese Cake", "price": 250, "isMostOrdered": true },
       { "name": "9:50 Signature Coffee Cheese Cake", "price": 280, "isSignature": true }
     ]
   }
