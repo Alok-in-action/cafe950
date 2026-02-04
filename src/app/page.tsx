@@ -362,20 +362,30 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
 
     return (
         <section id={section.id} className="reveal">
-            {section.preheader && (
-                <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
+            {section.id === 'winter-soup-edit' && (
+                <div className="text-center mb-8">
+                    <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">9:50 Warm moments</h2>
+                    <h3 className="font-script text-3xl text-[#8B4A27] opacity-80">The Soup Edit</h3>
+                </div>
             )}
-            <div className="flex items-end gap-3 mb-6 px-1">
-                {section.id === 'ramen-tales' && (
-                    <iconify-icon icon="fluent-emoji-high-contrast:chopsticks" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
-                )}
-                <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
-                <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                {section.id === 'ramen-tales' && (
-                    <iconify-icon icon="fluent-emoji-high-contrast:steaming-bowl" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
-                )}
-            </div>
-            {section.subtitle && (
+            {section.id !== 'winter-soup-edit' && (
+                <>
+                    {section.preheader && (
+                        <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
+                    )}
+                    <div className="flex items-end gap-3 mb-6 px-1">
+                        {section.id === 'ramen-tales' && (
+                            <iconify-icon icon="fluent-emoji-high-contrast:chopsticks" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
+                        )}
+                        <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
+                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                        {section.id === 'ramen-tales' && (
+                            <iconify-icon icon="fluent-emoji-high-contrast:steaming-bowl" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
+                        )}
+                    </div>
+                </>
+            )}
+            {section.subtitle && section.id !== 'winter-soup-edit' && (
                 <p className="font-sans text-xs text-center text-[#6B3A20]/80 italic -mt-4 mb-6 max-w-lg mx-auto whitespace-pre-line">{section.subtitle}</p>
             )}
             <div className={`grid ${gridCols} gap-3`}>
@@ -648,7 +658,7 @@ export default function Home() {
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                     {[
                                         { name: '9:50 Whispers of Love', section: 'whispers-of-love' },
-                                        { name: '9:50 Winter', section: 'winter-soup-edit' },
+                                        { name: '9:50 Warm moments', section: 'winter-soup-edit' },
                                         { name: 'Drinks', section: 'cold-brews' },
                                         { name: 'Shakes', section: 'shakes' },
                                         { name: 'Food', section: 'bites-for-sides' },
@@ -719,7 +729,7 @@ export default function Home() {
                         <iconify-icon icon="solar:donut-bitten-linear" width="32" className="text-[#8B4A27] opacity-80"></iconify-icon>
                     </div>
                     <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">Brewing Memories</h2>
-                    <p className="font-sans text-xs opacity-70 max-w-sm mx-auto leading-relaxed">Authentic Coffee • Handcrafted Pizza • Irresistible Desserts</p>
+                    <p className="font-sans text-xs opacity-70 max-w-sm mx-auto leading-relaxed whitespace-nowrap">Authentic Coffee • Handcrafted Pizza • Irresistible Desserts</p>
                 </section>
 
                 {menuSections.map((section, index) => {

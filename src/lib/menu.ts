@@ -20,8 +20,8 @@ export const menuSections: MenuSection[] = [
   },
   {
     "id": "winter-soup-edit",
-    "title": "The Soup Edit",
-    "subtitle": "9:50 Winter Collection",
+    "title": "9:50 Warm moments",
+    "subtitle": "The Soup Edit",
     "items": [
       { "name": "Lemon Coriander", "price": 160 },
       { "name": "Wild Mushroom Cappuccino", "price": 180, "description": "Earthy wild mushrooms, blended to creamy perfection, topped with a delicate foam" },
