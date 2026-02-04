@@ -327,7 +327,6 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
         case 'sandwiches':
         case 'burgers':
             CardComponent = BitesItemCard;
-            gridCols = 'grid-cols-1 md:grid-cols-2';
             break;
         case 'shakes':
             CardComponent = ShakeItemCard;
