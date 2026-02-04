@@ -363,9 +363,12 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
     return (
         <section id={section.id} className="reveal">
             {section.id === 'winter-soup-edit' && (
-                <div className="text-center mb-8">
+                <div className="mb-8 px-1">
                     <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">9:50 Warm moments</h2>
-                    <h3 className="font-script text-3xl text-[#8B4A27] opacity-80">The Soup Edit</h3>
+                    <div className="flex items-end gap-3">
+                        <h3 className="font-script text-3xl text-[#8B4A27] opacity-80">The Soup Edit</h3>
+                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                    </div>
                 </div>
             )}
             {section.id !== 'winter-soup-edit' && (
