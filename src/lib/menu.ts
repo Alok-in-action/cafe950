@@ -206,10 +206,10 @@ export const menuSections: MenuSection[] = [
     "title": "Blue Dream",
     "subtitle": "Blue pea, our café's botanical gem, brings a soft floral fragrance and a naturally brilliant blue color that transforms every beverage into a little moment of magic.",
     "items": [
-      { "name": "Blue Pea Iced Latte", "price": 140 },
-      { "name": "Blue Pea Sparkler", "price": 220, "description": "A fizzy, floral delight with the refreshing taste of blue pea flower, sophisticated with a touch of tonic water." },
+      { "name": "Blue Pea Iced Latte", "price": 140, "isMostOrdered": true },
+      { "name": "Blue Pea Sparkler", "price": 220, "description": "A fizzy, floral delight with the refreshing taste of blue pea flower, sophisticated with a touch of tonic water.", "isMostOrdered": true },
       { "name": "Blue Pea Coconut Cooler", "price": 250, "isMostOrdered": true },
-      { "name": "Blue Pea Matcha Smoothie", "price": 280 }
+      { "name": "Blue Pea Matcha Smoothie", "price": 280, "isMostOrdered": true }
     ]
   },
   {

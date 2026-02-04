@@ -48,12 +48,13 @@ const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
 
 const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
     <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#2e4c5a] bg-white px-2 py-0.5 rounded">Bestseller</span>}
         <div className="flex justify-between items-start">
-            <div>
-                <h4 className="font-sans text-sm font-medium text-[#2e4c5a]">{item.name}</h4>
-                {item.description && <p className="text-[10px] text-[#2e4c5a]/60 mt-1">{item.description}</p>}
+            <div className="flex-1 min-w-0 mr-2">
+                <h4 className="font-sans text-sm font-medium text-[#2e4c5a] break-words">{item.name}</h4>
+                {item.description && <p className="text-[10px] text-[#2e4c5a]/60 mt-1 leading-relaxed">{item.description}</p>}
             </div>
-            <span className="text-xs font-semibold text-[#2e4c5a] bg-white px-2 py-0.5 rounded-full">{item.price}</span>
+            <span className="text-xs font-semibold text-[#2e4c5a] bg-white px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>
         </div>
     </div>
 );
