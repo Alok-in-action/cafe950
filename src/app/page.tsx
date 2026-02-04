@@ -168,7 +168,7 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
 const BitesItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-3 sm:p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
                 <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                         <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
@@ -184,11 +184,15 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
-            <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
-            {item.description && <p className="text-[9px] text-gray-400 mb-2 leading-relaxed">{item.description}</p>}
-            <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span></div>
+            <div className="flex justify-between items-start gap-2 mb-2">
+                <h4 className="font-sans text-sm font-medium text-[#4a3b32] min-w-0 break-words flex-1">
+                    {item.name}
+                </h4>
+                {item.price && <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>}
+            </div>
+            {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed">{item.description}</p>}
         </div>
-    )
+    );
 };
 
 const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
