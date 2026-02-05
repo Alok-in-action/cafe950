@@ -736,7 +736,7 @@ export default function Home() {
                         <iconify-icon icon="solar:donut-bitten-linear" width="32" className="text-[#8B4A27] opacity-80"></iconify-icon>
                     </div>
                     <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">Brewing Memories</h2>
-                    <p className="font-sans text-[10px] sm:text-xs opacity-70 max-w-sm mx-auto leading-relaxed text-center px-4">Authentic Coffee • Handcrafted Pizza • Irresistible Desserts</p>
+                    <p className="font-sans text-[10px] sm:text-xs opacity-70 max-w-sm mx-auto leading-relaxed text-center px-4">Authentic Coffee • Handcrafted Pizza <br /> • Irresistible Desserts</p>
                 </section>
 
                 {menuSections.map((section, index) => {

@@ -158,7 +158,7 @@ export const menuSections: MenuSection[] = [
       { "name": "Lemon Iced Tea", "price": 140 },
       { "name": "Peach Iced Tea", "price": 160 },
       { "name": "Irish Iced Tea", "price": 180 },
-      { "name": "Hibiscus Iced Tea", "price": 200 }
+      { "name": "Hibiscus Iced Tea", "price": 200, "isMostOrdered": true }
     ]
   },
   {
@@ -206,10 +206,10 @@ export const menuSections: MenuSection[] = [
     "title": "Blue Dream",
     "subtitle": "Blue pea, our café's botanical gem, brings a soft floral fragrance and a naturally brilliant blue color that transforms every beverage into a little moment of magic.",
     "items": [
-      { "name": "Blue Pea Iced Latte", "price": 140, "isMostOrdered": true },
+      { "name": "Blue Pea Iced Latte", "price": 140 },
       { "name": "Blue Pea Sparkler", "price": 220, "description": "A fizzy, floral delight with the refreshing taste of blue pea flower, sophisticated with a touch of tonic water.", "isMostOrdered": true },
-      { "name": "Blue Pea Coconut Cooler", "price": 250, "isMostOrdered": true },
-      { "name": "Blue Pea Matcha Smoothie", "price": 280, "isMostOrdered": true }
+      { "name": "Blue Pea Coconut Cooler", "price": 250 },
+      { "name": "Blue Pea Matcha Smoothie", "price": 280 }
     ]
   },
   {
