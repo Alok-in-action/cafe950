@@ -95,6 +95,19 @@ const WinterCard = ({ item }: { item: MenuItemType }) => (
     </div>
 );
 
+const MatchaCard = ({ item }: { item: MenuItemType }) => (
+    <div className="group bg-gradient-to-br from-[#F0F7F0] via-[#F5FAF5] to-[#FAFFF5] p-3 sm:p-4 rounded-xl shadow-sm border border-[#8FBC8F]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#4A7C59] bg-[#8FBC8F]/10 px-2 py-0.5 rounded">Bestseller</span>}
+        <div className="flex justify-between items-start gap-2 mb-2">
+            <h4 className="font-sans text-sm font-medium text-[#3A5A3A] min-w-0 break-words flex-1">
+                {item.name}
+            </h4>
+            {item.price && <span className="text-xs font-semibold text-[#4A7C59] bg-[#8FBC8F]/10 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>}
+        </div>
+        {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed">{item.description}</p>}
+    </div>
+);
+
 
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
@@ -344,8 +357,10 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
             CardComponent = SpecialBlueDreamCard;
             gridCols = 'grid-cols-1 md:grid-cols-2';
             break;
-        case 'affogato':
         case 'matcha':
+            CardComponent = MatchaCard;
+            break;
+        case 'affogato':
         case 'hot-teas':
         case 'iced-teas':
         case 'hot-chocolate':
@@ -575,7 +590,7 @@ export default function Home() {
                                 </a>
 
                                 <a
-                                    href="https://www.google.com/search?q=cafe+9:50+reviews&zx=1770143981473&no_sw_cr=1#ebo=1"
+                                    href="https://g.page/r/CWIq9zqRzizWEBM/review"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#8B4A27]/5 transition-colors group"
