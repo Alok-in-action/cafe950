@@ -3,34 +3,6 @@ import type { MenuSection } from '@/types';
 
 export const menuSections: MenuSection[] = [
   {
-    "id": "winter-cozy-cups",
-    "title": "Cozy Cups",
-    "items": [
-      { "name": "Ginger Bread Latte", "price": 160, "isMostOrdered": true },
-      { "name": "Peppermint Mocha", "price": 170 },
-      { "name": "White Hot Chocolate", "price": 180 },
-      { "name": "London Fog", "price": 180, "description": "A velvety blend of Earl Grey tea, steamed milk, and a hint of vanilla, like wrapping yourself in a warm scarf on a misty London morning", "isMostOrdered": true },
-      { "name": "Cinnamon Maple Latte", "price": 200 },
-      { "name": "Tiramisu Hot Chocolate", "price": 230 }
-    ]
-  },
-  {
-    "id": "winter-feast",
-    "title": "Winter Feast",
-    "items": [
-      { "name": "Onion Rings", "price": 180 }
-    ]
-  },
-  {
-    "id": "winter-sweet-spell",
-    "title": "Sweet Spell",
-    "items": [
-      { "name": "Red Velvet Cookie", "price": 120 },
-      { "name": "Strawberry Cheesecake", "price": 250, "isMostOrdered": true },
-      { "name": "Chocolate Plum Cake", "price": 270 }
-    ]
-  },
-  {
     "id": "classic-espresso-bar",
     "title": "Classic Espresso Bar",
     "items": [

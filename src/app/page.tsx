@@ -77,23 +77,7 @@ const WhispersOfLoveCard = ({ item }: { item: MenuItemType }) => (
     </div>
 );
 
-const WinterCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group bg-gradient-to-br from-[#F0F4F7] via-[#EBF2F7] to-[#E6EFF5] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-[#D5E5ED]/40">
-        <div className="flex justify-between items-start">
-            <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                    <iconify-icon icon="mdi:snowflake" className="text-[#7FA8C4]/50 text-base flex-shrink-0"></iconify-icon>
-                    <h4 className="font-sans text-sm font-semibold text-[#3A5A6F] break-words">{item.name}</h4>
-                </div>
-                {item.description && <p className="text-[10px] text-[#5A7A8F]/70 mt-2 leading-relaxed">{item.description}</p>}
-                {(item.isMostOrdered || item.customTag) && (
-                    <span className="inline-block mt-2 text-[10px] font-bold text-[#3A5A6F] bg-white/60 backdrop-blur-sm px-2 py-1 rounded-full uppercase">{item.customTag || "BESTSELLER"}</span>
-                )}
-            </div>
-            <span className="text-xs font-bold text-[#3A5A6F] bg-white/50 backdrop-blur-sm px-3 py-1.5 rounded-full ml-3 whitespace-nowrap flex-shrink-0">{item.price}</span>
-        </div>
-    </div>
-);
+
 
 const MatchaCard = ({ item }: { item: MenuItemType }) => (
     <div className="group bg-gradient-to-br from-[#F0F7F0] via-[#F5FAF5] to-[#FAFFF5] p-3 sm:p-4 rounded-xl shadow-sm border border-[#8FBC8F]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -319,13 +303,7 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
             CardComponent = WhispersOfLoveCard;
             gridCols = 'grid-cols-1 md:grid-cols-2';
             break;
-        case 'winter-soup-edit':
-        case 'winter-cozy-cups':
-        case 'winter-feast':
-        case 'winter-sweet-spell':
-            CardComponent = WinterCard;
-            gridCols = 'grid-cols-1 md:grid-cols-2';
-            break;
+
         case 'classic-espresso-bar':
             CardComponent = MenuItemCard;
             break;
@@ -381,33 +359,20 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
 
     return (
         <section id={section.id} className="reveal">
-            {section.id === 'winter-soup-edit' && (
-                <div className="mb-8 px-1">
-                    <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">9:50 Warm moments</h2>
-                    <div className="flex items-end gap-3">
-                        <h3 className="font-script text-3xl text-[#8B4A27] opacity-80">The Soup Edit</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                    </div>
-                </div>
+            {section.preheader && (
+                <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
             )}
-            {section.id !== 'winter-soup-edit' && (
-                <>
-                    {section.preheader && (
-                        <p className="font-sans text-sm font-medium uppercase tracking-widest text-[#5A2E1B] text-center mb-2">{section.preheader}</p>
-                    )}
-                    <div className="flex items-end gap-3 mb-6 px-1">
-                        {section.id === 'ramen-tales' && (
-                            <iconify-icon icon="fluent-emoji-high-contrast:chopsticks" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
-                        )}
-                        <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
-                        <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
-                        {section.id === 'ramen-tales' && (
-                            <iconify-icon icon="fluent-emoji-high-contrast:steaming-bowl" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
-                        )}
-                    </div>
-                </>
-            )}
-            {section.subtitle && section.id !== 'winter-soup-edit' && (
+            <div className="flex items-end gap-3 mb-6 px-1">
+                {section.id === 'ramen-tales' && (
+                    <iconify-icon icon="fluent-emoji-high-contrast:chopsticks" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
+                )}
+                <h3 className="font-script text-3xl text-[#5A2E1B]">{section.title}</h3>
+                <span className="h-px flex-1 bg-[#8B4A27]/20 mb-2"></span>
+                {section.id === 'ramen-tales' && (
+                    <iconify-icon icon="fluent-emoji-high-contrast:steaming-bowl" className="text-[#5A2E1B] text-2xl mb-1 opacity-60"></iconify-icon>
+                )}
+            </div>
+            {section.subtitle && (
                 <p className="font-sans text-xs text-center text-[#6B3A20]/80 italic -mt-4 mb-6 max-w-lg mx-auto whitespace-pre-line">{section.subtitle}</p>
             )}
             <div className={`grid ${gridCols} gap-3`}>
@@ -679,8 +644,6 @@ export default function Home() {
                             ) : (
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                     {[
-                                        { name: '9:50 Whispers of Love', section: 'whispers-of-love' },
-                                        { name: '9:50 Warm moments', section: 'winter-soup-edit' },
                                         { name: 'Drinks', section: 'cold-brews' },
                                         { name: 'Shakes', section: 'shakes' },
                                         { name: 'Food', section: 'bites-for-sides' },
