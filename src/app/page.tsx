@@ -22,7 +22,7 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <div className="flex justify-between items-start gap-2 mb-2">
                 <h4 className="font-sans text-sm font-medium text-[#4a3b32] min-w-0 break-words flex-1">
                     {item.name}
@@ -37,7 +37,7 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <div className="flex justify-end mt-2">
                 <span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span>
@@ -48,7 +48,7 @@ const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
 
 const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
     <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-        {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#2e4c5a] bg-white px-2 py-0.5 rounded">Bestseller</span>}
+        {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#2e4c5a] bg-white px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
         <div className="flex justify-between items-start">
             <div className="flex-1 min-w-0 mr-2">
                 <h4 className="font-sans text-sm font-medium text-[#2e4c5a] break-words">{item.name}</h4>
@@ -68,8 +68,8 @@ const WhispersOfLoveCard = ({ item }: { item: MenuItemType }) => (
                     <h4 className="font-sans text-sm font-semibold text-[#f2e6d9] break-words">{item.name}</h4>
                 </div>
                 {item.description && <p className="text-[10px] text-[#f2e6d9]/70 mt-2 leading-relaxed">{item.description}</p>}
-                {item.isMostOrdered && (
-                    <span className="inline-block mt-2 text-[10px] font-bold text-[#f2e6d9] bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">BESTSELLER</span>
+                {(item.isMostOrdered || item.customTag) && (
+                    <span className="inline-block mt-2 text-[10px] font-bold text-[#f2e6d9] bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full uppercase">{item.customTag || "BESTSELLER"}</span>
                 )}
             </div>
             <span className="text-xs font-bold text-[#f2e6d9] bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full ml-3 whitespace-nowrap flex-shrink-0">{item.price}</span>
@@ -86,8 +86,8 @@ const WinterCard = ({ item }: { item: MenuItemType }) => (
                     <h4 className="font-sans text-sm font-semibold text-[#3A5A6F] break-words">{item.name}</h4>
                 </div>
                 {item.description && <p className="text-[10px] text-[#5A7A8F]/70 mt-2 leading-relaxed">{item.description}</p>}
-                {item.isMostOrdered && (
-                    <span className="inline-block mt-2 text-[10px] font-bold text-[#3A5A6F] bg-white/60 backdrop-blur-sm px-2 py-1 rounded-full">BESTSELLER</span>
+                {(item.isMostOrdered || item.customTag) && (
+                    <span className="inline-block mt-2 text-[10px] font-bold text-[#3A5A6F] bg-white/60 backdrop-blur-sm px-2 py-1 rounded-full uppercase">{item.customTag || "BESTSELLER"}</span>
                 )}
             </div>
             <span className="text-xs font-bold text-[#3A5A6F] bg-white/50 backdrop-blur-sm px-3 py-1.5 rounded-full ml-3 whitespace-nowrap flex-shrink-0">{item.price}</span>
@@ -97,7 +97,7 @@ const WinterCard = ({ item }: { item: MenuItemType }) => (
 
 const MatchaCard = ({ item }: { item: MenuItemType }) => (
     <div className="group bg-gradient-to-br from-[#F0F7F0] via-[#F5FAF5] to-[#FAFFF5] p-3 sm:p-4 rounded-xl shadow-sm border border-[#8FBC8F]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-        {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#4A7C59] bg-[#8FBC8F]/10 px-2 py-0.5 rounded">Bestseller</span>}
+        {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#4A7C59] bg-[#8FBC8F]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
         <div className="flex justify-between items-start gap-2 mb-2">
             <h4 className="font-sans text-sm font-medium text-[#3A5A3A] min-w-0 break-words flex-1">
                 {item.name}
@@ -129,7 +129,7 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
 
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
                 <span>{category}</span>
@@ -165,7 +165,7 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
 
     return (
         <div className="group bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-[#8B4A27]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <div className="flex justify-between items-start mb-2 gap-2">
                 <h4 className="font-sans text-sm sm:text-base font-medium text-[#5A2E1B] min-w-0 break-words flex-1">{item.name}</h4>
                 <iconify-icon icon={icon} className="text-[#8B4A27]/40 flex-shrink-0"></iconify-icon>
@@ -197,7 +197,7 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
 
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <div className="flex justify-between items-start gap-2 mb-2">
                 <h4 className="font-sans text-sm font-medium text-[#4a3b32] min-w-0 break-words flex-1">
                     {item.name}
@@ -228,7 +228,7 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-[#fff8f0] p-3 sm:p-4 rounded-xl border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
             <div>
-                {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+                {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
                 <h4 className="font-sans text-sm font-medium min-w-0 break-words">{item.name}</h4>
                 {item.description ?
                     <p className="text-[9px] text-[#8B4A27]/50 mt-1 leading-relaxed">{item.description}</p>
@@ -262,7 +262,7 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
             <iconify-icon icon={icon} className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
-            {item.isMostOrdered && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">Bestseller</span>}
+            {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <span className="text-xs text-[#8B4A27] font-semibold">{item.price}</span>
         </div>

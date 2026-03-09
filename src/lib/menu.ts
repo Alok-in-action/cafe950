@@ -3,34 +3,6 @@ import type { MenuSection } from '@/types';
 
 export const menuSections: MenuSection[] = [
   {
-    "id": "whispers-of-love",
-    "title": "9:50 Whispers of Love",
-    "items": [
-      { "name": "Red Velvet Mocha", "price": 230 },
-      { "name": "Velvet Rose Latte", "price": 240, "description": "Silky latte kissed with floral rose notes and a soft, vanilla finish.", "isMostOrdered": true },
-      { "name": "Hibiscus Strawberry Iced Tea", "price": 250 },
-      { "name": "Lavender Love Matcha", "price": 250 },
-      { "name": "Love Potion Cold Brew", "price": 300, "description": "Smooth cold brew infused with a hint of white chocolate and a dangerously strawberry charm." },
-      { "name": "Pomegranate Mint Cooler", "price": 300, "isMostOrdered": true },
-      { "name": "Paneer Tikka in Focaccia Bread", "price": 300 },
-      { "name": "Exotic Pink Penne", "price": 300 },
-      { "name": "Love in the Forest Pizza", "price": "470/520", "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes", "isMostOrdered": true },
-      { "name": "Red Velvet Tiramisu", "price": 280, "isMostOrdered": true }
-    ]
-  },
-  {
-    "id": "winter-soup-edit",
-    "title": "9:50 Warm moments",
-    "subtitle": "The Soup Edit",
-    "items": [
-      { "name": "Lemon Coriander", "price": 160 },
-      { "name": "Wild Mushroom Cappuccino", "price": 180, "description": "Earthy wild mushrooms, blended to creamy perfection, topped with a delicate foam", "isMostOrdered": true },
-      { "name": "Creamy Tomato Basil", "price": 180 },
-      { "name": "French Onion", "price": 200, "description": "Golden onions, savory vegetable broth, and a cheesy gratin topping for a warm, flavorful experience" },
-      { "name": "Vegetable Man-Chow", "price": 250 }
-    ]
-  },
-  {
     "id": "winter-cozy-cups",
     "title": "Cozy Cups",
     "items": [
@@ -46,10 +18,7 @@ export const menuSections: MenuSection[] = [
     "id": "winter-feast",
     "title": "Winter Feast",
     "items": [
-      { "name": "Onion Rings", "price": 180 },
-      { "name": "Sourdough Mushroom Melt with Pesto Sauce", "price": 280, "isMostOrdered": true },
-      { "name": "Three Cheese Ravioli", "price": 370, "description": "A decadent trio of ricotta, bocconcini, and Parmesan folded into delicate pasta pillows, finished with a silky house-blend sauce", "isMostOrdered": true },
-      { "name": "Traditional Lasagna", "price": 380, "description": "Layers of tender pasta, rich in house sauce, seasonal vegetables, and mozzarella on top, baked to golden perfection" }
+      { "name": "Onion Rings", "price": 180 }
     ]
   },
   {
@@ -87,21 +56,22 @@ export const menuSections: MenuSection[] = [
       { "name": "Tiramisu Cappuccino (Hot/Iced)", "price": 220 },
       { "name": "Lotus Biscoff Latte (Hot/Iced)", "price": 220 },
       { "name": "Classic Iced Coffee", "price": 230 },
-      { "name": "Vietnamese Iced Coffee", "price": 230, "isMostOrdered": true }
+      { "name": "Vietnamese Iced Coffee", "price": 230, "isMostOrdered": true },
+      { "name": "Red Velvet Mocha", "price": 230, "customTag": "Barista's Choice" }
     ]
   },
   {
     "id": "frappe-to-go",
     "title": "Frappe To Go",
     "items": [
-      { "name": "9:50 Signature Frappe", "price": 190, "description": "Your go-to strong cold coffee with a hint of vanilla, designed to relish anytime and every time", "isSignature": true },
       { "name": "Hazelnut Frappe", "price": 210 },
       { "name": "Irish Frappe", "price": 220, "isMostOrdered": true },
       { "name": "Java Chip Frappe", "price": 220 },
       { "name": "Toffee Caramel Frappe", "price": 230 },
       { "name": "Tiramisu Frappe", "price": 240 },
       { "name": "Biscoff Frappe", "price": 250 },
-      { "name": "Brownie Frappe", "price": 250 }
+      { "name": "Brownie Frappe", "price": 250 },
+      { "name": "9:50 Signature Frappe", "price": 190, "description": "Your go-to strong cold coffee with a hint of vanilla, designed to relish anytime and every time", "isSignature": true }
     ]
   },
   {
@@ -138,7 +108,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Matcha Frappe", "price": 210 },
       { "name": "Mango Matcha Latte", "price": 220 },
       { "name": "Strawberry Matcha Latte", "price": 220 },
-      { "name": "Coconut Matcha Latte", "price": 230, "isMostOrdered": true }
+      { "name": "Coconut Matcha Latte", "price": 230, "isMostOrdered": true },
+      { "name": "Lavender Love Matcha", "price": 250 }
     ]
   },
   {
@@ -158,7 +129,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Lemon Iced Tea", "price": 140 },
       { "name": "Peach Iced Tea", "price": 160 },
       { "name": "Irish Iced Tea", "price": 180 },
-      { "name": "Hibiscus Iced Tea", "price": 200, "isMostOrdered": true }
+      { "name": "Hibiscus Iced Tea", "price": 200, "isMostOrdered": true },
+      { "name": "Hibiscus Strawberry Iced Tea", "price": 250, "customTag": "trending" }
     ]
   },
   {
@@ -198,7 +170,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Coffee Lemonade", "price": 160, "description": "A zesty, caffeinated kick that's bold, bright, and totally refreshing.", "isMostOrdered": true },
       { "name": "Shirley Temple", "price": 170, "description": "A dreamy mix of citrus fruits and ginger ale garnished with lime wedges and mint, this bubbly Mocktail is a delightful treat for all ages." },
       { "name": "Cinderella", "price": 180, "description": "A pomegranate fairy tale in a glass, with a fizzy twist that'll make you feel magical." },
-      { "name": "Passionate Love", "price": 180, "description": "An addictive blend of passion fruit and citrus flavours, a drink that's as refreshing and full of love as it sounds." }
+      { "name": "Passionate Love", "price": 180, "description": "An addictive blend of passion fruit and citrus flavours, a drink that's as refreshing and full of love as it sounds." },
+      { "name": "Pomegranate Mint Cooler", "price": 300, "customTag": "Barista's Choice" }
     ]
   },
   {
@@ -228,8 +201,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Mango Madness Smoothie", "price": 230 },
       { "name": "Berry Powerful Smoothie", "price": 240, "description": "This smoothie features a medley of assorted berries and banana, blended with milk for a luscious texture.", "isMostOrdered": true },
       { "name": "Nutty Buddy Smoothie", "price": 240, "description": "A delightful blend of milk, banana, peanut butter, dark chocolate, and cocoa, this smoothie is every gym goer's paradise." },
-      { "name": "9:50 Signature Smoothie", "price": 250, "description": "A heavenly mix of fresh fruits and milk, creating a smoothie that's utterly satisfying.", "isSignature": true },
-      { "name": "Avocado Coconut Smoothie", "price": 280 }
+      { "name": "Avocado Coconut Smoothie", "price": 280 },
+      { "name": "9:50 Signature Smoothie", "price": 250, "description": "A heavenly mix of fresh fruits and milk, creating a smoothie that's utterly satisfying.", "isSignature": true }
     ]
   },
   {
@@ -260,7 +233,9 @@ export const menuSections: MenuSection[] = [
       { "name": "Nachos with Salsa", "price": 170 },
       { "name": "Overloaded Nachos", "price": 190, "description": "Crispy nachos loaded with vibrant salsa, veggies and ultimately crowned with cheese and jalapeño sauce." },
       { "name": "Cherry Tomato & Cottage Cheese Bruschetta", "price": 210 },
-      { "name": "Pesto Cottage Cheese in Focaccia Bread", "price": 280, "isMostOrdered": true }
+      { "name": "Pesto Cottage Cheese in Focaccia Bread", "price": 280, "isMostOrdered": true },
+      { "name": "Paneer Tikka in Focaccia Bread", "price": 300, "customTag": "chiefs choice" },
+      { "name": "Sourdough Mushroom Melt with Pesto Sauce", "price": 280, "customTag": "chiefs choice" }
     ]
   },
   {
@@ -305,6 +280,9 @@ export const menuSections: MenuSection[] = [
       { "name": "Fettuccine Basil Pesto", "price": 260, "description": "Silky fettuccine draped in vibrant pesto sauce with olives and a bright finish of basil and Parmesan.", "isMostOrdered": true },
       { "name": "Penne Arrabbiata", "price": 280, "description": "Fiery, tangy penne tossed with peppers and olives, lifted by fresh parsley and a snowfall of Parmesan." },
       { "name": "Fettuccine Creamy Mushroom", "price": 300, "description": "A lush mushroom-cream-coated fettuccine crowned with chili warmth and delicate Parmesan." },
+      { "name": "Traditional Lasagna", "price": 380, "description": "Layers of tender pasta, rich in house sauce, seasonal vegetables, and mozzarella on top, baked to golden perfection", "customTag": "chiefs choice" },
+      { "name": "Three Cheese Ravioli", "price": 370, "description": "A decadent trio of ricotta, bocconcini, and Parmesan folded into delicate pasta pillows, finished with a silky house-blend sauce", "customTag": "chiefs choice" },
+      { "name": "Exotic Pink Penne", "price": 300, "customTag": "chiefs choice" },
       { "name": "9:50 Mac & Cheese", "price": 300, "description": "A creamy, golden bake of butter-garlic macaroni with broccoli, paprika, sweet corn, and molten mozzarella on top.", "isSignature": true }
     ]
   },
@@ -320,6 +298,7 @@ export const menuSections: MenuSection[] = [
       { "name": "Exotic Pizza", "prices": { "ny": 410, "neap": 450 }, "description": "Golden corn, bell peppers, black olives, and paneer come together for a vibrant, flavorful pizza experience." },
       { "name": "Paneer Tikka Pizza", "prices": { "ny": 420, "neap": 460 }, "description": "Spiced paneer, bell pepper, onion, paprika, and jalapeño on tangy paneer tikka sauce." },
       { "name": "Pestomania Pizza", "prices": { "ny": 430, "neap": 470 }, "description": "Bocconcini over vibrant pesto sauce, served with a side of pesto dip." },
+      { "name": "Love in the Forest Pizza", "price": "470/520", "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes", "customTag": "trending" },
       { "name": "9:50 Signature Pizza", "prices": { "ny": 450, "neap": 490 }, "description": "Garlic cream base with mozzarella, bocconcini, red paprika, jalapeño, black olives, pickle onion, finished with fried garlic.", "isSignature": true }
     ]
   },
@@ -350,8 +329,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Schezwan Fried Rice", "price": 250 },
       { "name": "Burrito Rice Bowl", "price": 270, "description": "A flavorful mix of rice, beans and veggies, all topped with tangy salsa and fresh garnishes, served in a bowl for a satisfying meal.", "isMostOrdered": true },
       { "name": "Peri Peri Paneer Rice Bowl", "price": 280 },
-      { "name": "9:50 Signature Meal Bowl", "price": 310, "description": "Your comforting pizza flavours but in a rice bowl.", "isSignature": true },
-      { "name": "Buddha Bowl", "price": 320, "description": "A wholesome, vibrant bowl filled with fresh veggies, quinoa, chickpeas, and a tangy tahini dressing—a balanced meal that feeds both the body and the soul." }
+      { "name": "Buddha Bowl", "price": 320, "description": "A wholesome, vibrant bowl filled with fresh veggies, quinoa, chickpeas, and a tangy tahini dressing—a balanced meal that feeds both the body and the soul." },
+      { "name": "9:50 Signature Meal Bowl", "price": 310, "description": "Your comforting pizza flavours but in a rice bowl.", "isSignature": true }
     ]
   },
   {

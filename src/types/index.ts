@@ -6,8 +6,9 @@ export type MenuItem = {
     neap: number;
   };
   description?: string;
-  isSignature?: boolean;
   isMostOrdered?: boolean;
+  isSignature?: boolean;
+  customTag?: string;
 };
 
 export type MenuSection = {
