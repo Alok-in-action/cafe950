@@ -23,13 +23,11 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
-            <div className="flex justify-between items-start gap-2 mb-2">
-                <h4 className="font-sans text-sm font-medium text-[#4a3b32] min-w-0 break-words flex-1">
-                    {item.name}
-                </h4>
-                {item.price && <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>}
-            </div>
-            {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed">{item.description}</p>}
+            <h4 className="font-sans text-sm font-medium text-[#4a3b32] break-words leading-snug mb-2">
+                {item.name}
+            </h4>
+            {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed mb-2">{item.description}</p>}
+            {item.price && <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span></div>}
         </div>
     );
 };
@@ -38,9 +36,9 @@ const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
-            <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
-            <div className="flex justify-end mt-2">
-                <span className="text-xs font-semibold text-[#8B4A27]">{item.price}</span>
+            <h4 className="font-sans text-sm font-medium break-words leading-snug mb-2">{item.name}</h4>
+            <div className="flex justify-end">
+                <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span>
             </div>
         </div>
     );
@@ -78,6 +76,20 @@ const WhispersOfLoveCard = ({ item }: { item: MenuItemType }) => (
 );
 
 
+
+const SummerEditCard = ({ item }: { item: MenuItemType }) => (
+    <div className="group bg-gradient-to-br from-[#FFF3E0] via-[#FFF8E7] to-[#FFFDE7] p-3 sm:p-4 rounded-2xl shadow-sm border border-[#FFB300]/20 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        {item.customTag && (
+            <span className={`inline-block mb-1.5 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded self-start ${item.customTag.toLowerCase() === 'trending' ? 'text-[#BF360C] bg-[#FF3D00]/10' : 'text-[#E65100] bg-[#FFB300]/20'}`}>
+                {item.customTag}
+            </span>
+        )}
+        <h4 className="font-sans text-sm font-medium text-[#5D4037] break-words leading-snug mb-2 flex-1">{item.name}</h4>
+        <div className="flex justify-end mt-1">
+            <span className="text-xs font-bold text-[#E65100] bg-[#FFB300]/15 px-2 py-0.5 rounded-full">₹{item.price}</span>
+        </div>
+    </div>
+);
 
 const MatchaCard = ({ item }: { item: MenuItemType }) => (
     <div className="group bg-gradient-to-br from-[#F0F7F0] via-[#F5FAF5] to-[#FAFFF5] p-3 sm:p-4 rounded-xl shadow-sm border border-[#8FBC8F]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
@@ -182,13 +194,11 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
-            <div className="flex justify-between items-start gap-2 mb-2">
-                <h4 className="font-sans text-sm font-medium text-[#4a3b32] min-w-0 break-words flex-1">
-                    {item.name}
-                </h4>
-                {item.price && <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>}
-            </div>
-            {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed">{item.description}</p>}
+            <h4 className="font-sans text-sm font-medium text-[#4a3b32] break-words leading-snug mb-2">
+                {item.name}
+            </h4>
+            {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed mb-2">{item.description}</p>}
+            {item.price && <div className="flex justify-end"><span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span></div>}
         </div>
     );
 };
@@ -257,6 +267,47 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 const SectionComponent = ({ section }: { section: MenuSection }) => {
     let CardComponent;
     let gridCols = 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4';
+
+    if (section.id === 'summer-edit') {
+        return (
+            <section id={section.id} className="reveal -mx-4 sm:-mx-6 px-4 sm:px-6 py-10 rounded-2xl shadow-md" style={{ background: 'linear-gradient(135deg, #FFF8E1 0%, #FFE0B2 40%, #FFF9C4 100%)', border: '1.5px solid #FFB30040' }}>
+                <div className="max-w-7xl mx-auto">
+                    {/* Header */}
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center gap-2 bg-[#FF8F00]/10 border border-[#FF8F00]/30 rounded-full px-4 py-1.5 mb-4">
+                            <iconify-icon icon="emojione:sun" width="16"></iconify-icon>
+                            <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[#E65100]">Limited Season Special</span>
+                            <iconify-icon icon="emojione:sun" width="16"></iconify-icon>
+                        </div>
+                        <h3 className="font-script text-4xl sm:text-5xl text-[#BF360C] mb-2">{section.title}</h3>
+                        {section.subtitle && <p className="font-sans text-xs text-[#6D4C41]/80 italic max-w-sm mx-auto leading-relaxed">{section.subtitle}</p>}
+                    </div>
+                    {/* Drinks */}
+                    <div className="mb-6">
+                        <div className="flex items-center gap-2 mb-3">
+                            <iconify-icon icon="solar:cup-hot-bold" className="text-[#F57F17]" width="16"></iconify-icon>
+                            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#F57F17]">Sips</span>
+                            <span className="h-px flex-1 bg-[#FFB300]/30"></span>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            {section.items.slice(0, 8).map(item => <SummerEditCard key={item.name} item={item} />)}
+                        </div>
+                    </div>
+                    {/* Desserts */}
+                    <div>
+                        <div className="flex items-center gap-2 mb-3">
+                            <iconify-icon icon="solar:ice-cream-linear" className="text-[#F57F17]" width="16"></iconify-icon>
+                            <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-[#F57F17]">Sweet Escapes</span>
+                            <span className="h-px flex-1 bg-[#FFB300]/30"></span>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            {section.items.slice(8).map(item => <SummerEditCard key={item.name} item={item} />)}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
     if (section.id === 'pizza') {
         return (

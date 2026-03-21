@@ -3,6 +3,23 @@ import type { MenuSection } from '@/types';
 
 export const menuSections: MenuSection[] = [
   {
+    "id": "summer-edit",
+    "title": "9:50 Summer Edit",
+    "subtitle": "A curated drop of sunshine sips & sweet escapes — only while summer lasts.",
+    "items": [
+      { "name": "ABO (Apple, Beetroot and Orange) Juice", "price": 200, "customTag": "Barista's Choice" },
+      { "name": "Green Apple Iced Tea", "price": 200 },
+      { "name": "Raspberry Lemonade", "price": 230 },
+      { "name": "Caramel Matcha Latte", "price": 250 },
+      { "name": "Strawberry Espresso Tonic", "price": 260, "customTag": "Barista's Choice" },
+      { "name": "Blue Brew", "price": 260 },
+      { "name": "Mango Chilli Cooler", "price": 280 },
+      { "name": "Rose Pistachio Shake", "price": 320, "customTag": "trending" },
+      { "name": "Mango Cheesecake", "price": 280 },
+      { "name": "Blueberry Tiramisu", "price": 280, "customTag": "trending" }
+    ]
+  },
+  {
     "id": "classic-espresso-bar",
     "title": "Classic Espresso Bar",
     "items": [
