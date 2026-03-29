@@ -12,7 +12,7 @@ export const menuSections: MenuSection[] = [
       { "name": "Raspberry Lemonade", "price": 230 },
       { "name": "Caramel Matcha Latte", "price": 250 },
       { "name": "Strawberry Espresso Tonic", "price": 260, "customTag": "Barista's Choice" },
-      { "name": "Blue Brew", "price": 260 },
+      { "name": "Fizzy Coconut Cold Brew", "price": 260 },
       { "name": "Mango Chilli Cooler", "price": 280 },
       { "name": "Rose Pistachio Shake", "price": 320, "customTag": "trending" },
       { "name": "Mango Cheesecake", "price": 280 },
