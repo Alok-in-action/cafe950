@@ -4,8 +4,8 @@ import { menuSections as fallbackMenu } from '@/lib/menu';
 const SHEET_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vRuDyCFbD319QUWQGYvtmjsTbe3e6L3gsIDO9uWcLiJfECt7vAKW2Gt-mMyDMUWKi1gwEHeQkD9Wdgk/pub?output=csv';
 
-// Revalidate cached data every 5 minutes
-export const revalidate = 300;
+// Revalidate cached data every 1 minute
+export const revalidate = 60;
 
 /** Simple CSV row parser that handles quoted fields containing commas */
 function parseCSVRow(line: string): string[] {
