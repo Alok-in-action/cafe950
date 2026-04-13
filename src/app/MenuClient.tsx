@@ -128,7 +128,7 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
             <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
                 <span>{category}</span>
-                <span>{item.price}</span>
+                <span className="bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span>
             </div>
         </div>
     )
@@ -146,10 +146,18 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
                     <iconify-icon icon="solar:crown-linear" className="text-[#f2e6d9] flex-shrink-0"></iconify-icon>
                 </div>
                 {item.description && <p className="text-[10px] opacity-80 mb-4 leading-relaxed">{item.description}</p>}
-                {item.prices && <div className="flex gap-2">
-                    <span className="flex-1 text-center text-[10px] border border-[#f2e6d9]/30 rounded py-1 text-[#f2e6d9]">NY: {item.prices.ny}</span>
-                    <span className="flex-1 text-center text-[10px] bg-[#f2e6d9]/20 rounded py-1 text-[#f2e6d9] font-bold">NE: {item.prices.neap}</span>
-                </div>}
+                {item.prices ? (
+                    <div className="flex gap-2">
+                        <span className="flex-1 text-center text-[10px] border border-[#f2e6d9]/30 rounded py-1 text-[#f2e6d9]">NEW YORK: {item.prices.ny}</span>
+                        <span className="flex-1 text-center text-[10px] bg-[#f2e6d9]/20 rounded py-1 text-[#f2e6d9] font-bold">NEAPOLITAN: {item.prices.neap}</span>
+                    </div>
+                ) : (
+                    item.price && (
+                        <div className="flex justify-end">
+                            <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>
+                        </div>
+                    )
+                )}
             </div>
         )
     }
@@ -166,10 +174,18 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
                 <iconify-icon icon={icon} className="text-[#8B4A27]/40 flex-shrink-0"></iconify-icon>
             </div>
             {item.description && <p className="text-[10px] text-gray-400 mb-4 leading-relaxed">{item.description}</p>}
-            {item.prices && <div className="flex gap-2">
-                <span className="flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]">NY: {item.prices.ny}</span>
-                <span className="flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium">NE: {item.prices.neap}</span>
-            </div>}
+            {item.prices ? (
+                <div className="flex gap-2">
+                    <span className="flex-1 text-center text-[10px] border border-[#8B4A27]/20 rounded py-1 text-[#8B4A27]">NEW YORK: {item.prices.ny}</span>
+                    <span className="flex-1 text-center text-[10px] bg-[#8B4A27]/10 rounded py-1 text-[#8B4A27] font-medium">NEAPOLITAN: {item.prices.neap}</span>
+                </div>
+            ) : (
+                item.price && (
+                    <div className="flex justify-end">
+                        <span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span>
+                    </div>
+                )
+            )}
         </div>
     )
 };
@@ -228,7 +244,7 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
                     : <span className="w-8 h-0.5 bg-[#8B4A27]/10 block my-2"></span>
                 }
             </div>
-            <span className="self-end text-xs font-semibold text-[#8B4A27] mt-2">{item.price}</span>
+            {item.price && <span className="self-end text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full mt-2">{item.price}</span>}
         </div>
     )
 };
@@ -257,7 +273,7 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
             <iconify-icon icon={icon} className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
-            <span className="text-xs text-[#8B4A27] font-semibold">{item.price}</span>
+            {item.price && <div className="flex justify-center mt-2"><span className="text-xs font-semibold text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded-full">{item.price}</span></div>}
         </div>
     )
 };

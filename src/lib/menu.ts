@@ -287,7 +287,7 @@ export const menuSections: MenuSection[] = [
       { "name": "Exotic Pizza", "prices": { "ny": 410, "neap": 450 }, "description": "Golden corn, bell peppers, black olives, and paneer come together for a vibrant, flavorful pizza experience." },
       { "name": "Paneer Tikka Pizza", "prices": { "ny": 420, "neap": 460 }, "description": "Spiced paneer, bell pepper, onion, paprika, and jalapeño on tangy paneer tikka sauce." },
       { "name": "Pestomania Pizza", "prices": { "ny": 430, "neap": 470 }, "description": "Bocconcini over vibrant pesto sauce, served with a side of pesto dip." },
-      { "name": "Love in the Forest Pizza", "price": "470/520", "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes", "customTag": "trending" },
+      { "name": "Love in the Forest Pizza (Neapolitan)", "price": 520, "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes", "customTag": "trending" },
       { "name": "9:50 Signature Pizza", "prices": { "ny": 450, "neap": 490 }, "description": "Garlic cream base with mozzarella, bocconcini, red paprika, jalapeño, black olives, pickle onion, finished with fried garlic.", "isSignature": true }
     ]
   },

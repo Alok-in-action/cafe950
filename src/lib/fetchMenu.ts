@@ -125,7 +125,17 @@ export async function fetchMenuSections(): Promise<MenuSection[]> {
 
       if (!categoryTitle || !name) continue;
 
-      const sectionId = TITLE_TO_ID[categoryTitle] ?? categoryTitle.toLowerCase().replace(/\s+/g, '-');
+      const sectionId =
+        TITLE_TO_ID[categoryTitle] ??
+        categoryTitle.toLowerCase().replace(/\s+/g, '-');
+
+      // Skip pizza items from the sheet - we'll use static fallback for this section
+      if (sectionId === 'pizza') {
+        if (!sectionOrder.includes('pizza')) {
+          sectionOrder.push('pizza');
+        }
+        continue;
+      }
 
       if (!sectionsMap.has(sectionId)) {
         sectionsMap.set(sectionId, {
@@ -150,10 +160,25 @@ export async function fetchMenuSections(): Promise<MenuSection[]> {
       sectionsMap.get(sectionId)!.items.push(item);
     }
 
-    const sections = sectionOrder.map((id) => sectionsMap.get(id)!);
+    const sections = sectionOrder.map((id) => {
+      if (id === 'pizza') {
+        return (
+          fallbackMenu.find((s) => s.id === 'pizza') ?? {
+            id: 'pizza',
+            title: 'Pizza Station',
+            items: [],
+          }
+        );
+      }
+      return sectionsMap.get(id)!;
+    });
+
     return sections.length > 0 ? sections : fallbackMenu;
   } catch (err) {
-    console.error('[fetchMenu] Failed to load from Google Sheets, using fallback.', err);
+    console.error(
+      '[fetchMenu] Failed to load from Google Sheets, using fallback.',
+      err
+    );
     return fallbackMenu;
   }
 }
