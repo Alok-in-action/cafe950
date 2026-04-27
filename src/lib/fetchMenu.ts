@@ -129,14 +129,6 @@ export async function fetchMenuSections(): Promise<MenuSection[]> {
         TITLE_TO_ID[categoryTitle] ??
         categoryTitle.toLowerCase().replace(/\s+/g, '-');
 
-      // Skip pizza items from the sheet - we'll use static fallback for this section
-      if (sectionId === 'pizza') {
-        if (!sectionOrder.includes('pizza')) {
-          sectionOrder.push('pizza');
-        }
-        continue;
-      }
-
       if (!sectionsMap.has(sectionId)) {
         sectionsMap.set(sectionId, {
           id: sectionId,
@@ -148,30 +140,38 @@ export async function fetchMenuSections(): Promise<MenuSection[]> {
         sectionOrder.push(sectionId);
       }
 
-      const item: MenuItem = {
-        name,
-        price: parsePrice(priceRaw),
-        description: description || undefined,
-        isMostOrdered: isMostRaw?.toUpperCase() === 'TRUE' || undefined,
-        isSignature: isSigRaw?.toUpperCase() === 'TRUE' || undefined,
-        customTag: tag || undefined,
-      };
+      // Pizza Station prices are stored as "NY/NEAP" (e.g. "400/450") in the sheet.
+      // Split them into the dual-price structure the UI already renders.
+      const stripped = priceRaw?.replace('₹', '').trim() ?? '';
+      const slashIdx = stripped.indexOf('/');
+      let item: MenuItem;
+
+      if (sectionId === 'pizza' && slashIdx !== -1) {
+        const ny = Number(stripped.slice(0, slashIdx).trim());
+        const neap = Number(stripped.slice(slashIdx + 1).trim());
+        item = {
+          name,
+          prices: { ny, neap },
+          description: description || undefined,
+          isMostOrdered: isMostRaw?.toUpperCase() === 'TRUE' || undefined,
+          isSignature: isSigRaw?.toUpperCase() === 'TRUE' || undefined,
+          customTag: tag || undefined,
+        };
+      } else {
+        item = {
+          name,
+          price: parsePrice(priceRaw),
+          description: description || undefined,
+          isMostOrdered: isMostRaw?.toUpperCase() === 'TRUE' || undefined,
+          isSignature: isSigRaw?.toUpperCase() === 'TRUE' || undefined,
+          customTag: tag || undefined,
+        };
+      }
 
       sectionsMap.get(sectionId)!.items.push(item);
     }
 
-    const sections = sectionOrder.map((id) => {
-      if (id === 'pizza') {
-        return (
-          fallbackMenu.find((s) => s.id === 'pizza') ?? {
-            id: 'pizza',
-            title: 'Pizza Station',
-            items: [],
-          }
-        );
-      }
-      return sectionsMap.get(id)!;
-    });
+    const sections = sectionOrder.map((id) => sectionsMap.get(id)!);
 
     return sections.length > 0 ? sections : fallbackMenu;
   } catch (err) {

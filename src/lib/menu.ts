@@ -280,15 +280,15 @@ export const menuSections: MenuSection[] = [
     "title": "Pizza Station",
     "preheader": "STRAIGHT FROM WOOD FIRE OVEN!",
     "items": [
-      { "name": "Classic Margherita Pizza", "prices": { "ny": 330, "neap": 370 }, "description": "A timeless pizza with mozzarella, bocconcini, and fresh basil leaves on top." },
-      { "name": "Cheese Corn Pizza", "prices": { "ny": 350, "neap": 390 }, "description": "Creamy mozzarella and bocconcini paired with sweet, golden corn." },
-      { "name": "Farmville Pizza", "prices": { "ny": 380, "neap": 410 }, "description": "A garden medley of broccoli, corn, bell pepper, mushroom, paprika, olives, jalapeño, and cherry tomato." },
-      { "name": "Four Cheese Pizza", "prices": { "ny": 400, "neap": 440 }, "description": "Mozzarella, bocconcini, cheddar, and ricotta with sprinkle of Parmesan on top.", "isMostOrdered": true },
-      { "name": "Exotic Pizza", "prices": { "ny": 410, "neap": 450 }, "description": "Golden corn, bell peppers, black olives, and paneer come together for a vibrant, flavorful pizza experience." },
-      { "name": "Paneer Tikka Pizza", "prices": { "ny": 420, "neap": 460 }, "description": "Spiced paneer, bell pepper, onion, paprika, and jalapeño on tangy paneer tikka sauce." },
-      { "name": "Pestomania Pizza", "prices": { "ny": 430, "neap": 470 }, "description": "Bocconcini over vibrant pesto sauce, served with a side of pesto dip." },
-      { "name": "Love in the Forest Pizza (Neapolitan)", "price": 520, "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes", "customTag": "trending" },
-      { "name": "9:50 Signature Pizza", "prices": { "ny": 450, "neap": 490 }, "description": "Garlic cream base with mozzarella, bocconcini, red paprika, jalapeño, black olives, pickle onion, finished with fried garlic.", "isSignature": true }
+      { "name": "Classic Margherita Pizza", "prices": { "ny": 400, "neap": 450 }, "description": "A timeless pizza with mozzarella, bocconcini, and fresh basil leaves on top." },
+      { "name": "Cheese Corn Pizza", "prices": { "ny": 400, "neap": 450 }, "description": "Creamy mozzarella and bocconcini paired with sweet, golden corn." },
+      { "name": "Farmville Pizza", "prices": { "ny": 480, "neap": 530 }, "description": "A garden medley of broccoli, corn, bell pepper, mushroom, paprika, olives, jalapeño, and cherry tomato." },
+      { "name": "Four Cheese Pizza", "prices": { "ny": 450, "neap": 500 }, "description": "Mozzarella, bocconcini, cheddar, and ricotta with sprinkle of Parmesan on top.", "isMostOrdered": true },
+      { "name": "Exotic Pizza", "prices": { "ny": 460, "neap": 510 }, "description": "Golden corn, bell peppers, black olives, and paneer come together for a vibrant, flavorful pizza experience." },
+      { "name": "Paneer Tikka Pizza", "prices": { "ny": 470, "neap": 520 }, "description": "Spiced paneer, bell pepper, onion, paprika, and jalapeño on tangy paneer tikka sauce." },
+      { "name": "Pestomania Pizza", "prices": { "ny": 440, "neap": 490 }, "description": "Bocconcini over vibrant pesto sauce, served with a side of pesto dip." },
+      { "name": "Love in the Forest Pizza", "prices": { "ny": 500, "neap": 550 }, "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes", "customTag": "trending" },
+      { "name": "9:50 Signature Pizza", "prices": { "ny": 490, "neap": 540 }, "description": "Garlic cream base with mozzarella, bocconcini, red paprika, jalapeño, black olives, pickle onion, finished with fried garlic.", "isSignature": true }
     ]
   },
   {
