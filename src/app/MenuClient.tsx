@@ -6,15 +6,16 @@ import { MenuItem as MenuItemType, MenuSection } from '@/types';
 const MenuItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base"></iconify-icon>
-                        <h4 className="font-script text-xl">{item.name}</h4>
+                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base"></iconify-icon>
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 mt-1">{item.description}</p>}
+                    <h4 className="font-script text-xl text-white">{item.name}</h4>
+                    {item.description && <p className="text-[10px] text-white/80 mt-1">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full">{item.price}</span>
+                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap ml-3">{item.price}</span>
             </div>
         )
     }
@@ -107,15 +108,16 @@ const MatchaCard = ({ item }: { item: MenuItemType }) => (
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
-                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
+                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 mt-1 leading-relaxed">{item.description}</p>}
+                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }
@@ -137,24 +139,27 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
 const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="group bg-[#8B4A27] p-4 sm:p-5 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-[#f2e6d9]">
+            <div className="group bg-gradient-to-br from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-white border border-red-300/30">
                 <div className="flex justify-between items-start mb-2 gap-2">
-                    <div className="flex items-center gap-2 min-w-0 flex-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
-                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
+                    <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                            <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
+                            <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
+                        </div>
+                        <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
                     </div>
-                    <iconify-icon icon="solar:crown-linear" className="text-[#f2e6d9] flex-shrink-0"></iconify-icon>
+                    <iconify-icon icon="solar:crown-bold" className="text-yellow-300 flex-shrink-0"></iconify-icon>
                 </div>
-                {item.description && <p className="text-[10px] opacity-80 mb-4 leading-relaxed">{item.description}</p>}
+                {item.description && <p className="text-[10px] text-white/80 mb-4 leading-relaxed">{item.description}</p>}
                 {item.prices ? (
                     <div className="flex gap-2">
-                        <span className="flex-1 text-center text-[10px] border border-[#f2e6d9]/30 rounded py-1 text-[#f2e6d9]">NEW YORK: {item.prices.ny}</span>
-                        <span className="flex-1 text-center text-[10px] bg-[#f2e6d9]/20 rounded py-1 text-[#f2e6d9] font-bold">NEAPOLITAN: {item.prices.neap}</span>
+                        <span className="flex-1 text-center text-[10px] border border-white/30 rounded py-1 text-white">NEW YORK: {item.prices.ny}</span>
+                        <span className="flex-1 text-center text-[10px] bg-white/25 rounded py-1 text-white font-bold">NEAPOLITAN: {item.prices.neap}</span>
                     </div>
                 ) : (
                     item.price && (
                         <div className="flex justify-end">
-                            <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>
+                            <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>
                         </div>
                     )
                 )}
@@ -193,15 +198,16 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
 const BitesItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
-                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
+                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 mt-1 leading-relaxed">{item.description}</p>}
+                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }
@@ -221,15 +227,16 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
 const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 md:col-span-3 group bg-[#8B4A27] p-3 sm:p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+            <div className="col-span-2 md:col-span-3 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
-                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
+                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 mt-1 leading-relaxed">{item.description}</p>}
+                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }
@@ -255,15 +262,16 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-[#8B4A27] p-3 sm:p-4 rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-[#f2e6d9]">
+            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:heart-bold" className="text-[#f2e6d9] text-base flex-shrink-0"></iconify-icon>
-                        <h4 className="font-script text-lg sm:text-xl break-words">{item.name}</h4>
+                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
                     </div>
-                    {item.description && <p className="text-[10px] opacity-80 leading-relaxed">{item.description}</p>}
+                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    {item.description && <p className="text-[10px] text-white/80 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-[#f2e6d9]/20 px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
             </div>
         )
     }

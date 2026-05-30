@@ -352,6 +352,7 @@ export const menuSections: MenuSection[] = [
       { "name": "Oreo Waffles", "price": 200 },
       { "name": "Sizzling Brownie", "price": 210 },
       { "name": "Tiramisu", "price": 220, "isMostOrdered": true },
+      { "name": "Red Velvet Tiramisu", "price": 280 },
       { "name": "Blueberry Cheese Cake", "price": 250 },
       { "name": "Lotus Biscoff Cheese Cake", "price": 250 },
       { "name": "Nutella Cheese Cake", "price": 250 },
