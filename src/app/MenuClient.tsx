@@ -8,10 +8,6 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
         return (
             <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base"></iconify-icon>
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
-                    </div>
                     <h4 className="font-script text-xl text-white">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1">{item.description}</p>}
                 </div>
@@ -110,10 +106,6 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
         return (
             <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
-                    </div>
                     <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
@@ -141,14 +133,7 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
         return (
             <div className="group bg-gradient-to-br from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-white border border-red-300/30">
                 <div className="flex justify-between items-start mb-2 gap-2">
-                    <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                            <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
-                            <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
-                        </div>
-                        <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
-                    </div>
-                    <iconify-icon icon="solar:crown-bold" className="text-yellow-300 flex-shrink-0"></iconify-icon>
+                    <h4 className="font-script text-lg sm:text-xl break-words text-white flex-1 min-w-0">{item.name}</h4>
                 </div>
                 {item.description && <p className="text-[10px] text-white/80 mb-4 leading-relaxed">{item.description}</p>}
                 {item.prices ? (
@@ -200,10 +185,6 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
         return (
             <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
-                    </div>
                     <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
@@ -229,10 +210,6 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
         return (
             <div className="col-span-2 md:col-span-3 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
-                    </div>
                     <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
@@ -264,10 +241,6 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
         return (
             <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
                 <div className="text-left flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                        <iconify-icon icon="solar:star-bold" className="text-yellow-300 text-base flex-shrink-0"></iconify-icon>
-                        <span className="text-[9px] font-bold uppercase tracking-widest text-yellow-300 bg-yellow-300/20 px-2 py-0.5 rounded-full">9:50 Signature</span>
-                    </div>
                     <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 leading-relaxed">{item.description}</p>}
                 </div>
