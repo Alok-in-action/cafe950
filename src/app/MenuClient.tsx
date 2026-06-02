@@ -114,7 +114,7 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
         )
     }
 
-    const category = item.name.toLowerCase().includes('brew') ? 'Brew' : 'Frappe';
+    const category = (item.name.toLowerCase().includes('brew') || item.name.toLowerCase().includes('tonic')) ? 'Brew' : 'Frappe';
 
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
