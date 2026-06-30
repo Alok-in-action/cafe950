@@ -119,7 +119,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Peach Iced Tea", "price": 160 },
       { "name": "Irish Iced Tea", "price": 180 },
       { "name": "Hibiscus Iced Tea", "price": 200, "isMostOrdered": true },
-      { "name": "Hibiscus Strawberry Iced Tea", "price": 250, "customTag": "trending" }
+      { "name": "Hibiscus Strawberry Iced Tea", "price": 250, "customTag": "trending" },
+      { "name": "Earl Grey Iced Tea", "price": 250 }
     ]
   },
   {
@@ -146,7 +147,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Nutella Shake", "price": 240 },
       { "name": "Lotus Biscoff Shake", "price": 250 },
       { "name": "Blueberry Cheesecake Shake", "price": 260 },
-      { "name": "Tropical Avocado Shake", "price": 280, "description": "A silky-smooth shake made with creamy avocado, tropical pineapple, and a touch of mango-pure bliss in a glass.", "isMostOrdered": true }
+      { "name": "Tropical Avocado Shake", "price": 280, "description": "A silky-smooth shake made with creamy avocado, tropical pineapple, and a touch of mango-pure bliss in a glass.", "isMostOrdered": true },
+      { "name": "Red Velvet Shake", "price": 300, "customTag": "Newly added" }
     ]
   },
   {
