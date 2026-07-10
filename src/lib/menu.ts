@@ -3,23 +3,6 @@ import type { MenuSection } from '@/types';
 
 export const menuSections: MenuSection[] = [
   {
-    "id": "summer-edit",
-    "title": "9:50 Summer Edit",
-    "subtitle": "A curated drop of sunshine sips & sweet escapes — only while summer lasts.",
-    "items": [
-      { "name": "ABO (Apple, Beetroot and Orange) Juice", "price": 200, "customTag": "Barista's Choice" },
-      { "name": "Green Apple Iced Tea", "price": 200 },
-      { "name": "Raspberry Lemonade", "price": 230 },
-      { "name": "Caramel Matcha Latte", "price": 250 },
-      { "name": "Strawberry Espresso Tonic", "price": 260, "customTag": "Barista's Choice" },
-      { "name": "Fizzy Coconut Cold Brew", "price": 260 },
-      { "name": "Mango Chilli Cooler", "price": 280 },
-      { "name": "Rose Pistachio Shake", "price": 320, "customTag": "trending" },
-      { "name": "Mango Cheesecake", "price": 280 },
-      { "name": "Blueberry Tiramisu", "price": 280, "customTag": "trending" }
-    ]
-  },
-  {
     "id": "classic-espresso-bar",
     "title": "Classic Espresso Bar",
     "items": [
@@ -74,7 +57,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Ginger Ale Cold Brew", "price": 220 },
       { "name": "Pineapple Cold Brew", "price": 220 },
       { "name": "Whisky Cold Brew", "price": 240, "description": "Crafted from 16 hours of brewing barrel-aged beans, this strong cold brew offers deep and rich flavors.", "isMostOrdered": true },
-      { "name": "9:50 Signature Cold Brew", "price": 250, "description": "A drool-worthy blend of refreshing juices, vibrant fruit chunks, and our house blend cold brew.", "isSignature": true }
+      { "name": "9:50 Signature Cold Brew", "price": 250, "description": "A drool-worthy blend of refreshing juices, vibrant fruit chunks, and our house blend cold brew.", "isSignature": true },
+      { "name": "Fizzy Coconut Cold Brew", "price": 260 }
     ]
   },
   {
@@ -98,7 +82,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Mango Matcha Latte", "price": 220 },
       { "name": "Strawberry Matcha Latte", "price": 220 },
       { "name": "Coconut Matcha Latte", "price": 230, "isMostOrdered": true },
-      { "name": "Lavender Love Matcha", "price": 250 }
+      { "name": "Lavender Love Matcha", "price": 250 },
+      { "name": "Caramel Matcha Latte", "price": 250 }
     ]
   },
   {
@@ -120,7 +105,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Irish Iced Tea", "price": 180 },
       { "name": "Hibiscus Iced Tea", "price": 200, "isMostOrdered": true },
       { "name": "Hibiscus Strawberry Iced Tea", "price": 250, "customTag": "trending" },
-      { "name": "Earl Grey Iced Tea", "price": 250 }
+      { "name": "Earl Grey Iced Tea", "price": 250 },
+      { "name": "Green Apple Iced Tea", "price": 200 }
     ]
   },
   {
@@ -148,7 +134,8 @@ export const menuSections: MenuSection[] = [
       { "name": "Lotus Biscoff Shake", "price": 250 },
       { "name": "Blueberry Cheesecake Shake", "price": 260 },
       { "name": "Tropical Avocado Shake", "price": 280, "description": "A silky-smooth shake made with creamy avocado, tropical pineapple, and a touch of mango-pure bliss in a glass.", "isMostOrdered": true },
-      { "name": "Red Velvet Shake", "price": 300, "customTag": "Newly added" }
+      { "name": "Red Velvet Shake", "price": 300, "customTag": "Newly added" },
+      { "name": "Rose Pistachio Shake", "price": 320, "customTag": "trending" }
     ]
   },
   {
@@ -162,7 +149,10 @@ export const menuSections: MenuSection[] = [
       { "name": "Shirley Temple", "price": 170, "description": "A dreamy mix of citrus fruits and ginger ale garnished with lime wedges and mint, this bubbly Mocktail is a delightful treat for all ages." },
       { "name": "Cinderella", "price": 180, "description": "A pomegranate fairy tale in a glass, with a fizzy twist that'll make you feel magical." },
       { "name": "Passionate Love", "price": 180, "description": "An addictive blend of passion fruit and citrus flavours, a drink that's as refreshing and full of love as it sounds." },
-      { "name": "Pomegranate Mint Cooler", "price": 300, "customTag": "Barista's Choice" }
+      { "name": "Pomegranate Mint Cooler", "price": 300, "customTag": "Barista's Choice" },
+      { "name": "Raspberry Lemonade", "price": 230 },
+      { "name": "Mango Chilli Cooler", "price": 280 },
+      { "name": "Strawberry Espresso Tonic", "price": 260, "customTag": "Barista's Choice" }
     ]
   },
   {
@@ -182,7 +172,8 @@ export const menuSections: MenuSection[] = [
     "items": [
       { "name": "Carrot Ginger Juice", "price": 140 },
       { "name": "Watermelon Mint Juice", "price": 140 },
-      { "name": "ABC", "price": 150, "description": "A refreshing blend of red apple, beetroot, and English carrot, this juice is as delicious as it is nutritious.", "isMostOrdered": true }
+      { "name": "ABC", "price": 150, "description": "A refreshing blend of red apple, beetroot, and English carrot, this juice is as delicious as it is nutritious.", "isMostOrdered": true },
+      { "name": "ABO (Apple, Beetroot and Orange) Juice", "price": 200, "customTag": "Barista's Choice" }
     ]
   },
   {
@@ -359,7 +350,9 @@ export const menuSections: MenuSection[] = [
       { "name": "Lotus Biscoff Cheese Cake", "price": 250 },
       { "name": "Nutella Cheese Cake", "price": 250 },
       { "name": "Strawberry Cheese Cake", "price": 250, "isMostOrdered": true },
-      { "name": "9:50 Signature Coffee Cheese Cake", "price": 280, "isSignature": true }
+      { "name": "9:50 Signature Coffee Cheese Cake", "price": 280, "isSignature": true },
+      { "name": "Mango Cheesecake", "price": 280 },
+      { "name": "Blueberry Tiramisu", "price": 280, "customTag": "trending" }
     ]
   }
 ];
