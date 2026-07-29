@@ -94,9 +94,10 @@ const SummerEditCard = ({ item }: { item: MenuItemType }) => (
 const MonsoonEditCard = ({ item, withRain = false }: { item: MenuItemType, withRain?: boolean }) => (
     <div className="group relative overflow-hidden bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-sm border border-white/20 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-[#E3F2FD]/80 before:to-[#BBDEFB]/80">
         {withRain && (
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
-                <RainEffectCanvas />
-            </div>
+            <div 
+                className="absolute inset-0 z-0 pointer-events-none opacity-30 mix-blend-overlay" 
+                style={{ backgroundImage: 'url(/img/weather/texture-rain-fg.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+            ></div>
         )}
         {item.customTag && (
             <span className="inline-block mb-1.5 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded self-start text-[#1565C0] bg-white/50 backdrop-blur-sm relative z-10">
