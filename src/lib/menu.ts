@@ -3,7 +3,7 @@ import type { MenuSection } from '@/types';
 export const menuSections: MenuSection[] = [
   {
     "id": "monsoon-edit",
-    "title": "Monsoon Edit",
+    "title": "Rain Rituals",
     "subtitle": "A cozy drop of rain-inspired sips & warm bites — perfect for the monsoon.",
     "items": [
       {
@@ -1044,15 +1044,15 @@ export const menuSections: MenuSection[] = [
         "price": 220
       },
       {
-        "name": "Nutella Waffles",
+        "name": "Nutella Waffle",
         "price": 200
       },
       {
-        "name": "Biscoff Waffles",
+        "name": "Biscoff Waffle",
         "price": 200
       },
       {
-        "name": "Oreo Waffles",
+        "name": "Oreo Waffle",
         "price": 200
       },
       {
@@ -1060,7 +1060,7 @@ export const menuSections: MenuSection[] = [
         "price": 260
       },
       {
-        "name": "Tiramisu",
+        "name": "Classic Tiramisu",
         "price": 220,
         "isMostOrdered": true
       },

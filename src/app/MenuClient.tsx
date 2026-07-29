@@ -903,6 +903,7 @@ export default function MenuClient({ sections }: { sections: MenuSection[] }) {
                     </div>
                     <h2 className="font-script text-4xl text-[#5A2E1B] mb-2">Brewing Memories</h2>
                     <p className="font-sans text-[10px] sm:text-xs opacity-70 max-w-sm mx-auto leading-relaxed text-center px-4">Authentic Coffee • Handcrafted Pizza <br /> Irresistible Desserts</p>
+                    <p className="font-sans text-[10px] sm:text-xs font-medium text-[#8B4A27] mt-3">Prices are exclusive of GST. Applicable GST will be added to your bill.</p>
                 </section>
 
                 {sections.map((section, index) => {
@@ -989,6 +990,9 @@ export default function MenuClient({ sections }: { sections: MenuSection[] }) {
 
                     return <SectionComponent key={section.id} section={section} />;
                 })}
+                <div className="max-w-7xl mx-auto py-4 text-center reveal">
+                    <p className="font-sans text-[10px] sm:text-xs font-medium text-[#8B4A27] bg-[#8B4A27]/5 py-3 px-6 rounded-xl inline-block border border-[#8B4A27]/10">Prices are exclusive of GST. Applicable GST will be added to your bill.</p>
+                </div>
 
             </main>
 
