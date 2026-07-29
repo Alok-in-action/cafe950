@@ -289,6 +289,62 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 
+function getSectionConfig(sectionId: string) {
+    let CardComponent: any = MenuItemCard;
+    let gridCols = 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4';
+
+    switch (sectionId) {
+        case 'pizza':
+            CardComponent = PizzaItemCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+            break;
+        case 'summer-edit':
+            CardComponent = SummerEditCard;
+            break;
+        case 'whispers-of-love':
+            CardComponent = WhispersOfLoveCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2';
+            break;
+        case 'classic-espresso-bar':
+            CardComponent = MenuItemCard;
+            break;
+        case 'craft-coffees':
+            CardComponent = CraftMenuItemCard;
+            break;
+        case 'cold-brews':
+        case 'frappe-to-go':
+            CardComponent = ColdFrappeItemCard;
+            break;
+        case 'bites-for-sides':
+        case 'healthy-salads':
+        case 'fries-corner':
+        case 'pasta':
+        case 'sandwiches':
+        case 'burgers':
+            CardComponent = BitesItemCard;
+            break;
+        case 'shakes':
+            CardComponent = ShakeItemCard;
+            gridCols = 'grid-cols-2 md:grid-cols-3';
+            break;
+        case 'dessert':
+            CardComponent = DessertItemCard;
+            break;
+        case 'blue-dream':
+            CardComponent = SpecialBlueDreamCard;
+            gridCols = 'grid-cols-1 md:grid-cols-2';
+            break;
+        case 'matcha':
+            CardComponent = MatchaCard;
+            break;
+        default:
+            CardComponent = MenuItemCard;
+            break;
+    }
+
+    return { CardComponent, gridCols };
+}
+
 const SectionComponent = ({ section: originalSection }: { section: MenuSection }) => {
     let currentCell = 0;
     const itemsCount = originalSection.items.length;
@@ -748,14 +804,16 @@ export default function MenuClient({ sections }: { sections: MenuSection[] }) {
                                                     {section.title}
                                                     <span className="h-px flex-1 bg-gray-100"></span>
                                                 </h3>
-                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                                                    {filteredItems.map(item => {
-                                                        const Card = section.id === 'pizza' ? PizzaItemCard :
-                                                            section.id.includes('frappe') ? ColdFrappeItemCard :
-                                                                section.id === 'dessert' ? DessertItemCard : MenuItemCard;
-                                                        return <Card key={item.name} item={item} />;
-                                                    })}
-                                                </div>
+                                                {(() => {
+                                                    const { CardComponent, gridCols } = getSectionConfig(section.id);
+                                                    return (
+                                                        <div className={`grid ${gridCols} gap-3`}>
+                                                            {filteredItems.map(item => (
+                                                                <CardComponent key={item.name} item={item} />
+                                                            ))}
+                                                        </div>
+                                                    );
+                                                })()}
                                             </div>
                                         )
                                     })}
