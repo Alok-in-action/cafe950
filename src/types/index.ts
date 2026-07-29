@@ -11,6 +11,7 @@ export type MenuItem = {
   customTag?: string;
   isMonsoon?: boolean;
   _isSquareMobile?: boolean;
+  _isForcedRectangular?: boolean;
 };
 
 export type MenuSection = {

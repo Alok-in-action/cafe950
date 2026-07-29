@@ -19,7 +19,7 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
     }
 
     return (
-        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        <div className={`group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium text-[#4a3b32] break-words leading-snug mb-2">
                 {item.name}
@@ -34,7 +34,7 @@ const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isMonsoon) return <MonsoonEditCard item={item} withRain={true} />;
 
     return (
-        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        <div className={`group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium break-words leading-snug mb-2">{item.name}</h4>
             <div className="flex justify-end">
@@ -45,7 +45,7 @@ const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
 }
 
 const SpecialBlueDreamCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+    <div className={`group bg-[#F0F8FF] p-4 rounded-xl shadow-sm border border-[#B0E0E6]/50 hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
         {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#2e4c5a] bg-white px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
         <div className="flex justify-between items-start">
             <div className="flex-1 min-w-0 mr-2">
@@ -141,7 +141,7 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     const category = (item.name.toLowerCase().includes('brew') || item.name.toLowerCase().includes('tonic')) ? 'Brew' : 'Frappe';
 
     return (
-        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        <div className={`group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
             <div className="flex justify-between mt-3 text-xs text-[#8B4A27] font-semibold">
@@ -220,7 +220,7 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
     }
 
     return (
-        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+        <div className={`group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium text-[#4a3b32] break-words leading-snug mb-2">
                 {item.name}
@@ -278,7 +278,7 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
     }
 
     return (
-        <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center">
+        <div className={`group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
             <iconify-icon icon={icon} className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
             <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
@@ -290,8 +290,12 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 
 const SectionComponent = ({ section: originalSection }: { section: MenuSection }) => {
     let currentCell = 0;
-    const processedItems = originalSection.items.map(item => {
+    const itemsCount = originalSection.items.length;
+    const processedItems = originalSection.items.map((item, index) => {
         let isSquare = false;
+        let isForcedRectangular = false;
+        const isLastItem = index === itemsCount - 1;
+
         if (item.isSignature) {
             if (currentCell % 2 === 1) {
                 isSquare = true;
@@ -300,9 +304,14 @@ const SectionComponent = ({ section: originalSection }: { section: MenuSection }
                 currentCell += 2;
             }
         } else {
-            currentCell += 1;
+            if (isLastItem && currentCell % 2 === 0) {
+                isForcedRectangular = true;
+                currentCell += 2;
+            } else {
+                currentCell += 1;
+            }
         }
-        return { ...item, _isSquareMobile: isSquare };
+        return { ...item, _isSquareMobile: isSquare, _isForcedRectangular: isForcedRectangular };
     });
     const section = { ...originalSection, items: processedItems };
     let CardComponent;
