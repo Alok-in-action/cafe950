@@ -105,3 +105,14 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
+
+@keyframes slideDownFade {
+  0% { transform: translateY(-10px) scaleY(1); opacity: 0; }
+  10% { transform: translateY(0) scaleY(1.2); opacity: 0.8; }
+  80% { transform: translateY(40px) scaleY(1.8); opacity: 0.4; }
+  100% { transform: translateY(50px) scaleY(1); opacity: 0; }
+}
+
+.animate-droplet {
+  animation: slideDownFade linear infinite;
+}

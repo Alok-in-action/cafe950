@@ -87,6 +87,21 @@ const SummerEditCard = ({ item }: { item: MenuItemType }) => (
     </div>
 );
 
+const MonsoonEditCard = ({ item }: { item: MenuItemType }) => (
+    <div className="group relative overflow-hidden bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-sm border border-white/20 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-[#E3F2FD]/60 before:to-[#BBDEFB]/60">
+        {item.customTag && (
+            <span className="inline-block mb-1.5 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded self-start text-[#1565C0] bg-white/50 backdrop-blur-sm relative z-10">
+                {item.customTag}
+            </span>
+        )}
+        <h4 className="font-sans text-sm font-medium text-[#0D47A1] break-words leading-snug mb-1 flex-1 relative z-10">{item.name}</h4>
+        {item.description && <p className="font-sans text-[10px] text-[#1565C0]/80 leading-relaxed mb-2 relative z-10">{item.description}</p>}
+        <div className="flex justify-end mt-auto relative z-10">
+            <span className="text-xs font-bold text-[#0D47A1] bg-white/40 backdrop-blur-sm px-2 py-0.5 rounded-full">₹{item.price}</span>
+        </div>
+    </div>
+);
+
 const MatchaCard = ({ item }: { item: MenuItemType }) => (
     <div className="group bg-gradient-to-br from-[#F0F7F0] via-[#F5FAF5] to-[#FAFFF5] p-3 sm:p-4 rounded-xl shadow-sm border border-[#8FBC8F]/10 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
         {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#4A7C59] bg-[#8FBC8F]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
@@ -305,6 +320,31 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
         );
     }
 
+    if (section.id === 'monsoon-edit') {
+        return (
+            <section id={section.id} className="reveal -mx-4 sm:-mx-6 px-4 sm:px-6 py-10 rounded-2xl shadow-md relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 50%, #90CAF9 100%)', border: '1.5px solid #64B5F640' }}>
+                <div className="absolute inset-0 z-0">
+                    <RainEffectCanvas />
+                </div>
+                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center gap-2 bg-white/30 backdrop-blur-sm border border-white/40 rounded-full px-4 py-1.5 mb-4">
+                            <iconify-icon icon="meteocons:rain-fill" width="16" className="text-[#1976D2]"></iconify-icon>
+                            <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-[#0D47A1]">Monsoon Special</span>
+                            <iconify-icon icon="meteocons:rain-fill" width="16" className="text-[#1976D2]"></iconify-icon>
+                        </div>
+                        <h3 className="font-script text-4xl sm:text-5xl text-[#0D47A1] mb-2">{section.title}</h3>
+                        {section.subtitle && <p className="font-sans text-xs text-[#1565C0]/80 italic max-w-sm mx-auto leading-relaxed">{section.subtitle}</p>}
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        {section.items.map(item => <MonsoonEditCard key={item.name} item={item} />)}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     if (section.id === 'pizza') {
         return (
             <section id={section.id} className="reveal -mx-4 sm:-mx-6 px-4 sm:px-6 py-8 bg-gradient-to-br from-[#f5e6d3] via-[#f2e6d9] to-[#ede0d0] rounded-2xl border border-[#8B4A27]/10 shadow-sm">
@@ -435,6 +475,10 @@ const SectionComponent = ({ section }: { section: MenuSection }) => {
     );
 };
 
+import { MenuItemType, MenuSection } from '../lib/menu';
+import dynamic from 'next/dynamic';
+
+const RainEffectCanvas = dynamic(() => import('../components/RainEffectCanvas'), { ssr: false });
 
 export default function MenuClient({ sections }: { sections: MenuSection[] }) {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
