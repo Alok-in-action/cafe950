@@ -9,6 +9,7 @@ export type MenuItem = {
   isMostOrdered?: boolean;
   isSignature?: boolean;
   customTag?: string;
+  isMonsoon?: boolean;
 };
 
 export type MenuSection = {

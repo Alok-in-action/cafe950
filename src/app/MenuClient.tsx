@@ -4,11 +4,13 @@ import Image from 'next/image';
 import { MenuItem as MenuItemType, MenuSection } from '@/types';
 
 const MenuItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isMonsoon) return <MonsoonEditCard item={item} withRain={true} />;
+
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
+            <div className="col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
                 <div className="text-left flex-1">
-                    <h4 className="font-script text-xl text-white">{item.name}</h4>
+                    <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1">{item.description}</p>}
                 </div>
                 <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap ml-3">{item.price}</span>
@@ -29,6 +31,8 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 const CraftMenuItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isMonsoon) return <MonsoonEditCard item={item} withRain={true} />;
+
     return (
         <div className="group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
             {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
@@ -87,8 +91,13 @@ const SummerEditCard = ({ item }: { item: MenuItemType }) => (
     </div>
 );
 
-const MonsoonEditCard = ({ item }: { item: MenuItemType }) => (
-    <div className="group relative overflow-hidden bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-sm border border-white/20 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-[#E3F2FD]/60 before:to-[#BBDEFB]/60">
+const MonsoonEditCard = ({ item, withRain = false }: { item: MenuItemType, withRain?: boolean }) => (
+    <div className="group relative overflow-hidden bg-white/10 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-sm border border-white/20 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-[#E3F2FD]/80 before:to-[#BBDEFB]/80">
+        {withRain && (
+            <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
+                <RainEffectCanvas />
+            </div>
+        )}
         {item.customTag && (
             <span className="inline-block mb-1.5 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded self-start text-[#1565C0] bg-white/50 backdrop-blur-sm relative z-10">
                 {item.customTag}
@@ -119,9 +128,9 @@ const MatchaCard = ({ item }: { item: MenuItemType }) => (
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
+            <div className="col-span-2 group signature-card p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
                 <div className="text-left flex-1 min-w-0">
-                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
                 <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
@@ -146,9 +155,9 @@ const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
 const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="group bg-gradient-to-br from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-white border border-red-300/30">
+            <div className="group signature-card p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-white border border-[#834e2f]/30">
                 <div className="flex justify-between items-start mb-2 gap-2">
-                    <h4 className="font-script text-lg sm:text-xl break-words text-white flex-1 min-w-0">{item.name}</h4>
+                    <h4 className="font-sans text-sm font-medium text-white leading-snug break-words flex-1 min-w-0">{item.name}</h4>
                 </div>
                 {item.description && <p className="text-[10px] text-white/80 mb-4 leading-relaxed">{item.description}</p>}
                 {item.prices ? (
@@ -196,11 +205,13 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 const BitesItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isMonsoon) return <MonsoonEditCard item={item} withRain={true} />;
+
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
+            <div className="col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
                 <div className="text-left flex-1 min-w-0">
-                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
                 <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
@@ -221,11 +232,13 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isMonsoon) return <MonsoonEditCard item={item} withRain={true} />;
+
     if (item.isSignature) {
         return (
-            <div className="col-span-2 md:col-span-3 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
+            <div className="col-span-2 md:col-span-3 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
                 <div className="text-left flex-1 min-w-0">
-                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
                 <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
@@ -254,9 +267,9 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group bg-gradient-to-r from-[#C0392B] via-[#922B21] to-[#7B241C] p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-red-300/30">
+            <div className="col-span-2 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
                 <div className="text-left flex-1 min-w-0">
-                    <h4 className="font-script text-lg sm:text-xl break-words text-white">{item.name}</h4>
+                    <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 leading-relaxed">{item.description}</p>}
                 </div>
                 <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
