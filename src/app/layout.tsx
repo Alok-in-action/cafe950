@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: 'Menu Magic',
   description: 'Cafe 9:50',
   manifest: '/manifest.json',
+  icons: {
+    apple: '/logo.png',
+  },
+  appleWebApp: {
+    capable: true,
+    title: 'Cafe 950',
+    statusBarStyle: 'default',
+  },
 };
 
 export const viewport = {
