@@ -477,24 +477,14 @@ export const menuSections: MenuSection[] = [
         "isMostOrdered": true
       },
       {
-        "name": "Shirley Temple",
-        "price": 220,
-        "description": "A dreamy mix of citrus fruits and ginger ale garnished with lime wedges and mint, this bubbly Mocktail is a delightful treat for all ages."
-      },
-      {
         "name": "Cinderella",
-        "price": 230,
-        "description": "A pomegranate fairy tale in a glass, with a fizzy twist that'll make you feel magical."
+        "price": 300,
+        "description": "A refreshing pomegranate mint cooler fairy tale in a glass, with a fizzy twist that'll make you feel magical."
       },
       {
         "name": "Passionate Love",
         "price": 240,
         "description": "An addictive blend of passion fruit and citrus flavours, a drink that's as refreshing and full of love as it sounds."
-      },
-      {
-        "name": "Pomegranate Mint Cooler",
-        "price": 300,
-        "customTag": "Barista's Choice"
       },
       {
         "name": "Raspberry Lemonade",
@@ -613,6 +603,10 @@ export const menuSections: MenuSection[] = [
     "id": "beverage-companions",
     "title": "Beverage Companions",
     "items": [
+      {
+        "name": "Red Velvet Cookie",
+        "price": 130
+      },
       {
         "name": "Brookie (Cookie with a Brownie Twist)",
         "price": 130
