@@ -8,12 +8,12 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
-                <div className="text-left flex-1">
+            <div className="col-span-1 md:col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row justify-between text-white border border-[#834e2f]/30">
+                <div className="text-left flex-1 mb-3 md:mb-0">
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap ml-3">{item.price}</span>
+                <div className="flex justify-end md:items-center"><span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap">{item.price}</span></div>
             </div>
         )
     }
@@ -128,12 +128,12 @@ const MatchaCard = ({ item }: { item: MenuItemType }) => (
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group signature-card p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
-                <div className="text-left flex-1 min-w-0">
+            <div className="col-span-1 md:col-span-2 group signature-card p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row justify-between text-white border border-[#834e2f]/30">
+                <div className="text-left flex-1 mb-3 md:mb-0">
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <div className="flex justify-end md:items-center"><span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap">{item.price}</span></div>
             </div>
         )
     }
@@ -168,7 +168,7 @@ const PizzaItemCard = ({ item }: { item: MenuItemType }) => {
                 ) : (
                     item.price && (
                         <div className="flex justify-end">
-                            <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0">{item.price}</span>
+                            <div className="flex justify-end md:items-center"><span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap">{item.price}</span></div>
                         </div>
                     )
                 )}
@@ -209,12 +209,12 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
-                <div className="text-left flex-1 min-w-0">
+            <div className="col-span-1 md:col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row justify-between text-white border border-[#834e2f]/30">
+                <div className="text-left flex-1 mb-3 md:mb-0">
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <div className="flex justify-end md:items-center"><span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap">{item.price}</span></div>
             </div>
         )
     }
@@ -236,12 +236,12 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className="col-span-2 md:col-span-3 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
-                <div className="text-left flex-1 min-w-0">
+            <div className="col-span-1 md:col-span-3 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row justify-between text-white border border-[#834e2f]/30">
+                <div className="text-left flex-1 mb-3 md:mb-0">
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <div className="flex justify-end md:items-center"><span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap">{item.price}</span></div>
             </div>
         )
     }
@@ -267,12 +267,12 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className="col-span-2 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-between text-white border border-[#834e2f]/30">
-                <div className="text-left flex-1 min-w-0">
+            <div className="col-span-1 md:col-span-2 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row justify-between text-white border border-[#834e2f]/30">
+                <div className="text-left flex-1 mb-3 md:mb-0">
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 leading-relaxed">{item.description}</p>}
                 </div>
-                <span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0 ml-2">{item.price}</span>
+                <div className="flex justify-end md:items-center"><span className="text-sm font-bold bg-white/25 text-white px-3 py-1 rounded-full whitespace-nowrap">{item.price}</span></div>
             </div>
         )
     }
