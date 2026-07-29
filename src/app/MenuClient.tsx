@@ -8,8 +8,8 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className={`\${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
-                <div className={`text-left flex-1 \${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
+            <div className={`${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
+                <div className={`text-left flex-1 ${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1">{item.description}</p>}
                 </div>
@@ -128,8 +128,8 @@ const MatchaCard = ({ item }: { item: MenuItemType }) => (
 const ColdFrappeItemCard = ({ item }: { item: MenuItemType }) => {
     if (item.isSignature) {
         return (
-            <div className={`\${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
-                <div className={`text-left flex-1 \${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
+            <div className={`${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-4 sm:p-5 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
+                <div className={`text-left flex-1 ${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
@@ -209,8 +209,8 @@ const BitesItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className={`\${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
-                <div className={`text-left flex-1 \${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
+            <div className={`${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
+                <div className={`text-left flex-1 ${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
@@ -236,8 +236,8 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className={`\${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-3 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
-                <div className={`text-left flex-1 \${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
+            <div className={`${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-3 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
+                <div className={`text-left flex-1 ${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 mt-1 leading-relaxed">{item.description}</p>}
                 </div>
@@ -267,8 +267,8 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
 
     if (item.isSignature) {
         return (
-            <div className={`\${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
-                <div className={`text-left flex-1 \${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
+            <div className={`${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
+                <div className={`text-left flex-1 ${item._isSquareMobile ? 'mb-3 md:mb-0' : 'mr-2 md:mr-0'}`}>
                     <h4 className="font-sans text-sm font-medium text-white leading-snug break-words">{item.name}</h4>
                     {item.description && <p className="text-[10px] text-white/80 leading-relaxed">{item.description}</p>}
                 </div>

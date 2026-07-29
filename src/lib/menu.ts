@@ -233,15 +233,15 @@ export const menuSections: MenuSection[] = [
         "price": 260
       },
       {
+        "name": "Cranberry Cold Brew",
+        "price": 250,
+        "isMonsoon": true
+      },
+      {
         "name": "9:50 Signature Cold Brew",
         "price": 270,
         "description": "A drool-worthy blend of refreshing juices, vibrant fruit chunks, and our house blend cold brew.",
         "isSignature": true
-      },
-      {
-        "name": "Cranberry Cold Brew",
-        "price": 250,
-        "isMonsoon": true
       }
     ]
   },
@@ -817,15 +817,15 @@ export const menuSections: MenuSection[] = [
         "customTag": "chiefs choice"
       },
       {
+        "name": "Caramelised Onion and Garlic Spaghetti",
+        "price": 370,
+        "isMonsoon": true
+      },
+      {
         "name": "9:50 Mac & Cheese",
         "price": 370,
         "description": "A creamy, golden bake of butter-garlic macaroni with broccoli, paprika, sweet corn, and molten mozzarella on top.",
         "isSignature": true
-      },
-      {
-        "name": "Caramelised Onion and Garlic Spaghetti",
-        "price": 370,
-        "isMonsoon": true
       }
     ]
   },
