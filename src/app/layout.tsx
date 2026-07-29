@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import PWARegister from '../components/PWARegister';
 
 export const metadata: Metadata = {
   title: 'Menu Magic',
   description: 'Cafe 9:50',
+  manifest: '/manifest.json',
+};
+
+export const viewport = {
+  themeColor: '#3B82F6',
 };
 
 export default function RootLayout({
@@ -20,6 +26,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body className="font-sans text-[#4a3b32] antialiased selection:bg-[#8A4B2B] selection:text-[#F3E2C9] pb-32">
+        <PWARegister />
         {children}
       </body>
     </html>

@@ -1,0 +1,17 @@
+{
+  "name": "Cafe 950 Menu",
+  "short_name": "Cafe 950",
+  "description": "The digital menu for Cafe 950",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/img/logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
