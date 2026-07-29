@@ -10,6 +10,7 @@ export type MenuItem = {
   isSignature?: boolean;
   customTag?: string;
   isMonsoon?: boolean;
+  _isSquareMobile?: boolean;
 };
 
 export type MenuSection = {
