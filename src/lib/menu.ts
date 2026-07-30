@@ -479,7 +479,7 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Cinderella",
         "price": 300,
-        "description": "A refreshing pomegranate mint cooler fairy tale in a glass, with a fizzy twist that'll make you feel magical."
+        "description": "A refreshing fusion of pomegranate and mint, topped with soda."
       },
       {
         "name": "Passionate Love",
@@ -579,13 +579,13 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Berry Powerful Smoothie",
         "price": 300,
-        "description": "This smoothie features a medley of assorted berries and banana, blended with milk for a luscious texture.",
+        "description": "Dreamy blend of assorted berries, milk, and curd.",
         "isMostOrdered": true
       },
       {
         "name": "Nutty Buddy Smoothie",
         "price": 310,
-        "description": "A delightful blend of milk, banana, peanut butter, dark chocolate, and cocoa, this smoothie is every gym goer's paradise."
+        "description": "Nutritious mix of peanut butter, dark chocolate, curd, and cocoa on top."
       },
       {
         "name": "Avocado Coconut Smoothie",
@@ -594,7 +594,7 @@ export const menuSections: MenuSection[] = [
       {
         "name": "9:50 Signature Smoothie",
         "price": 350,
-        "description": "A heavenly mix of fresh fruits and milk, creating a smoothie that's utterly satisfying.",
+        "description": "Fresh fruits, curd, and milk come together to create an utterly satisfying experience.",
         "isSignature": true
       }
     ]
@@ -605,7 +605,7 @@ export const menuSections: MenuSection[] = [
     "items": [
       {
         "name": "Red Velvet Cookie",
-        "price": 130
+        "price": 150
       },
       {
         "name": "Brookie (Cookie with a Brownie Twist)",
@@ -615,6 +615,10 @@ export const menuSections: MenuSection[] = [
         "name": "Classic Avocado Toast",
         "price": 250,
         "isMostOrdered": true
+      },
+      {
+        "name": "Pesto Ricotta Toast",
+        "price": 300
       }
     ]
   },
@@ -624,22 +628,22 @@ export const menuSections: MenuSection[] = [
     "items": [
       {
         "name": "Classic Caesar Salad",
-        "price": 200,
+        "price": 250,
         "description": "The perfect balance of crisp lettuce, creamy dressing, and crunchy croutons, always a classic!"
       },
       {
         "name": "Greek Salad",
-        "price": 220,
+        "price": 280,
         "description": "A vibrant mix of exotic vegetables and Mediterranean flavors, making healthy feel like a treat!",
         "isMostOrdered": true
       },
       {
         "name": "Yogurt Salad",
-        "price": 220
+        "price": 300
       },
       {
         "name": "Peri Peri Paneer Salad",
-        "price": 250
+        "price": 320
       }
     ]
   },
@@ -763,7 +767,7 @@ export const menuSections: MenuSection[] = [
       {
         "name": "9:50 Signature Burger with Potato Wedges",
         "price": 250,
-        "description": "Our very own specialty indulgence loaded with surprising rich flavours!",
+        "description": "Our very own specialty, loaded with onion and garlic flavors with a subtle kick of Schezwan.",
         "isSignature": true
       }
     ]
@@ -802,7 +806,7 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Three Cheese Ravioli",
         "price": 390,
-        "description": "A decadent trio of ricotta, bocconcini, and Parmesan folded into delicate pasta pillows, finished with a silky house-blend sauce",
+        "description": "A decadent trio of ricotta, bocconcini, and cheddar folded into delicate pasta pillows, finished with a silky house-blend sauce",
         "customTag": "chiefs choice"
       },
       {
@@ -883,7 +887,7 @@ export const menuSections: MenuSection[] = [
           "ny": 440,
           "neap": 490
         },
-        "description": "Bocconcini over vibrant pesto sauce, served with a side of pesto dip."
+        "description": "Fresh bocconcini cheese over a vibrant pesto sauce."
       },
       {
         "name": "Love in the Forest Pizza",
@@ -923,7 +927,7 @@ export const menuSections: MenuSection[] = [
       {
         "name": "9:50 Signature Garlic Bread",
         "price": 300,
-        "description": "Stuffed with Schezwan-spiced garlic sauce, bell pepper, cherry tomato, jalapeño, and sweet corn, finished with herbs and served with Schezwan dip.",
+        "description": "Stuffed with Schezwan-spiced garlic sauce, bell pepper, cherry tomato, jalapeño, and sweet corn, finished with herbs.",
         "isSignature": true
       }
     ]
@@ -971,7 +975,7 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Burrito Rice Bowl",
         "price": 350,
-        "description": "A flavorful mix of rice, beans and veggies, all topped with tangy salsa and fresh garnishes, served in a bowl for a satisfying meal.",
+        "description": "Wholesome mix of garlic rice, rajma, salad, nachos, salsa, corn, curd, and peri peri paneer on top.",
         "isMostOrdered": true
       },
       {
@@ -981,7 +985,7 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Buddha Bowl",
         "price": 380,
-        "description": "A wholesome, vibrant bowl filled with fresh veggies, quinoa, chickpeas, and a tangy tahini dressing—a balanced meal that feeds both the body and the soul."
+        "description": "Protein-packed bowl loaded with brown rice, fresh paneer, greens, avocado, and creamy peanut dressing."
       },
       {
         "name": "9:50 Signature Meal Bowl",
@@ -999,12 +1003,12 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Tan Tan Ramen",
         "price": 280,
-        "description": "A vegetarian twist on the classic, featuring a rich, spicy sesame broth with earthy mushrooms, crunchy veggies, and silky noodles."
+        "description": "Comforting ramen noodles coated in a creamy sesame-peanut sauce, stir-fried with fresh vegetables, and balanced with savory, tangy, and mildly spicy flavors."
       },
       {
         "name": "Shoyu Ramen",
         "price": 320,
-        "description": "A savory soy-based broth with delicate mushrooms, fresh greens, and tender noodles, bringing the comforting flavors of Japan to your bowl.",
+        "description": "Savory soy-glazed ramen with garlic, vegetables, and mushrooms, delivering deep umami flavors and a satisfying spicy finish.",
         "isMostOrdered": true
       }
     ]
@@ -1045,15 +1049,15 @@ export const menuSections: MenuSection[] = [
       },
       {
         "name": "Nutella Waffle",
-        "price": 200
+        "price": 240
       },
       {
         "name": "Biscoff Waffle",
-        "price": 200
+        "price": 240
       },
       {
         "name": "Oreo Waffle",
-        "price": 200
+        "price": 240
       },
       {
         "name": "Sizzling Brownie",
@@ -1061,7 +1065,7 @@ export const menuSections: MenuSection[] = [
       },
       {
         "name": "Classic Tiramisu",
-        "price": 220,
+        "price": 250,
         "isMostOrdered": true
       },
       {
