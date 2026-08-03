@@ -101,21 +101,21 @@ export const menuSections: MenuSection[] = [
     "title": "Craft Coffees",
     "items": [
       {
-        "name": "French Vanilla Cappuccino (Hot/Iced)",
-        "price": 210
-      },
-      {
         "name": "Irish Cappuccino (Hot/Iced)",
         "price": 220,
         "isMostOrdered": true
+      },
+      {
+        "name": "Caramel Latte (Hot/Iced)",
+        "price": 230
       },
       {
         "name": "Hazelnut Cappuccino (Hot/Iced)",
         "price": 220
       },
       {
-        "name": "Caramel Latte (Hot/Iced)",
-        "price": 230
+        "name": "French Vanilla Cappuccino (Hot/Iced)",
+        "price": 210
       },
       {
         "name": "Dark Chocolate Mocha (Hot/Iced)",
@@ -127,6 +127,10 @@ export const menuSections: MenuSection[] = [
         "isMostOrdered": true
       },
       {
+        "name": "Tiramisu Cappuccino (Hot/Iced)",
+        "price": 260
+      },
+      {
         "name": "Lotus Biscoff Latte (Hot/Iced)",
         "price": 250
       },
@@ -135,18 +139,14 @@ export const menuSections: MenuSection[] = [
         "price": 250
       },
       {
-        "name": "Red Velvet Mocha",
-        "price": 250,
-        "customTag": "Barista's Choice"
-      },
-      {
-        "name": "Tiramisu Cappuccino (Hot/Iced)",
-        "price": 260
-      },
-      {
         "name": "Vietnamese Iced Coffee",
         "price": 260,
         "isMostOrdered": true
+      },
+      {
+        "name": "Red Velvet Mocha",
+        "price": 250,
+        "customTag": "Barista's Choice"
       },
       {
         "name": "Honey Cinnamon Latte (Hot/Iced)",
@@ -160,12 +160,6 @@ export const menuSections: MenuSection[] = [
     "title": "Frappe To Go",
     "items": [
       {
-        "name": "9:50 Signature Frappe",
-        "price": 220,
-        "description": "Your go-to strong cold coffee with a hint of vanilla, designed to relish anytime and every time",
-        "isSignature": true
-      },
-      {
         "name": "Hazelnut Frappe",
         "price": 230
       },
@@ -175,12 +169,16 @@ export const menuSections: MenuSection[] = [
         "isMostOrdered": true
       },
       {
+        "name": "Java Chip Frappe",
+        "price": 250
+      },
+      {
         "name": "Toffee Caramel Frappe",
         "price": 230
       },
       {
-        "name": "Java Chip Frappe",
-        "price": 250
+        "name": "Tiramisu Frappe",
+        "price": 260
       },
       {
         "name": "Biscoff Frappe",
@@ -191,8 +189,10 @@ export const menuSections: MenuSection[] = [
         "price": 250
       },
       {
-        "name": "Tiramisu Frappe",
-        "price": 260
+        "name": "9:50 Signature Frappe",
+        "price": 220,
+        "description": "Your go-to strong cold coffee with a hint of vanilla, designed to relish anytime and every time",
+        "isSignature": true
       }
     ]
   },
@@ -201,6 +201,14 @@ export const menuSections: MenuSection[] = [
     "title": "Cold Brews",
     "subtitle": "slow-steeped extracted coffee known for its bold flavour, smooth finish, and low acidity-your all-day iced companion.",
     "items": [
+      {
+        "name": "Pomegranate Cold Brew",
+        "price": 230
+      },
+      {
+        "name": "Orange Cold Brew",
+        "price": 230
+      },
       {
         "name": "Classic Espresso Tonic (E&T)",
         "price": 220,
@@ -211,16 +219,18 @@ export const menuSections: MenuSection[] = [
         "price": 220
       },
       {
-        "name": "Pomegranate Cold Brew",
-        "price": 230
-      },
-      {
-        "name": "Orange Cold Brew",
-        "price": 230
-      },
-      {
         "name": "Pineapple Cold Brew",
         "price": 230
+      },
+      {
+        "name": "Whisky Cold Brew",
+        "price": 280,
+        "description": "Crafted from 16 hours of brewing barrel-aged beans, this strong cold brew offers deep and rich flavors.",
+        "isMostOrdered": true
+      },
+      {
+        "name": "Fizzy Coconut Cold Brew",
+        "price": 260
       },
       {
         "name": "Cranberry Cold Brew",
@@ -228,20 +238,10 @@ export const menuSections: MenuSection[] = [
         "isMonsoon": true
       },
       {
-        "name": "Fizzy Coconut Cold Brew",
-        "price": 260
-      },
-      {
         "name": "9:50 Signature Cold Brew",
         "price": 270,
         "description": "A drool-worthy blend of refreshing juices, vibrant fruit chunks, and our house blend cold brew.",
         "isSignature": true
-      },
-      {
-        "name": "Whisky Cold Brew",
-        "price": 280,
-        "description": "Crafted from 16 hours of brewing barrel-aged beans, this strong cold brew offers deep and rich flavors.",
-        "isMostOrdered": true
       }
     ]
   },
@@ -319,13 +319,13 @@ export const menuSections: MenuSection[] = [
         "price": 80
       },
       {
-        "name": "Lemon Ginger Tea",
-        "price": 140
-      },
-      {
         "name": "Moroccan Mint Tea",
         "price": 150,
         "description": "Soothing green tea infused with fresh mint."
+      },
+      {
+        "name": "Lemon Ginger Tea",
+        "price": 140
       },
       {
         "name": "Lavender Earl Grey Tea",
@@ -352,10 +352,6 @@ export const menuSections: MenuSection[] = [
         "price": 190
       },
       {
-        "name": "Green Apple Iced Tea",
-        "price": 200
-      },
-      {
         "name": "Hibiscus Iced Tea",
         "price": 220,
         "isMostOrdered": true
@@ -368,6 +364,10 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Earl Grey Iced Tea",
         "price": 250
+      },
+      {
+        "name": "Green Apple Iced Tea",
+        "price": 200
       }
     ]
   },
@@ -432,25 +432,25 @@ export const menuSections: MenuSection[] = [
         "price": 300
       },
       {
-        "name": "Red Velvet Shake",
-        "price": 300,
-        "customTag": "Newly added"
-      },
-      {
         "name": "Tropical Avocado Shake",
         "price": 320,
         "description": "A silky-smooth shake made with creamy avocado, tropical pineapple, and a touch of mango-pure bliss in a glass.",
         "isMostOrdered": true
       },
       {
-        "name": "Caramel Hazelnut Shake",
-        "price": 320,
-        "isMonsoon": true
+        "name": "Red Velvet Shake",
+        "price": 300,
+        "customTag": "Newly added"
       },
       {
         "name": "Rose Pistachio Shake",
         "price": 340,
         "customTag": "trending"
+      },
+      {
+        "name": "Caramel Hazelnut Shake",
+        "price": 320,
+        "isMonsoon": true
       }
     ]
   },
@@ -491,6 +491,10 @@ export const menuSections: MenuSection[] = [
         "price": 250
       },
       {
+        "name": "Mango Chilli Cooler",
+        "price": 280
+      },
+      {
         "name": "Strawberry Espresso Tonic",
         "price": 260,
         "customTag": "Barista's Choice"
@@ -499,10 +503,6 @@ export const menuSections: MenuSection[] = [
         "name": "Green Apple Espresso Spritz",
         "price": 260,
         "isMonsoon": true
-      },
-      {
-        "name": "Mango Chilli Cooler",
-        "price": 280
       },
       {
         "name": "Breeze",
@@ -604,12 +604,12 @@ export const menuSections: MenuSection[] = [
     "title": "Beverage Companions",
     "items": [
       {
-        "name": "Brookie (Cookie with a Brownie Twist)",
-        "price": 130
-      },
-      {
         "name": "Red Velvet Cookie",
         "price": 150
+      },
+      {
+        "name": "Brookie (Cookie with a Brownie Twist)",
+        "price": 130
       },
       {
         "name": "Classic Avocado Toast",
@@ -675,14 +675,14 @@ export const menuSections: MenuSection[] = [
         "customTag": "chiefs choice"
       },
       {
-        "name": "Sourdough Four Cheese Toast",
-        "price": 340,
-        "isMonsoon": true
-      },
-      {
         "name": "Sourdough Mushroom Melt with Pesto Sauce",
         "price": 350,
         "customTag": "chiefs choice"
+      },
+      {
+        "name": "Sourdough Four Cheese Toast",
+        "price": 340,
+        "isMonsoon": true
       }
     ]
   },
@@ -695,12 +695,16 @@ export const menuSections: MenuSection[] = [
         "price": 160
       },
       {
-        "name": "Peri Peri Fries",
-        "price": 210
-      },
-      {
         "name": "Potato Wedges",
         "price": 220
+      },
+      {
+        "name": "Parmesan Truffle Fries",
+        "price": 230
+      },
+      {
+        "name": "Peri Peri Fries",
+        "price": 210
       },
       {
         "name": "Onion Rings",
@@ -710,10 +714,6 @@ export const menuSections: MenuSection[] = [
         "name": "Cheese Garlic Fries",
         "price": 220,
         "isMostOrdered": true
-      },
-      {
-        "name": "Parmesan Truffle Fries",
-        "price": 230
       }
     ]
   },
@@ -782,36 +782,20 @@ export const menuSections: MenuSection[] = [
         "description": "A golden swirl of garlic-kissed spaghetti with olives, cherry tomatoes, and a graceful dusting of Parmesan."
       },
       {
-        "name": "Penne Arrabbiata",
-        "price": 320,
-        "description": "Fiery, tangy penne tossed with peppers and olives, lifted by fresh parsley and a snowfall of Parmesan."
-      },
-      {
         "name": "Fettuccine Basil Pesto",
         "price": 340,
         "description": "Silky fettuccine draped in vibrant pesto sauce with olives and a bright finish of basil and Parmesan.",
         "isMostOrdered": true
       },
       {
-        "name": "Exotic Pink Penne",
-        "price": 350,
-        "customTag": "chiefs choice"
+        "name": "Penne Arrabbiata",
+        "price": 320,
+        "description": "Fiery, tangy penne tossed with peppers and olives, lifted by fresh parsley and a snowfall of Parmesan."
       },
       {
         "name": "Fettuccine Creamy Mushroom",
         "price": 360,
         "description": "A lush mushroom-cream-coated fettuccine crowned with chili warmth and delicate Parmesan."
-      },
-      {
-        "name": "Caramelised Onion and Garlic Spaghetti",
-        "price": 370,
-        "isMonsoon": true
-      },
-      {
-        "name": "9:50 Mac & Cheese",
-        "price": 370,
-        "description": "A creamy, golden bake of butter-garlic macaroni with broccoli, paprika, sweet corn, and molten mozzarella on top.",
-        "isSignature": true
       },
       {
         "name": "Traditional Lasagna",
@@ -824,6 +808,22 @@ export const menuSections: MenuSection[] = [
         "price": 390,
         "description": "A decadent trio of ricotta, bocconcini, and cheddar folded into delicate pasta pillows, finished with a silky house-blend sauce",
         "customTag": "chiefs choice"
+      },
+      {
+        "name": "Exotic Pink Penne",
+        "price": 350,
+        "customTag": "chiefs choice"
+      },
+      {
+        "name": "Caramelised Onion and Garlic Spaghetti",
+        "price": 370,
+        "isMonsoon": true
+      },
+      {
+        "name": "9:50 Mac & Cheese",
+        "price": 370,
+        "description": "A creamy, golden bake of butter-garlic macaroni with broccoli, paprika, sweet corn, and molten mozzarella on top.",
+        "isSignature": true
       }
     ]
   },
@@ -849,12 +849,12 @@ export const menuSections: MenuSection[] = [
         "description": "Creamy mozzarella and bocconcini paired with sweet, golden corn."
       },
       {
-        "name": "Pestomania Pizza",
+        "name": "Farmville Pizza",
         "prices": {
-          "ny": 440,
-          "neap": 490
+          "ny": 480,
+          "neap": 530
         },
-        "description": "Fresh bocconcini cheese over a vibrant pesto sauce."
+        "description": "A garden medley of broccoli, corn, bell pepper, mushroom, paprika, olives, jalapeño, and cherry tomato."
       },
       {
         "name": "Four Cheese Pizza",
@@ -882,21 +882,12 @@ export const menuSections: MenuSection[] = [
         "description": "Spiced paneer, bell pepper, onion, paprika, and jalapeño on tangy paneer tikka sauce."
       },
       {
-        "name": "Farmville Pizza",
+        "name": "Pestomania Pizza",
         "prices": {
-          "ny": 480,
-          "neap": 530
+          "ny": 440,
+          "neap": 490
         },
-        "description": "A garden medley of broccoli, corn, bell pepper, mushroom, paprika, olives, jalapeño, and cherry tomato."
-      },
-      {
-        "name": "9:50 Signature Pizza",
-        "prices": {
-          "ny": 490,
-          "neap": 540
-        },
-        "description": "Garlic cream base with mozzarella, bocconcini, red paprika, jalapeño, black olives, pickle onion, finished with fried garlic.",
-        "isSignature": true
+        "description": "Fresh bocconcini cheese over a vibrant pesto sauce."
       },
       {
         "name": "Love in the Forest Pizza",
@@ -906,6 +897,15 @@ export const menuSections: MenuSection[] = [
         },
         "description": "A rich garlic cream base topped with paprika and mushrooms, baby burrata at the heart, and a fragrant swirl of pesto sauce, giving perfect valentine vibes",
         "customTag": "trending"
+      },
+      {
+        "name": "9:50 Signature Pizza",
+        "prices": {
+          "ny": 490,
+          "neap": 540
+        },
+        "description": "Garlic cream base with mozzarella, bocconcini, red paprika, jalapeño, black olives, pickle onion, finished with fried garlic.",
+        "isSignature": true
       }
     ]
   },
@@ -949,14 +949,14 @@ export const menuSections: MenuSection[] = [
         "isMostOrdered": true
       },
       {
-        "name": "Corn & Jalapeño Calzone",
-        "price": 350,
-        "isMonsoon": true
-      },
-      {
         "name": "Creamy Paneer Calzone",
         "price": 360,
         "description": "Paneer, bell pepper, sweet corn, olives, and cherry tomato wrapped in a cheesy calzone, finished with oregano, parsley, and served with sweet chili sauce."
+      },
+      {
+        "name": "Corn & Jalapeño Calzone",
+        "price": 350,
+        "isMonsoon": true
       }
     ]
   },
@@ -973,25 +973,25 @@ export const menuSections: MenuSection[] = [
         "price": 250
       },
       {
-        "name": "Peri Peri Paneer Rice Bowl",
-        "price": 340
-      },
-      {
         "name": "Burrito Rice Bowl",
         "price": 350,
         "description": "Wholesome mix of garlic rice, rajma, salad, nachos, salsa, corn, curd, and peri peri paneer on top.",
         "isMostOrdered": true
       },
       {
-        "name": "9:50 Signature Meal Bowl",
-        "price": 350,
-        "description": "Your comforting pizza flavours but in a rice bowl.",
-        "isSignature": true
+        "name": "Peri Peri Paneer Rice Bowl",
+        "price": 340
       },
       {
         "name": "Buddha Bowl",
         "price": 380,
         "description": "Protein-packed bowl loaded with brown rice, fresh paneer, greens, avocado, and creamy peanut dressing."
+      },
+      {
+        "name": "9:50 Signature Meal Bowl",
+        "price": 350,
+        "description": "Your comforting pizza flavours but in a rice bowl.",
+        "isSignature": true
       }
     ]
   },
@@ -1060,9 +1060,17 @@ export const menuSections: MenuSection[] = [
         "price": 240
       },
       {
+        "name": "Sizzling Brownie",
+        "price": 260
+      },
+      {
         "name": "Classic Tiramisu",
         "price": 250,
         "isMostOrdered": true
+      },
+      {
+        "name": "Red Velvet Tiramisu",
+        "price": 280
       },
       {
         "name": "Blueberry Cheese Cake",
@@ -1080,14 +1088,6 @@ export const menuSections: MenuSection[] = [
         "name": "Strawberry Cheese Cake",
         "price": 250,
         "isMostOrdered": true
-      },
-      {
-        "name": "Sizzling Brownie",
-        "price": 260
-      },
-      {
-        "name": "Red Velvet Tiramisu",
-        "price": 280
       },
       {
         "name": "Mango Cheesecake",
