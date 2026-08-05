@@ -1,6 +1,6 @@
-import type { MenuSection } from '@/types';
+import type { MenuItem, MenuSection } from '@/types';
 
-export const menuSections: MenuSection[] = [
+const rawMenuSections: MenuSection[] = [
   {
     "id": "monsoon-edit",
     "title": "Rain Rituals",
@@ -806,13 +806,11 @@ export const menuSections: MenuSection[] = [
       {
         "name": "Three Cheese Ravioli",
         "price": 390,
-        "description": "A decadent trio of ricotta, bocconcini, and cheddar folded into delicate pasta pillows, finished with a silky house-blend sauce",
-        "customTag": "chiefs choice"
+        "description": "A decadent trio of ricotta, bocconcini, and cheddar folded into delicate pasta pillows, finished with a silky house-blend sauce"
       },
       {
         "name": "Exotic Pink Penne",
-        "price": 350,
-        "customTag": "chiefs choice"
+        "price": 350
       },
       {
         "name": "Caramelised Onion and Garlic Spaghetti",
@@ -1101,3 +1099,22 @@ export const menuSections: MenuSection[] = [
     ]
   }
 ];
+
+function getPriceValue(item: MenuItem): number {
+  if (typeof item.price === 'number') {
+    return item.price;
+  }
+  if (typeof item.price === 'string') {
+    const parsed = parseFloat(item.price.split('/')[0]);
+    return isNaN(parsed) ? 9999 : parsed;
+  }
+  if (item.prices) {
+    return Math.min(item.prices.ny, item.prices.neap);
+  }
+  return 9999;
+}
+
+export const menuSections: MenuSection[] = rawMenuSections.map(section => ({
+  ...section,
+  items: [...section.items].sort((a, b) => getPriceValue(a) - getPriceValue(b))
+}));
