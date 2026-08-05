@@ -285,9 +285,6 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 const DessertItemCard = ({ item }: { item: MenuItemType }) => {
-    let icon = 'solar:donut-bitten-linear';
-    if (item.name.toLowerCase().includes('tiramisu')) icon = 'solar:chef-hat-heart-linear';
-
     if (item.isSignature) {
         return (
             <div className={`${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>
@@ -301,9 +298,8 @@ const DessertItemCard = ({ item }: { item: MenuItemType }) => {
     }
 
     return (
-        <div className={`group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full text-center ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
+        <div className={`group bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-[#8B4A27]/5 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full ${item._isForcedRectangular ? 'col-span-2 md:col-span-1' : ''}`}>
             <div>
-                <iconify-icon icon={icon} className="text-2xl text-[#8B4A27]/60 mb-2"></iconify-icon>
                 {(item.isMostOrdered || item.customTag) && <span className="inline-block mb-2 text-[9px] font-bold uppercase tracking-wider text-[#8B4A27] bg-[#8B4A27]/10 px-2 py-0.5 rounded">{item.customTag || "Bestseller"}</span>}
                 <h4 className="font-sans text-sm font-medium mb-1 min-w-0 break-words">{item.name}</h4>
                 {item.description && <p className="font-sans text-[10px] text-gray-400 leading-relaxed mb-2">{item.description}</p>}
