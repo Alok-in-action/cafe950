@@ -7,6 +7,11 @@ const rawMenuSections: MenuSection[] = [
     "subtitle": "A cozy drop of rain-inspired sips & warm bites — perfect for the monsoon.",
     "items": [
       {
+        "name": "Banana Walnut Slice",
+        "price": 220,
+        "isMonsoon": true
+      },
+      {
         "name": "Cranberry Cold Brew",
         "price": 250,
         "isMonsoon": true
@@ -1041,6 +1046,10 @@ const rawMenuSections: MenuSection[] = [
     "id": "dessert",
     "title": "Desserts",
     "items": [
+      {
+        "name": "Banana Walnut Slice",
+        "price": 220
+      },
       {
         "name": "Classic Homemade Brownie",
         "price": 220
