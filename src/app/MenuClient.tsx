@@ -285,6 +285,8 @@ const ShakeItemCard = ({ item }: { item: MenuItemType }) => {
 };
 
 const DessertItemCard = ({ item }: { item: MenuItemType }) => {
+    if (item.isMonsoon) return <MonsoonEditCard item={item} withRain={true} />;
+
     if (item.isSignature) {
         return (
             <div className={`${item._isSquareMobile ? 'col-span-1 flex-col md:flex-row md:items-center' : 'col-span-2 flex-row items-center'} md:col-span-2 group signature-card p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex justify-between text-white border border-[#834e2f]/30`}>

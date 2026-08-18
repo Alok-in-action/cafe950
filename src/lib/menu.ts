@@ -857,7 +857,7 @@ const rawMenuSections: MenuSection[] = [
           "ny": 480,
           "neap": 530
         },
-        "description": "A garden medley of broccoli, corn, bell pepper, mushroom, paprika, olives, jalapeño, and cherry tomato."
+        "description": "A garden medley of broccoli, corn, bell pepper, paprika, olives, jalapeño, and cherry tomato."
       },
       {
         "name": "Four Cheese Pizza",
@@ -874,7 +874,7 @@ const rawMenuSections: MenuSection[] = [
           "ny": 460,
           "neap": 510
         },
-        "description": "Golden corn, bell peppers, black olives, and paneer come together for a vibrant, flavorful pizza experience."
+        "description": "Golden corn, bell peppers, black olives, red paprika, jalapeño, and mushroom come together for a vibrant, flavorful pizza experience."
       },
       {
         "name": "Paneer Tikka Pizza",
@@ -1048,7 +1048,8 @@ const rawMenuSections: MenuSection[] = [
     "items": [
       {
         "name": "Banana Walnut Slice",
-        "price": 220
+        "price": 220,
+        "isMonsoon": true
       },
       {
         "name": "Classic Homemade Brownie",
