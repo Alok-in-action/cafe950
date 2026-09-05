@@ -2,8 +2,6 @@ backend:
   name: git-gateway
   branch: main # Branch to update (master or main)
 local_backend: true
-  name: git-gateway
-  branch: main # Branch to update (master or main)
 
 # Hide the default Decap CMS logo
 logo_url: /logo.png
