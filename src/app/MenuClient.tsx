@@ -597,7 +597,7 @@ import dynamic from 'next/dynamic';
 
 const RainEffectCanvas = dynamic(() => import('../components/RainEffectCanvas'), { ssr: false });
 
-export default function MenuClient({ sections }: { sections: MenuSection[] }) {
+export default function MenuClient({ sections, heroVideo }: { sections: MenuSection[], heroVideo?: string }) {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [showBackToTop, setShowBackToTop] = useState(false);
@@ -678,6 +678,26 @@ export default function MenuClient({ sections }: { sections: MenuSection[] }) {
 
     return (
         <>
+            {/* Hero Video Section */}
+            <div className="relative w-full h-[85vh] sm:h-[90vh] overflow-hidden rounded-b-[40px] sm:rounded-b-[60px] shadow-lg shrink-0">
+                <video
+                    src={heroVideo || "/hero.mp4"}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+                
+                {/* Scroll Down Indicator */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/80">
+                    <span className="font-sans text-[10px] tracking-[0.2em] uppercase font-medium">Scroll to explore</span>
+                    <div className="animate-bounce mt-1">
+                        <iconify-icon icon="solar:alt-arrow-down-linear" width="20"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+
             <header className="pt-6 sm:pt-8 pb-4 px-4 sm:px-6 flex justify-between items-center max-w-7xl mx-auto">
                 <div className="flex items-center gap-2 reveal active">
                     <Image
@@ -853,23 +873,13 @@ export default function MenuClient({ sections }: { sections: MenuSection[] }) {
                                 </div>
                             ) : (
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                    {[
-                                        { name: 'Drinks', section: 'cold-brews' },
-                                        { name: 'Shakes', section: 'shakes' },
-                                        { name: 'Food', section: 'bites-for-sides' },
-                                        { name: 'Sandwich', section: 'sandwiches' },
-                                        { name: 'Burger', section: 'burgers' },
-                                        { name: 'Pasta', section: 'pasta' },
-                                        { name: 'Pizza', section: 'pizza' },
-                                        { name: 'Meal Combo', section: 'meal-combos' },
-                                        { name: 'Desserts', section: 'dessert' }
-                                    ].map(category => (
+                                    {sections.map(category => (
                                         <button
-                                            key={category.name}
+                                            key={category.id}
                                             onClick={() => {
                                                 setIsSearchOpen(false);
                                                 setSearchQuery('');
-                                                const element = document.getElementById(category.section);
+                                                const element = document.getElementById(category.id);
                                                 if (element) {
                                                     const headerOffset = 100;
                                                     const elementPosition = element.getBoundingClientRect().top;
@@ -880,9 +890,9 @@ export default function MenuClient({ sections }: { sections: MenuSection[] }) {
                                                     });
                                                 }
                                             }}
-                                            className="p-4 rounded-2xl bg-gray-100/50 border border-gray-100 text-center hover:bg-[#8B4A27]/5 hover:border-[#8B4A27]/20 transition-all group"
+                                            className="p-4 rounded-2xl bg-gray-100/50 border border-gray-100 text-center hover:bg-[#8B4A27]/5 hover:border-[#8B4A27]/20 transition-all group flex items-center justify-center min-h-[64px]"
                                         >
-                                            <p className="font-sans text-xs font-semibold text-[#5A2E1B] group-hover:text-[#8B4A27] transition-colors">{category.name}</p>
+                                            <p className="font-sans text-xs font-semibold text-[#5A2E1B] group-hover:text-[#8B4A27] transition-colors">{category.title}</p>
                                         </button>
                                     ))}
                                 </div>
@@ -1056,15 +1066,13 @@ export default function MenuClient({ sections }: { sections: MenuSection[] }) {
                 </div>
             </footer>
 
-            {showBackToTop && (
-                <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#8B4A27] text-white shadow-lg hover:bg-[#6B3A20] transition-all duration-300 flex items-center justify-center z-50 animate-in fade-in slide-in-from-bottom"
-                    aria-label="Back to top"
-                >
-                    <iconify-icon icon="solar:alt-arrow-up-linear" width="20" class="sm:w-6"></iconify-icon>
-                </button>
-            )}
+            <button
+                onClick={() => setIsSearchOpen(true)}
+                className="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#8B4A27] text-white shadow-lg hover:bg-[#6B3A20] transition-all duration-300 flex items-center justify-center z-50 animate-in fade-in slide-in-from-bottom"
+                aria-label="Search menu"
+            >
+                <iconify-icon icon="solar:magnifer-linear" width="20" class="sm:w-6"></iconify-icon>
+            </button>
         </>
     );
 }
