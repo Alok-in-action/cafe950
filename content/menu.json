@@ -529,21 +529,21 @@
       "items": [
         {
           "name": "Blue Pea Iced Latte",
-          "price": 200
+          "price": "260"
         },
         {
           "name": "Blue Pea Sparkler",
-          "price": 240,
+          "price": "270",
           "description": "A fizzy, floral delight with the refreshing taste of blue pea flower, sophisticated with a touch of tonic water.",
           "isMostOrdered": true
         },
         {
           "name": "Blue Pea Coconut Cooler",
-          "price": 270
+          "price": "280"
         },
         {
           "name": "Blue Pea Matcha Smoothie",
-          "price": 300
+          "price": "350"
         }
       ]
     },
