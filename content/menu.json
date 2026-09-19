@@ -66,37 +66,37 @@
         {
           "name": "Espresso (Hot/Iced)",
           "price": 100,
-          "description": "Pure extraction"
+          "description": ""
         },
         {
           "name": "Americano (Hot/Iced)",
           "price": 140,
-          "description": "Espresso & hot water"
+          "description": ""
         },
         {
           "name": "Cappuccino (Hot/Iced)",
           "price": 160,
-          "description": "Foam & espresso"
+          "description": ""
         },
         {
           "name": "Latte (Hot/Iced)",
           "price": 170,
-          "description": "Steamed milk heavy"
+          "description": ""
         },
         {
           "name": "Cortado (Hot/Iced)",
           "price": 190,
-          "description": "This delightful duet of espresso and steamed milk is like a sophisticated dance on your palate"
+          "description": ""
         },
         {
           "name": "Flat White (Hot/Iced)",
           "price": 200,
-          "description": "It is like a love letter from espresso to milk- bold, smooth and perfectly balanced in every sip"
+          "description": ""
         },
         {
           "name": "Mocha (Hot/Iced)",
           "price": 220,
-          "description": "A sweet symphony of espresso, velvety chocolate, and milk, finished with a swirl of whipped cream"
+          "description": ""
         }
       ]
     },
