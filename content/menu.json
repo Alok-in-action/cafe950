@@ -455,6 +455,16 @@
           "name": "Caramel Hazelnut Shake",
           "price": 320,
           "isMonsoon": true
+        },
+        {
+          "isMostOrdered": false,
+          "isSignature": false,
+          "isMonsoon": false,
+          "_isSquareMobile": true,
+          "_isForcedRectangular": false,
+          "name": "Custard Apple Shake ",
+          "price": "300",
+          "customTag": "New"
         }
       ]
     },
