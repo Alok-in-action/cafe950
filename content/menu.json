@@ -123,12 +123,14 @@
         },
         {
           "name": "Dark Chocolate Mocha (Hot/Iced)",
-          "price": 240
+          "price": 240,
+          "isMostOrdered": true
         },
         {
           "name": "Saffron Turmeric Latte (Hot/Iced)",
           "price": 250,
-          "isMostOrdered": true
+          "isMostOrdered": false,
+          "customTag": "Barista’s Choice"
         },
         {
           "name": "Tiramisu Cappuccino (Hot/Iced)",
@@ -148,7 +150,7 @@
           "isMostOrdered": true
         },
         {
-          "name": "Red Velvet Mocha",
+          "name": "Red Velvet Mocha (Hot/Iced)",
           "price": 250,
           "customTag": "Barista's Choice"
         },
@@ -180,7 +182,7 @@
         {
           "name": "Irish Frappe",
           "price": 230,
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Java Chip Frappe",
@@ -192,7 +194,8 @@
         },
         {
           "name": "Tiramisu Frappe",
-          "price": 260
+          "price": 260,
+          "isMostOrdered": true
         },
         {
           "name": "Biscoff Frappe",
@@ -244,7 +247,8 @@
         },
         {
           "name": "Fizzy Coconut Cold Brew",
-          "price": 260
+          "price": 260,
+          "customTag": "Barista’s Choice"
         },
         {
           "name": "Cranberry Cold Brew",
@@ -396,7 +400,8 @@
         {
           "name": "Spiced Hot Chocolate",
           "price": 230,
-          "description": "Adding a touch of spice with cinnamon to the classic hot chocolate, making it a perfect warm drink for chilly days."
+          "description": "Adding a touch of spice with cinnamon to the classic hot chocolate, making it a perfect warm drink for chilly days.",
+          "customTag": "Trending "
         },
         {
           "name": "Nutella Hot Chocolate",
@@ -613,7 +618,8 @@
         },
         {
           "name": "Avocado Coconut Smoothie",
-          "price": 340
+          "price": 340,
+          "customTag": "Trending"
         },
         {
           "name": "9:50 Signature Smoothie",
@@ -830,7 +836,8 @@
         {
           "name": "Three Cheese Ravioli",
           "price": 390,
-          "description": "A decadent trio of ricotta, bocconcini, and cheddar folded into delicate pasta pillows, finished with a silky house-blend sauce"
+          "description": "A decadent trio of ricotta, bocconcini, and cheddar folded into delicate pasta pillows, finished with a silky house-blend sauce",
+          "isMostOrdered": true
         },
         {
           "name": "Exotic Pink Penne",
@@ -1002,7 +1009,8 @@
         },
         {
           "name": "Peri Peri Paneer Rice Bowl",
-          "price": 340
+          "price": 340,
+          "customTag": "Trending"
         },
         {
           "name": "Buddha Bowl",
@@ -1053,7 +1061,8 @@
         },
         {
           "name": "Sev Tamatar with Laccha Paratha",
-          "price": 250
+          "price": 250,
+          "isMostOrdered": true
         },
         {
           "name": "Paneer Bhurji with Pav",
@@ -1065,11 +1074,6 @@
       "id": "dessert",
       "title": "Desserts",
       "items": [
-        {
-          "name": "Banana Walnut Slice",
-          "price": 220,
-          "isMonsoon": true
-        },
         {
           "name": "Classic Homemade Brownie",
           "price": 220
@@ -1096,16 +1100,13 @@
           "isMostOrdered": true
         },
         {
-          "name": "Red Velvet Tiramisu",
-          "price": 280
-        },
-        {
           "name": "Blueberry Cheese Cake",
           "price": 250
         },
         {
           "name": "Lotus Biscoff Cheese Cake",
-          "price": 250
+          "price": 250,
+          "isMostOrdered": true
         },
         {
           "name": "Nutella Cheese Cake",
@@ -1114,7 +1115,7 @@
         {
           "name": "Strawberry Cheese Cake",
           "price": 250,
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Mango Cheesecake",
