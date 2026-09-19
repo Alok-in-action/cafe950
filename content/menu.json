@@ -156,6 +156,16 @@
           "name": "Honey Cinnamon Latte (Hot/Iced)",
           "price": 270,
           "isMonsoon": true
+        },
+        {
+          "isMostOrdered": false,
+          "isSignature": false,
+          "isMonsoon": false,
+          "_isSquareMobile": true,
+          "_isForcedRectangular": false,
+          "name": "White Chocolate Mocha (Hot/Iced)",
+          "price": "250",
+          "customTag": "Newly Added"
         }
       ]
     },
