@@ -1,60 +1,6 @@
 {
   "menuSections": [
     {
-      "id": "monsoon-edit",
-      "title": "Rain Rituals",
-      "subtitle": "A cozy drop of rain-inspired sips & warm bites — perfect for the monsoon.",
-      "items": [
-        {
-          "name": "Cranberry Cold Brew",
-          "price": 250,
-          "isMonsoon": true
-        },
-        {
-          "name": "Green Apple Espresso Spritz",
-          "price": 260,
-          "isMonsoon": true
-        },
-        {
-          "name": "Honey Cinnamon Latte (Hot/Iced)",
-          "price": 270,
-          "isMonsoon": true
-        },
-        {
-          "name": "Breeze",
-          "price": 280,
-          "description": "A tropical fusion of cranberry and pineapple with a hint of vanilla and soda, finished with a fresh pineapple slice.",
-          "isMonsoon": true
-        },
-        {
-          "name": "Daydream",
-          "price": 300,
-          "description": "A sun-kissed blend of orange, pineapple, and passion fruit with a splash of lemon and sparkling soda, finished with a fresh orange slice.",
-          "isMonsoon": true
-        },
-        {
-          "name": "Caramel Hazelnut Shake",
-          "price": 320,
-          "isMonsoon": true
-        },
-        {
-          "name": "Sourdough Four Cheese Toast",
-          "price": 340,
-          "isMonsoon": true
-        },
-        {
-          "name": "Corn & Jalapeño Calzone",
-          "price": 350,
-          "isMonsoon": true
-        },
-        {
-          "name": "Caramelised Onion and Garlic Spaghetti",
-          "price": 370,
-          "isMonsoon": true
-        }
-      ]
-    },
-    {
       "id": "classic-espresso-bar",
       "title": "Classic Espresso Bar",
       "items": [
