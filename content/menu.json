@@ -40,7 +40,8 @@
           "description": ""
         }
       ],
-      "subtitle": "Milk Options Available"
+      "subtitle": "Milk Options Available",
+      "preheader": "Milk Options Available"
     },
     {
       "id": "craft-coffees",
@@ -111,7 +112,8 @@
           "price": "250",
           "customTag": "Newly Added"
         }
-      ]
+      ],
+      "subtitle": "Milk Options Available"
     },
     {
       "id": "frappe-to-go",
@@ -153,7 +155,8 @@
           "description": "Your go-to strong cold coffee with a hint of vanilla, designed to relish anytime and every time",
           "isSignature": true
         }
-      ]
+      ],
+      "subtitle": "Milk Options Available"
     },
     {
       "id": "cold-brews",
@@ -268,7 +271,8 @@
           "name": "Caramel Matcha Latte",
           "price": 270
         }
-      ]
+      ],
+      "subtitle": "Milk Options Available"
     },
     {
       "id": "hot-teas",
