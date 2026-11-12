@@ -147,7 +147,8 @@
         },
         {
           "name": "Brownie Frappe",
-          "price": 250
+          "price": 250,
+          "customTag": "Trending"
         },
         {
           "name": "9:50 Signature Frappe",
@@ -421,7 +422,7 @@
           "_isForcedRectangular": false,
           "name": "Custard Apple Shake ",
           "price": "300",
-          "customTag": ""
+          "customTag": "Newly Added"
         }
       ]
     },
@@ -486,7 +487,8 @@
           "name": "Daydream",
           "price": 300,
           "description": "A sun-kissed blend of orange, pineapple, and passion fruit with a splash of lemon and sparkling soda, finished with a fresh orange slice.",
-          "isMonsoon": true
+          "isMonsoon": true,
+          "customTag": "Bestseller"
         }
       ]
     },
@@ -794,7 +796,8 @@
           "name": "Caramelised Onion and Garlic Spaghetti",
           "price": 370,
           "isMonsoon": true,
-          "isMostOrdered": true
+          "isMostOrdered": false,
+          "customTag": "Bestseller"
         },
         {
           "name": "9:50 Mac & Cheese",
@@ -906,7 +909,8 @@
           "price": 300,
           "description": "Stuffed with Schezwan-spiced garlic sauce, bell pepper, cherry tomato, jalapeño, and sweet corn, finished with herbs.",
           "isSignature": true,
-          "isMostOrdered": true
+          "isMostOrdered": false,
+          "customTag": "Bestseller"
         }
       ]
     },
@@ -973,7 +977,8 @@
           "price": 350,
           "description": "Your comforting pizza flavours but in a rice bowl.",
           "isSignature": true,
-          "customTag": "Bestseller"
+          "customTag": "Bestseller",
+          "isMostOrdered": true
         }
       ]
     },
