@@ -249,7 +249,8 @@
         },
         {
           "name": "Matcha Frappe",
-          "price": 230
+          "price": 230,
+          "customTag": "Barista’s Choice "
         },
         {
           "name": "Mango Matcha Latte",
@@ -271,7 +272,8 @@
         },
         {
           "name": "Caramel Matcha Latte",
-          "price": 270
+          "price": 270,
+          "customTag": "Trending"
         }
       ],
       "subtitle": "(Milk Options - Soya / Oat / Coconut)"
@@ -745,7 +747,8 @@
           "name": "9:50 Signature Burger with Potato Wedges",
           "price": 250,
           "description": "Our very own specialty, loaded with onion and garlic flavors with a subtle kick of Schezwan.",
-          "isSignature": true
+          "isSignature": true,
+          "isMostOrdered": true
         }
       ]
     },
@@ -909,8 +912,8 @@
           "price": 300,
           "description": "Stuffed with Schezwan-spiced garlic sauce, bell pepper, cherry tomato, jalapeño, and sweet corn, finished with herbs.",
           "isSignature": true,
-          "isMostOrdered": false,
-          "customTag": "Bestseller"
+          "isMostOrdered": true,
+          "customTag": ""
         }
       ]
     },
