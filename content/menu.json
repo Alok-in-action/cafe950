@@ -256,12 +256,13 @@
         },
         {
           "name": "Strawberry Matcha Latte",
-          "price": 250
+          "price": 250,
+          "isMostOrdered": true
         },
         {
           "name": "Coconut Matcha Latte",
           "price": 260,
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Lavender Love Matcha",
@@ -285,7 +286,8 @@
         {
           "name": "Moroccan Mint Tea",
           "price": 150,
-          "description": "Soothing green tea infused with fresh mint."
+          "description": "Soothing green tea infused with fresh mint.",
+          "isMostOrdered": true
         },
         {
           "name": "Lemon Ginger Tea",
@@ -295,7 +297,7 @@
           "name": "Lavender Earl Grey Tea",
           "price": 180,
           "description": "Experience the tradition of black tea blended with calming lavender and traditional Earl Grey notes.",
-          "isMostOrdered": true
+          "isMostOrdered": false
         }
       ]
     },
@@ -390,23 +392,21 @@
         },
         {
           "name": "Blueberry Cheesecake Shake",
-          "price": 300
+          "price": 300,
+          "isMostOrdered": true
         },
         {
           "name": "Tropical Avocado Shake",
           "price": 320,
           "description": "A silky-smooth shake made with creamy avocado, tropical pineapple, and a touch of mango-pure bliss in a glass.",
-          "isMostOrdered": true
-        },
-        {
-          "name": "Red Velvet Shake",
-          "price": 300,
-          "customTag": "Newly added"
+          "isMostOrdered": true,
+          "customTag": "Barista’s Choice"
         },
         {
           "name": "Rose Pistachio Shake",
           "price": 340,
-          "customTag": "trending"
+          "customTag": "trending",
+          "isMostOrdered": false
         },
         {
           "name": "Caramel Hazelnut Shake",
@@ -421,7 +421,7 @@
           "_isForcedRectangular": false,
           "name": "Custard Apple Shake ",
           "price": "300",
-          "customTag": "Bestseller"
+          "customTag": ""
         }
       ]
     },
@@ -463,7 +463,8 @@
         },
         {
           "name": "Mango Chilli Cooler",
-          "price": 280
+          "price": 280,
+          "customTag": "Trending"
         },
         {
           "name": "Strawberry Espresso Tonic",
@@ -502,15 +503,17 @@
           "name": "Blue Pea Sparkler",
           "price": "270",
           "description": "A fizzy, floral delight with the refreshing taste of blue pea flower, sophisticated with a touch of tonic water.",
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Blue Pea Coconut Cooler",
-          "price": "280"
+          "price": "280",
+          "customTag": "Barista’s Choice"
         },
         {
           "name": "Blue Pea Matcha Smoothie",
-          "price": "350"
+          "price": "350",
+          "isMostOrdered": true
         }
       ]
     },
@@ -576,10 +579,6 @@
       "title": "Beverage Companions",
       "items": [
         {
-          "name": "Red Velvet Cookie",
-          "price": 150
-        },
-        {
           "name": "Brookie (Cookie with a Brownie Twist)",
           "price": 130
         },
@@ -615,7 +614,8 @@
         },
         {
           "name": "Peri Peri Paneer Salad",
-          "price": 320
+          "price": 320,
+          "customTag": "Trending"
         }
       ]
     },
@@ -634,17 +634,19 @@
         },
         {
           "name": "Cherry Tomato & Cottage Cheese Bruschetta",
-          "price": 250
+          "price": 250,
+          "customTag": "Chef’s Choice"
         },
         {
           "name": "Pesto Cottage Cheese in Focaccia Bread",
           "price": 320,
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Paneer Tikka in Focaccia Bread",
           "price": 340,
-          "customTag": "chiefs choice"
+          "customTag": "",
+          "isMostOrdered": true
         },
         {
           "name": "Sourdough Mushroom Melt with Pesto Sauce",
@@ -680,7 +682,8 @@
         },
         {
           "name": "Onion Rings",
-          "price": 220
+          "price": 220,
+          "customTag": "Trending "
         },
         {
           "name": "Cheese Garlic Fries",
@@ -757,7 +760,7 @@
           "name": "Fettuccine Basil Pesto",
           "price": 340,
           "description": "Silky fettuccine draped in vibrant pesto sauce with olives and a bright finish of basil and Parmesan.",
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Penne Arrabbiata",
@@ -767,13 +770,14 @@
         {
           "name": "Fettuccine Creamy Mushroom",
           "price": 360,
-          "description": "A lush mushroom-cream-coated fettuccine crowned with chili warmth and delicate Parmesan."
+          "description": "A lush mushroom-cream-coated fettuccine crowned with chili warmth and delicate Parmesan.",
+          "customTag": "Chef’s Choice  "
         },
         {
           "name": "Traditional Lasagna",
           "price": 380,
           "description": "Layers of tender pasta, rich in house sauce, seasonal vegetables, and mozzarella on top, baked to golden perfection",
-          "customTag": "chiefs choice"
+          "customTag": ""
         },
         {
           "name": "Three Cheese Ravioli",
@@ -783,12 +787,14 @@
         },
         {
           "name": "Exotic Pink Penne",
-          "price": 350
+          "price": 350,
+          "customTag": "Trending"
         },
         {
           "name": "Caramelised Onion and Garlic Spaghetti",
           "price": 370,
-          "isMonsoon": true
+          "isMonsoon": true,
+          "isMostOrdered": true
         },
         {
           "name": "9:50 Mac & Cheese",
@@ -893,13 +899,14 @@
           "name": "Chilly Cheese Garlic Bread",
           "price": 250,
           "description": "Stuffed with green chili, melted mozzarella, and a sprinkle of chili and parsley.",
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "9:50 Signature Garlic Bread",
           "price": 300,
           "description": "Stuffed with Schezwan-spiced garlic sauce, bell pepper, cherry tomato, jalapeño, and sweet corn, finished with herbs.",
-          "isSignature": true
+          "isSignature": true,
+          "isMostOrdered": true
         }
       ]
     },
@@ -917,17 +924,19 @@
           "name": "Pesto Mushroom Calzone",
           "price": 340,
           "description": "Pesto, mushrooms, cherry tomato, lettuce, and bocconcini tucked inside a warm, cheesy fold, served with pesto dip.",
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Creamy Paneer Calzone",
           "price": 360,
-          "description": "Paneer, bell pepper, sweet corn, olives, and cherry tomato wrapped in a cheesy calzone, finished with oregano, parsley, and served with sweet chili sauce."
+          "description": "Paneer, bell pepper, sweet corn, olives, and cherry tomato wrapped in a cheesy calzone, finished with oregano, parsley, and served with sweet chili sauce.",
+          "isMostOrdered": true
         },
         {
           "name": "Corn & Jalapeño Calzone",
           "price": 350,
-          "isMonsoon": true
+          "isMonsoon": true,
+          "customTag": "Trending"
         }
       ]
     },
@@ -947,7 +956,7 @@
           "name": "Burrito Rice Bowl",
           "price": 350,
           "description": "Wholesome mix of garlic rice, rajma, salad, nachos, salsa, corn, curd, and peri peri paneer on top.",
-          "isMostOrdered": true
+          "isMostOrdered": false
         },
         {
           "name": "Peri Peri Paneer Rice Bowl",
@@ -963,7 +972,8 @@
           "name": "9:50 Signature Meal Bowl",
           "price": 350,
           "description": "Your comforting pizza flavours but in a rice bowl.",
-          "isSignature": true
+          "isSignature": true,
+          "customTag": "Bestseller"
         }
       ]
     },
@@ -1008,7 +1018,8 @@
         },
         {
           "name": "Paneer Bhurji with Pav",
-          "price": 250
+          "price": 250,
+          "customTag": "Trending"
         }
       ]
     },
@@ -1018,7 +1029,8 @@
       "items": [
         {
           "name": "Classic Homemade Brownie",
-          "price": 220
+          "price": 220,
+          "isMostOrdered": true
         },
         {
           "name": "Nutella Waffle",
@@ -1048,7 +1060,8 @@
         {
           "name": "Lotus Biscoff Cheese Cake",
           "price": 250,
-          "isMostOrdered": true
+          "isMostOrdered": false,
+          "customTag": "Trending "
         },
         {
           "name": "Nutella Cheese Cake",
@@ -1062,11 +1075,6 @@
         {
           "name": "Mango Cheesecake",
           "price": 280
-        },
-        {
-          "name": "Blueberry Tiramisu",
-          "price": 280,
-          "customTag": "trending"
         }
       ]
     }
