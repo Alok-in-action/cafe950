@@ -741,14 +741,15 @@
         },
         {
           "name": "Chef's Cottage Cheese Burger with Peri Peri Fries",
-          "price": 240
+          "price": 240,
+          "isMostOrdered": true
         },
         {
           "name": "9:50 Signature Burger with Potato Wedges",
           "price": 250,
           "description": "Our very own specialty, loaded with onion and garlic flavors with a subtle kick of Schezwan.",
           "isSignature": true,
-          "isMostOrdered": true
+          "isMostOrdered": false
         }
       ]
     },
@@ -905,14 +906,14 @@
           "name": "Chilly Cheese Garlic Bread",
           "price": 250,
           "description": "Stuffed with green chili, melted mozzarella, and a sprinkle of chili and parsley.",
-          "isMostOrdered": false
+          "isMostOrdered": true
         },
         {
           "name": "9:50 Signature Garlic Bread",
           "price": 300,
           "description": "Stuffed with Schezwan-spiced garlic sauce, bell pepper, cherry tomato, jalapeño, and sweet corn, finished with herbs.",
           "isSignature": true,
-          "isMostOrdered": true,
+          "isMostOrdered": false,
           "customTag": ""
         }
       ]
@@ -963,7 +964,7 @@
           "name": "Burrito Rice Bowl",
           "price": 350,
           "description": "Wholesome mix of garlic rice, rajma, salad, nachos, salsa, corn, curd, and peri peri paneer on top.",
-          "isMostOrdered": false
+          "isMostOrdered": true
         },
         {
           "name": "Peri Peri Paneer Rice Bowl",
@@ -981,7 +982,7 @@
           "description": "Your comforting pizza flavours but in a rice bowl.",
           "isSignature": true,
           "customTag": "Bestseller",
-          "isMostOrdered": true
+          "isMostOrdered": false
         }
       ]
     },
