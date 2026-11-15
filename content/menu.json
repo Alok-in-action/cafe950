@@ -40,7 +40,7 @@
           "description": ""
         }
       ],
-      "subtitle": "(Milk Options - Soya / Oat / Coconut)",
+      "subtitle": "",
       "preheader": ""
     },
     {
@@ -113,7 +113,7 @@
           "customTag": "Newly Added"
         }
       ],
-      "subtitle": "(Milk Options - Soya / Oat / Coconut)"
+      "subtitle": ""
     },
     {
       "id": "frappe-to-go",
@@ -157,7 +157,7 @@
           "isSignature": true
         }
       ],
-      "subtitle": "(Milk Options - Soya / Oat / Coconut)"
+      "subtitle": ""
     },
     {
       "id": "cold-brews",
@@ -276,7 +276,7 @@
           "customTag": "Trending"
         }
       ],
-      "subtitle": "(Milk Options - Soya / Oat / Coconut)"
+      "subtitle": ""
     },
     {
       "id": "hot-teas",
